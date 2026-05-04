@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import heroVideo from "../assets/Buzz Interactive Showreel (1).mp4";
+import heroVideo from "../assets/banner-video.mp4";
 
 const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
