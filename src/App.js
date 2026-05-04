@@ -1,7 +1,10 @@
+import Navbar from "./components/navbar";
+
 export default function App() {
   return (
-    <div className="p-6 text-2xl font-bold text-blue-600">
-      zain
+    <div className="">
+      <Navbar/>
+      
     </div>
   );
 }
