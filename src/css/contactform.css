@@ -1,0 +1,318 @@
+/* ConnectForm.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.connect-wrapper {
+  background-color: #0d0d0d;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+  border-radius: 80px 80px 0 0;
+}
+
+.connect-card {
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  color: #ffffff;
+}
+
+/* Title */
+.connect-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+/* Input Fields */
+.connect-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ffff;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  padding: 14px 0;
+  margin-bottom: 0.3rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+
+}
+
+.connect-input::placeholder {
+  color: #fff;
+  font-size: 20px;
+}
+
+.connect-input:focus {
+  border-bottom-color: #ff0080;
+}
+
+/* Select */
+.connect-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ffff;
+  color: #ffff;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  padding: 0.75rem 0;
+  margin-bottom: 0.3rem;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+.connect-select::placeholder {
+  color: #fff;
+  font-size: 16px;
+}
+
+.connect-select:focus {
+  border-bottom-color: #ff0080;
+  color: #ffffff;
+}
+
+.connect-select option {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Select wrapper for custom arrow */
+.select-wrapper {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.select-arrow {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffff;
+  pointer-events: none;
+  font-size: 12px;
+}
+
+/* Textarea */
+.connect-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #ffff;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  padding: 0.75rem 0;
+  margin-bottom: 0.3rem;
+  outline: none;
+  resize: none;
+  min-height: 80px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.connect-textarea::placeholder {
+  color: #ffff;
+
+}
+
+.connect-textarea:focus {
+  border-bottom-color: #ff0080;
+}
+
+/* Section Labels */
+.section-label {
+  font-size: 20px;
+  color: #ffff;
+  font-weight: bold;
+  margin-top: 1.4rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tag/Chip Buttons - Interested In */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 30px;
+  border: 1px solid #2a2a2a;
+  background: transparent;
+  color: #ffff;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.tag-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #ff0080 0%, #ff66b3 100%);
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.tag-btn:hover::before {
+  width: 100%;
+}
+
+.tag-btn:hover {
+  color: #ffffff;
+  border-color: #ff0080;
+}
+
+.tag-btn.active {
+  background-color: #ff0080;
+  border-color: #ff0080;
+  color: #ffffff;
+}
+
+.tag-btn.active::before {
+  width: 100%;
+}
+
+/* Budget Buttons */
+.budget-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.budget-btn {
+  padding: 0.4rem 1.1rem;
+  border-radius: 30px;
+  border: 1px solid #2a2a2a;
+  background: transparent;
+  color: #ffff;
+  font-size: 18px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.budget-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #ff0080 0%, #ff66b3 100%);
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.budget-btn:hover::before {
+  width: 100%;
+}
+
+.budget-btn:hover {
+  color: #ffffff;
+  border-color: #ff0080;
+}
+
+.budget-btn.active {
+  background-color: #ff0080;
+  border-color: #ff0080;
+  color: #ffffff;
+}
+
+.budget-btn.active::before {
+  width: 100%;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 50px;
+  border: none;
+  background: #ff0080;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.submit-btn::before {
+  content: '';
+  width: 0;
+  height: 100%;
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #cc0066 0%, #ff4da6 100%);
+  transition: 0.5s ease;
+  z-index: -1;
+}
+
+.submit-btn:hover::before {
+  width: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(255, 0, 128, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0px);
+}
+
+/* Pink dot decorations */
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff0080;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Field group spacing */
+.field-group {
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .connect-card {
+    padding: 0;
+  }
+}

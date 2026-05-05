@@ -119,7 +119,7 @@ export default function ServicesCards() {
           <div className="sc-sticky">
             <div className="sc-head">
               <p className="sc-eyebrow">What We Do</p>
-              <h2 className="sc-title">Our Design <span>Services</span></h2>
+              <h2 className="sc-title theme-title">Our Design <span>Services</span></h2>
             </div>
 
             <div className="sc-grid">

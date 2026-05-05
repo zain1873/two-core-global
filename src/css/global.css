@@ -1,0 +1,18 @@
+.theme-title {
+  font-size: 32px; 
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #F06A0F;
+}
+
+/* Tablet & Desktop */
+@media (min-width: 768px) {
+  .theme-title {
+    font-size: 48px;
+  }
+}
+@media only screen and (max-width:600) {
+  .hbt-service-label {
+    font-size: 80px;
+  }
+}
