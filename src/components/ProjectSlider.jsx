@@ -1,17 +1,49 @@
 import { useEffect, useRef, useState } from 'react';
 import '../css/projectSlider.css';
 
-const CARDS = [1, 2, 3, 4];
+const CARDS = [
+  {
+    title: 'Cars Daily',
+    year: '2025',
+    tags: ['Transportation', 'Brand and Packaging'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop',
+  },
+  {
+    title: 'Moto Hub',
+    year: '2025',
+    tags: ['Automotive', 'Identity'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop',
+  },
+  {
+    title: 'Drive Co.',
+    year: '2024',
+    tags: ['Branding', 'Digital'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop',
+  },
+  {
+    title: 'SpeedLane',
+    year: '2024',
+    tags: ['Web', 'Motion'],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop',
+  },
+];
 
-function Card() {
+function Card({ card, scale, opacity }) {
   return (
-    <div className="ps-card">
+    <div
+      className="ps-card"
+      style={{
+        transform: `scale(${scale})`,
+        opacity,
+        transformOrigin: 'center center',
+      }}
+    >
       {/* Hero */}
       <div className="ps-hero">
         <img
           className="ps-hero-image"
-          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&fit=crop"
-          alt="Orange delivery van"
+          src={card.image}
+          alt={card.title}
         />
         <div className="ps-hero-tint" />
         <div className="ps-brand">
@@ -27,14 +59,15 @@ function Card() {
 
       {/* Info Bar */}
       <div className="ps-info-bar">
-        <span className="ps-info-label ps-info-label--year">2025</span>
-        <span className="ps-info-label">Transportation</span>
-        <span className="ps-info-label">Brand and Packaging</span>
+        <span className="ps-info-label ps-info-label--year">{card.year}</span>
+        {card.tags.map((tag, i) => (
+          <span key={i} className="ps-info-label">{tag}</span>
+        ))}
       </div>
 
       {/* Bottom Row */}
       <div className="ps-bottom-row">
-        <h2 className="ps-project-title">Cars Daily</h2>
+        <h2 className="ps-project-title">{card.title}</h2>
         <button className="ps-cta-btn" aria-label="View project">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
             <path
@@ -55,6 +88,7 @@ export default function ProjectSlider() {
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -65,15 +99,16 @@ export default function ProjectSlider() {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       const scrolled = window.scrollY - sectionTop;
       const sectionHeight = section.offsetHeight - window.innerHeight;
-      const progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
+      const p = Math.max(0, Math.min(1, scrolled / sectionHeight));
 
-      // Total horizontal distance to scroll
+      setProgress(p);
+
+      // Horizontal slide
       const totalSlide = track.scrollWidth - window.innerWidth + 120;
-      const translateX = -(progress * totalSlide);
-      track.style.transform = `translateX(${translateX}px)`;
+      track.style.transform = `translateX(${-(p * totalSlide)}px)`;
 
       // Active dot
-      const index = Math.round(progress * (CARDS.length - 1));
+      const index = Math.round(p * (CARDS.length - 1));
       setActiveIndex(index);
     };
 
@@ -81,14 +116,50 @@ export default function ProjectSlider() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Per-card scale: active card = 1, upcoming cards scale from 0.82 → 1 as they approach
+  const getCardScale = (i) => {
+    const segmentSize = 1 / (CARDS.length - 1);
+    // How far this card is from being "active"
+    const cardProgress = progress * (CARDS.length - 1); // 0 → CARDS.length-1
+    const distFromActive = i - cardProgress; // negative = past, positive = upcoming
+
+    if (distFromActive <= 0) {
+      // Past or active card → full size
+      return 1;
+    }
+    // Upcoming card → scale from 0.82 (far) to 1 (about to become active)
+    // distFromActive ranges from 1 (just next) to CARDS.length-1 (last card when at start)
+    const scaleMin = 0.82;
+    const t = Math.max(0, Math.min(1, 1 - (distFromActive - 0) / 1.2));
+    return scaleMin + (1 - scaleMin) * t;
+  };
+
+  const getCardOpacity = (i) => {
+    const cardProgress = progress * (CARDS.length - 1);
+    const distFromActive = i - cardProgress;
+    if (distFromActive <= 0) return 1;
+    // Upcoming: fade from 0.55 to 1
+    const t = Math.max(0, Math.min(1, 1 - (distFromActive - 0) / 1.4));
+    return 0.55 + 0.45 * t;
+  };
+
   return (
     <section className="ps-scroll-section" ref={sectionRef}>
-      <h2 className='theme-title text-center project-title'>Our Projects</h2>
+      {/* Section heading — visible on all screens */}
+      <div className="ps-heading-wrap">
+        <h2 className="ps-heading-title theme-title">Our Projects</h2>
+      </div>
+
       <div className="ps-sticky-container">
         {/* Cards track */}
         <div className="ps-track-outer" ref={trackRef}>
-          {CARDS.map((_, i) => (
-            <Card key={i} />
+          {CARDS.map((card, i) => (
+            <Card
+              key={i}
+              card={card}
+              scale={getCardScale(i)}
+              opacity={getCardOpacity(i)}
+            />
           ))}
         </div>
 
@@ -101,7 +172,6 @@ export default function ProjectSlider() {
             />
           ))}
         </div>
-
       </div>
     </section>
   );

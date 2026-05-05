@@ -3,6 +3,7 @@
 .ps-scroll-section {
   position: relative;
   height: 400vh;
+  background-color: #ffff;
 }
 
 .ps-sticky-container {
@@ -124,6 +125,12 @@
 }
 .project-title {
   margin-top: 20px;
+}
+.ps-heading-title {
+  text-align: center;
+}
+.ps-heading-wrap {
+  padding-top: 32px;
 }
 
 .ps-cta-btn {

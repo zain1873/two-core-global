@@ -5,6 +5,7 @@ import ServicesCards from "../components/ServicesCards";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import ProjectSlider from "../components/ProjectSlider";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <ProjectSlider/>
       <TestimonialSlider/>
       <Contact/>
+      <Footer/>
     </div>
   );
 }
