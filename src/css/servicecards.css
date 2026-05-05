@@ -1,12 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
 
-/* ─── Wrapper ─────────────────────────────────────────────── */
-.sc-wrap {
-  font-family: 'DM Sans', sans-serif;
-  background: #faf8f5;
-}
+.sc-wrap { font-family: 'Inter', sans-serif; background: #ffff; }
 
-/* ─── Scroll section (keeps 600vh scroll-trap) ────────────── */
 .sc-section {
   position: relative;
   height: 600vh;
@@ -15,7 +9,6 @@
 .sc-sticky {
   position: sticky;
   top: 0;
-  height: 100vh;
   padding: 80px 20px;
   display: flex;
   flex-direction: column;
@@ -24,7 +17,6 @@
   overflow: hidden;
 }
 
-/* ─── Heading ─────────────────────────────────────────────── */
 .sc-head {
   text-align: center;
   margin-bottom: clamp(28px, 4vh, 48px);
@@ -32,210 +24,78 @@
 
 .sc-eyebrow {
   font-size: 11px;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #e85d04;
   font-weight: 500;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.sc-eyebrow-line {
-  display: block;
-  width: 28px;
-  height: 1px;
-  background: #e85d04;
-  opacity: 0.45;
+  margin-bottom: 8px;
 }
 
 .sc-title {
-  font-family: 'Sora', sans-serif;
   font-size: clamp(24px, 3.5vw, 42px);
-  font-weight: 700;
+  font-weight: 600;
   color: #111;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0;
+  letter-spacing: -0.02em;
 }
+.sc-title span { color: #e85d04; }
 
-.sc-title span {
-  color: #e85d04;
-  position: relative;
-  display: inline-block;
-}
-
-.sc-title span::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -4px;
-  height: 3px;
-  background: linear-gradient(90deg, #e85d04, #ff9f1c);
-  border-radius: 99px;
-}
-
-/* ─── Grid ────────────────────────────────────────────────── */
 .sc-grid {
   display: flex;
-  gap: clamp(10px, 1.5vw, 18px);
+  gap: clamp(10px, 1.5vw, 20px);
   width: 100%;
   max-width: 1100px;
   align-items: flex-end;
   margin-top: 40px;
 }
 
-/* ─── Card ────────────────────────────────────────────────── */
 .sc-card {
   flex: 1;
   min-width: 0;
   background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.07);
-  border-radius: 20px;
-  padding: clamp(18px, 2.5vw, 28px) clamp(16px, 2vw, 24px);
+  border: 1px solid #e4e2dc;
+  border-radius: 18px;
+  padding: clamp(18px, 2.5vw, 30px) clamp(16px, 2vw, 26px);
   display: flex;
   flex-direction: column;
-  gap: 0;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  /* ── Scroll animation initial state (JS overrides these) ── */
+  gap: 14px;
   will-change: transform, opacity;
   transform: translateY(110px);
   opacity: 0;
-
-  /* ── Hover transitions ──────────────────────────────────── */
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 18px rgba(0,0,0,0.04);
-  transition:
-    transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.28s ease,
-    border-color 0.22s ease;
+  box-shadow: 0 2px 18px rgba(0,0,0,0.055);
+  transition: .2s;
 }
-
-/* Orange gradient wash on hover */
-.sc-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(232,93,4,0.05) 0%, transparent 55%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  border-radius: 20px;
-}
-
-/* Top accent bar slides in on hover */
-.sc-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #e85d04, #ff9f1c);
-  border-radius: 20px 20px 0 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
 .sc-card:hover {
-  /* Note: JS scroll animation drives transform/opacity;
-     this hover lift only applies while card is visible (opacity:1).
-     We use a secondary translate trick via a CSS var to avoid
-     conflicting with the JS-set translateY. */
-  box-shadow:
-    0 10px 36px rgba(232, 93, 4, 0.13),
-    0 2px 8px rgba(0, 0, 0, 0.06);
-  border-color: rgba(232, 93, 4, 0.22);
-}
-.sc-card:hover::before { opacity: 1; }
-.sc-card:hover::after  { transform: scaleX(1); }
-
-/* ─── Ghost number ────────────────────────────────────────── */
-.sc-num {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  font-family: 'Sora', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(232, 93, 4, 0.18);
-  letter-spacing: 0.06em;
-  transition: color 0.25s ease;
-  pointer-events: none;
-}
-.sc-card:hover .sc-num {
-  color: rgba(232, 93, 4, 0.38);
+  border: 1px solid #e85d04;
 }
 
-/* ─── Icon ────────────────────────────────────────────────── */
 .sc-icon {
-  width: clamp(48px, 5vw, 58px);
-  height: clamp(48px, 5vw, 58px);
-  border-radius: 14px;
+  width: clamp(48px, 5vw, 64px);
+  height: clamp(48px, 5vw, 64px);
+  border-radius: 12px;
   background: #fff3ec;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  margin-bottom: 16px;
-  transition:
-    background 0.28s ease,
-    transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .sc-icon svg {
-  width: clamp(24px, 2.5vw, 28px);
-  height: clamp(24px, 2.5vw, 28px);
+  width: clamp(24px, 2.5vw, 32px);
+  height: clamp(24px, 2.5vw, 32px);
   color: #e85d04;
-  transition: color 0.28s ease;
-}
-.sc-card:hover .sc-icon {
-  background: #e85d04;
-  transform: rotate(-6deg) scale(1.08);
-}
-.sc-card:hover .sc-icon svg {
-  color: #fff;
 }
 
-/* ─── Card title ──────────────────────────────────────────── */
 .sc-ctitle {
-  font-family: 'Sora', sans-serif;
-  font-size: clamp(13px, 1.3vw, 16px);
+  font-size: clamp(14px, 1.4vw, 17px);
   font-weight: 600;
   color: #111;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ─── Description ─────────────────────────────────────────── */
 .sc-desc {
-  font-size: clamp(12px, 1.05vw, 13.5px);
-  color: #888;
-  line-height: 1.65;
+  font-size: clamp(12px, 1.1vw, 14px);
+  color: #777;
+  line-height: 1.6;
   flex: 1;
-  margin: 0 0 16px;
-}
-
-/* ─── Divider ─────────────────────────────────────────────── */
-.sc-divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.06);
-  margin-bottom: 14px;
-  flex-shrink: 0;
-}
-
-/* ─── Footer (tag + arrow) ────────────────────────────────── */
-.sc-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .sc-tag {
@@ -248,36 +108,9 @@
   font-weight: 500;
   padding: 4px 10px;
   border-radius: 20px;
-  letter-spacing: 0.02em;
-}
-.sc-tag svg { flex-shrink: 0; }
-
-.sc-arrow {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(232, 93, 4, 0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  opacity: 0;
-  transform: translateX(-6px);
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease;
-}
-.sc-arrow svg {
-  width: 13px;
-  height: 13px;
-  color: #e85d04;
-}
-.sc-card:hover .sc-arrow {
-  opacity: 1;
-  transform: translateX(0);
+  width: fit-content;
 }
 
-/* ─── Scroll hint ─────────────────────────────────────────── */
 .sc-hint {
   position: absolute;
   bottom: 28px;
@@ -291,27 +124,36 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  animation: sc-bounce 2s ease-in-out infinite;
+  animation: sc-b 2s ease-in-out infinite;
 }
 .sc-hint-line {
-  width: 1px;
-  height: 24px;
+  width: 1px; height: 24px;
   background: linear-gradient(to bottom, #e85d04, transparent);
 }
 
-@keyframes sc-bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(5px); }
+@keyframes sc-b {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(5px); }
 }
 
-/* ─── Mobile: 2×2 grid, no scroll animation ──────────────── */
+/* Mobile: 2x2 grid */
+@media (max-width: 640px) {
+  .sc-grid { flex-wrap: wrap; }
+  .sc-card  { flex: 1 1 calc(50% - 8px); }
+}
+
+/* Very small: 1 col */
+@media (max-width: 380px) {
+  .sc-card { flex: 1 1 100%; }
+}
+/* Mobile: static vertical stack, no animation */
 @media (max-width: 640px) {
   .sc-section {
-    height: auto;
+    height: auto;          /* remove the 600vh scroll trap */
   }
 
   .sc-sticky {
-    position: relative;
+    position: relative;    /* un-stick it */
     top: unset;
     height: auto;
     padding: 48px 20px;
@@ -320,13 +162,16 @@
   }
 
   .sc-grid {
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     gap: 14px;
   }
 
   .sc-card {
-    flex: 1 1 calc(50% - 8px);
+    flex: none;
+    width: 100%;
+    /* override the JS-set initial state */
     transform: none !important;
     opacity: 1 !important;
   }
@@ -336,7 +181,4 @@
   }
 }
 
-/* ─── Very small: 1 col ───────────────────────────────────── */
-@media (max-width: 380px) {
-  .sc-card { flex: 1 1 100%; }
-}
+
