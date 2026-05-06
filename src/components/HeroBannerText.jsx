@@ -136,7 +136,7 @@ export default function HeroBannerText() {
 
         /* ── Service label ── */
         .hbt-service-label {
-          font-size: clamp(28px, 6vw, 96px);
+          font-size: 96px;
           font-weight: 400;
           color: #0a0a0a;
           line-height: 1.05;

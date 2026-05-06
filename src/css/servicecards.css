@@ -1,25 +1,27 @@
-
-.sc-wrap { font-family: 'Inter', sans-serif; background: #ffff; }
+.sc-wrap { font-family: 'Inter', sans-serif; background: #fff; }
 
 .sc-section {
   position: relative;
-  height: 600vh;
+  height: 800vh;
+  padding: 60px 0;
 }
 
 .sc-sticky {
   position: sticky;
-  top: 0;
-  padding: 80px 20px;
+  top: 54px;
+  height: 100vh;
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  top: 0;
 }
 
 .sc-head {
   text-align: center;
-  margin-bottom: clamp(28px, 4vh, 48px);
+  margin-bottom: clamp(20px, 3vh, 36px);
 }
 
 .sc-eyebrow {
@@ -28,76 +30,116 @@
   text-transform: uppercase;
   color: #e85d04;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: -10px;
 }
 
 .sc-title {
-  font-size: clamp(24px, 3.5vw, 42px);
+  font-size: clamp(22px, 3vw, 40px);
   font-weight: 600;
   color: #111;
   letter-spacing: -0.02em;
 }
 .sc-title span { color: #e85d04; }
 
+/* ── Grid: 3 columns on desktop ── */
 .sc-grid {
-  display: flex;
-  gap: clamp(10px, 1.5vw, 20px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 1.4vw, 18px);
   width: 100%;
   max-width: 1100px;
-  align-items: flex-end;
-  margin-top: 40px;
+  /* margin-top: 32px; */
 }
 
+/* ── Card ── */
 .sc-card {
-  flex: 1;
-  min-width: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
   background: #fff;
   border: 1px solid #e4e2dc;
   border-radius: 18px;
-  padding: clamp(18px, 2.5vw, 30px) clamp(16px, 2vw, 26px);
+  padding: clamp(16px, 2vw, 26px) clamp(14px, 1.8vw, 24px);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   will-change: transform, opacity;
   transform: translateY(110px);
   opacity: 0;
-  box-shadow: 0 2px 18px rgba(0,0,0,0.055);
-  transition: .2s;
-}
-.sc-card:hover {
-  border: 1px solid #e85d04;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
 }
 
+/* ── Top accent line → full fill on hover ── */
+.sc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #e85d04;
+  transition: height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+.sc-card:hover::before {
+  height: 100%;
+}
+
+/* ── All children above fill layer ── */
+.sc-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Icon ── */
 .sc-icon {
-  width: clamp(48px, 5vw, 64px);
-  height: clamp(48px, 5vw, 64px);
+  width: clamp(44px, 4.5vw, 58px);
+  height: clamp(44px, 4.5vw, 58px);
   border-radius: 12px;
   background: #fff3ec;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  margin-bottom: 20px;
+  transition: background 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sc-card:hover .sc-icon {
+  background: rgba(255,255,255,0.22);
 }
 .sc-icon svg {
-  width: clamp(24px, 2.5vw, 32px);
-  height: clamp(24px, 2.5vw, 32px);
+  width: clamp(22px, 2.2vw, 28px);
+  height: clamp(22px, 2.2vw, 28px);
   color: #e85d04;
+  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sc-card:hover .sc-icon svg {
+  color: #fff;
 }
 
+/* ── Title ── */
 .sc-ctitle {
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(13px, 1.3vw, 16px);
   font-weight: 600;
   color: #111;
   line-height: 1.25;
   letter-spacing: -0.01em;
   font-family: "Poppins", sans-serif;
+  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.sc-card:hover .sc-ctitle { color: #fff; }
 
+/* ── Description ── */
 .sc-desc {
-  font-size: clamp(12px, 1.1vw, 14px);
+  font-size: clamp(11px, 1vw, 13px);
   color: #777;
   line-height: 1.6;
   flex: 1;
+  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.sc-card:hover .sc-desc { color: rgba(255,255,255,0.82); }
 
+/* ── Tag ── */
 .sc-tag {
   display: inline-flex;
   align-items: center;
@@ -109,8 +151,15 @@
   padding: 4px 10px;
   border-radius: 20px;
   width: fit-content;
+  transition: background 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.sc-card:hover .sc-tag {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
 }
 
+/* ── Scroll hint ── */
 .sc-hint {
   position: absolute;
   bottom: 28px;
@@ -127,7 +176,8 @@
   animation: sc-b 2s ease-in-out infinite;
 }
 .sc-hint-line {
-  width: 1px; height: 24px;
+  width: 1px;
+  height: 24px;
   background: linear-gradient(to bottom, #e85d04, transparent);
 }
 
@@ -136,24 +186,17 @@
   50%      { transform: translateX(-50%) translateY(5px); }
 }
 
-/* Mobile: 2x2 grid */
-@media (max-width: 640px) {
-  .sc-grid { flex-wrap: wrap; }
-  .sc-card  { flex: 1 1 calc(50% - 8px); }
+/* ── Tablet: 2 cols ── */
+@media (max-width: 900px) {
+  .sc-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Very small: 1 col */
-@media (max-width: 380px) {
-  .sc-card { flex: 1 1 100%; }
-}
-/* Mobile: static vertical stack, no animation */
+/* ── Mobile ── */
 @media (max-width: 640px) {
-  .sc-section {
-    height: auto;          /* remove the 600vh scroll trap */
-  }
+  .sc-section { height: auto; }
 
   .sc-sticky {
-    position: relative;    /* un-stick it */
+    position: relative;
     top: unset;
     height: auto;
     padding: 48px 20px;
@@ -162,23 +205,18 @@
   }
 
   .sc-grid {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .sc-card {
-    flex: none;
-    width: 100%;
-    /* override the JS-set initial state */
     transform: none !important;
     opacity: 1 !important;
   }
 
-  .sc-hint {
-    display: none;
-  }
+  .sc-hint { display: none; }
 }
 
-
+@media (max-width: 380px) {
+  .sc-grid { grid-template-columns: 1fr; }
+}

@@ -50,6 +50,31 @@ const CARDS = [
       </svg>
     ),
   },
+  {
+    tag: "Social & Content",
+    title: "Social Media Design",
+    desc: "Scroll-stopping visuals for every platform. We create content that looks consistent, on-brand and gets noticed.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="18" cy="5" r="3" />
+        <circle cx="6" cy="12" r="3" />
+        <circle cx="18" cy="19" r="3" />
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+      </svg>
+    ),
+  },
+  {
+    tag: "Motion & Video",
+    title: "Motion Graphics",
+    desc: "We bring your brand to life with animation. From short reels to full explainer videos — motion that moves people.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+      </svg>
+    ),
+  },
 ];
 
 const N = CARDS.length;
@@ -57,8 +82,9 @@ const lerp = (a, b, t) => a + (b - a) * t;
 const clamp = (v, lo, hi) => Math.min(Math.max(v, lo), hi);
 const ease = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
 
-const ENTER_START = (i) => (i / N) * 0.5;
-const ENTER_END   = (i) => ((i + 1) / N) * 0.5;
+// 6 cards: enter in first 55% of scroll, exit in last 40%
+const ENTER_START = (i) => (i / N) * 0.55;
+const ENTER_END   = (i) => ((i + 1) / N) * 0.55;
 const EXIT_START  = (i) => 0.6 + (i / N) * 0.4;
 const EXIT_END    = (i) => 0.6 + ((i + 1) / N) * 0.4;
 
@@ -71,7 +97,6 @@ export default function ServicesCards() {
   const rafRef     = useRef(null);
 
   useEffect(() => {
-    // On mobile: reset all cards to visible, no animation
     if (isMobile()) {
       cardRefs.current.forEach((card) => {
         if (!card) return;
@@ -79,10 +104,9 @@ export default function ServicesCards() {
         card.style.opacity   = "1";
       });
       if (hintRef.current) hintRef.current.style.display = "none";
-      return; // skip the RAF loop entirely
+      return;
     }
 
-    // Desktop: full scroll animation
     const update = () => {
       const section = sectionRef.current;
       if (!section) return;

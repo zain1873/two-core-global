@@ -5,14 +5,39 @@
   color: #F06A0F;
 }
 
+
+.marketing-card {
+  height: 410px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Tablet & Desktop */
 @media (min-width: 768px) {
   .theme-title {
     font-size: 48px;
   }
+ 
 }
-@media only screen and (max-width:600) {
-  .hbt-service-label {
-    font-size: 80px;
+@media (max-width: 768px)  {
+   .hbt-service-label {
+    font-size: 25px !important;
   }
 }
