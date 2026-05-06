@@ -204,8 +204,9 @@
 
 @media only screen and (max-width: 600px) {
   .ps-sticky-container  {
-    padding: 0;
-    top: 12px;
+    justify-content: start;
+    padding-top: 74px;
+    height: 85vh;
   }
   .ps-header {
     padding: 0px 32px 0;
