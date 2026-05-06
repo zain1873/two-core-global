@@ -44,7 +44,7 @@ export default function HeroBannerText() {
 
         .hbt-wrap {
           font-family: 'Inter', sans-serif;
-          background: #fff;
+          background: #f7f7f7;
           width: 100%;
           padding: 10vw 6vw 8vw;
           box-sizing: border-box;

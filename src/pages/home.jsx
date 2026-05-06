@@ -7,6 +7,7 @@ import TestimonialSlider from "../components/Testimonials";
 import ProjectSlider from "../components/ProjectSlider";
 import Footer from "../components/Footer";
 import MarketingSection from "../components/MarketingSection";
+import CTASection from "../components/CtaSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <ServicesCards/>
       <ProjectSlider/>
       <MarketingSection/>
+      <CTASection/>
       <TestimonialSlider/>
       <Contact/>
       <Footer/>
