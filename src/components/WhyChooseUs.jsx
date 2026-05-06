@@ -173,7 +173,6 @@ export default function WhyChooseUs() {
           ))}
         </div>
 
-        <p className="wcu-footer-note" aria-hidden="true">Hover any card to see the transformation</p>
       </div>
     </section>
   );
