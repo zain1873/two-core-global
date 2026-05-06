@@ -1,221 +1,213 @@
+.ps-section {
+    position: relative;
+    background: #FEFAF4;
+  }
 
-/* ── STICKY SCROLL SECTION ── */
-.ps-scroll-section {
-  position: relative;
-  height: 400vh;
-  background-color: #ffff;
-}
+  /* ── Header ── */
+  .ps-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 60px 64px 0;
+    margin-bottom: 30px;
+  }
+  .ps-header-left { display: flex; flex-direction: column; gap: 8px; }
+  .ps-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #F06A0F;
+  }
+  .ps-heading {
+    font-weight: 600;
+    letter-spacing: -3px; line-height: 0.9; color: #1A1106;
+    text-transform: uppercase;
+  }
+  .ps-heading span { color: #F06A0F; }
+  .ps-header-right {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #B89F80;
+  }
+  .ps-scroll-icon {
+    width: 28px; height: 48px; border: 2px solid #D4C4AE;
+    border-radius: 14px; position: relative;
+    display: flex; justify-content: center; padding-top: 7px;
+  }
+  .ps-scroll-dot {
+    width: 4px; height: 8px; background: #F06A0F;
+    border-radius: 2px; animation: scrollDot 1.6s ease-in-out infinite;
+  }
+  @keyframes scrollDot {
+    0%,100% { transform: translateY(0); opacity: 1; }
+    60%      { transform: translateY(12px); opacity: 0; }
+    61%      { transform: translateY(0); opacity: 0; }
+    80%      { opacity: 1; }
+  }
 
-.ps-sticky-container {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
+  /* ── Scroll section ── */
+  .ps-scroll-section {
+    position: relative;
+    height: 400vh;
+  }
+  .ps-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+  }
 
-.ps-track-outer {
-  display: flex;
-  gap: 28px;
-  padding: 0 60px;
-  transition: transform 0.1s linear;
-  will-change: transform;
-}
-
-/* ── CARD ── */
-.ps-card {
-  flex: 0 0 min(820px, 80vw);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.5s ease,
-              opacity 0.5s ease;
-}
-
-/* ── HERO ── */
-.ps-hero {
-  position: relative;
-  width: 100%;
-  background: #F06A0F;
-  overflow: hidden;
-  aspect-ratio: 16 / 7;
-}
-
-.ps-hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.ps-card:hover .ps-hero-image {
-  transform: scale(1.04);
-}
-
-.ps-hero-tint {
-  position: absolute;
-  inset: 0;
-  background: rgba(240, 106, 15, 0.55);
-  mix-blend-mode: multiply;
-}
-
-.ps-brand {
-  position: absolute;
-  top: 28px;
-  left: 36px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 10;
-}
-
-.ps-brand-name {
-  font-weight: 700;
-  font-size: 20px;
-  color: #fff;
-  letter-spacing: -0.3px;
-}
-
-/* ── INFO BAR ── */
-.ps-info-bar {
-  background: #F5EFE0;
-  padding: 20px 36px 0 36px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.ps-info-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: #F06A0F;
-  text-transform: uppercase;
-}
-
-.ps-info-label--year {
-  border: 1.5px solid #F06A0F;
-  padding: 3px 10px;
-  border-radius: 4px;
-}
-
-/* ── BOTTOM ROW ── */
-.ps-bottom-row {
-  background: #F5EFE0;
-  padding: 6px 36px 28px 36px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.ps-project-title {
-  font-weight: 500;
-  font-size: clamp(52px, 7vw, 60px);
-  color: #F06A0F;
-  letter-spacing: -2px;
-  line-height: 0.9;
-  text-transform: uppercase;
-}
-.project-title {
-  margin-top: 20px;
-}
-.ps-heading-title {
-  text-align: center;
-}
-.ps-heading-wrap {
-  padding-top: 32px;
-}
-
-.ps-cta-btn {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: #F06A0F;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-bottom: 6px;
-  transition: transform 0.2s, background 0.2s;
-}
-
-.ps-cta-btn:hover {
-  background: #D45A08;
-  transform: scale(1.08);
-}
-
-/* ── PROGRESS DOTS ── */
-.ps-progress {
-  position: absolute;
-  bottom: 36px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 8px;
-  z-index: 20;
-}
-
-.ps-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #C8C0B0;
-  transition: background 0.3s, width 0.3s;
-  border-radius: 4px;
-}
-
-.ps-dot.ps-dot--active {
-  background: #F06A0F;
-  width: 24px;
-}
-
-/* ── SCROLL HINT ── */
-.ps-hint {
-  position: absolute;
-  top: 36px;
-  right: 60px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #999;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
+  /* ── Track ── */
   .ps-track-outer {
-    padding: 0 24px;
-    gap: 18px;
+    display: flex;
+    gap: 32px;
+    padding: 0 80px;
+    transition: transform 0.08s linear;
+    will-change: transform;
   }
 
+  /* ── Card ── */
   .ps-card {
-    flex: 0 0 88vw;
+    flex: 0 0 min(760px, 78vw);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.13);
+    transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.45s ease;
+    position: relative;
+    background: #F5EFE0;
+  }
+  .ps-card-num {
+    position: absolute; top: 20px; right: 24px;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.6); z-index: 10;
   }
 
+  /* ── Hero ── */
+  .ps-hero {
+    position: relative; width: 100%;
+    aspect-ratio: 16/7; overflow: hidden;
+  }
+  .ps-hero-image {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+  .ps-card:hover .ps-hero-image { transform: scale(1.05); }
+  .ps-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(140deg,rgba(240,106,15,0.6) 0%,rgba(180,60,5,0.3) 50%,rgba(0,0,0,0.15) 100%);
+    mix-blend-mode: multiply;
+  }
   .ps-brand {
-    top: 16px;
-    left: 20px;
+    position: absolute; top: 22px; left: 28px;
+    display: flex; align-items: center; gap: 10px; z-index: 10;
+  }
+  .ps-brand-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px; backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ps-brand-name { font-weight: 700; font-size: 16px; color: #fff; letter-spacing: -0.2px; }
+  .ps-year-pill {
+    position: absolute; top: 22px; right: 50px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px; padding: 5px 14px; backdrop-filter: blur(8px); z-index: 5;
   }
 
-  .ps-info-bar,
+  /* ── Body ── */
+  .ps-body {
+    background: #F5EFE0; padding: 20px 32px 26px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .ps-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .ps-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--card-accent,#F06A0F);
+    border: 1.5px solid var(--card-accent,#F06A0F);
+    border-radius: 4px; padding: 4px 11px; opacity: 0.85;
+  }
   .ps-bottom-row {
-    padding-left: 20px;
-    padding-right: 20px;
+    display: flex; align-items: flex-end; justify-content: space-between;
+  }
+  .ps-project-title {
+    font-size: 32px; font-weight: 500;
+    letter-spacing: -3px; line-height: 0.88;
+    color: var(--card-accent,#F06A0F); text-transform: uppercase; margin: 0;
+  }
+  .ps-cta-btn {
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--card-accent,#F06A0F); color: white; border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(240,106,15,0.35);
+  }
+  .ps-cta-btn:hover { transform: scale(1.12) rotate(5deg); box-shadow: 0 12px 32px rgba(240,106,15,0.45); }
+
+  /* ── Progress bar ── */
+  .ps-progress-bar {
+    position: absolute; bottom: 20px; left: 80px; right: 80px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .ps-dots { display: flex; gap: 7px; flex-shrink: 0; }
+  .ps-dot {
+    width: 8px; height: 8px; border-radius: 4px;
+    background: #C8C0B0; transition: background 0.3s, width 0.3s;
+  }
+  .ps-dot.ps-dot--active { background: #F06A0F; width: 24px; }
+  .ps-divider { width: 2px; height: 16px; background: #D4C4AE; border-radius: 1px; }
+  .ps-progress-count {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    color: #B89F80; white-space: nowrap;
   }
 
-  .ps-hint {
-    right: 24px;
+  /* ═══════════════════════════
+      MOBILE overrides
+  ═══════════════════════════ */
+  @media (max-width: 767px) {
+    .ps-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .ps-header-right { display: none; }
+
+    /* Taller section so there's enough scroll room */
+    .ps-scroll-section { height: 500vh; }
+
+    .ps-track-outer {
+      padding: 0 24px;
+      gap: 16px;
+    }
+
+    /* Slightly taller card on mobile so body text fits */
+    .ps-card { flex: 0 0 82vw; }
+
+    /* Hero taller proportion on small screens */
+    .ps-hero { aspect-ratio: 4/3; }
+
+    /* Smaller typography inside card */
+    .ps-project-title {
+      font-size: clamp(32px, 8vw, 44px);
+      letter-spacing: -2px;
+    }
+    .ps-brand-name { font-size: 14px; }
+    .ps-body { padding: 16px 20px 20px; }
+
+    .ps-progress-bar { left: 24px; right: 24px; bottom: 24px; }
+  }
+
+@media only screen and (max-width: 600px) {
+  .ps-sticky-container  {
+    padding: 0;
+    top: 12px;
+  }
+  .ps-header {
+    padding: 0px 32px 0;
   }
 }
