@@ -155,17 +155,19 @@
 /* BOTTOM BAR */
 .footer__bottom {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
   margin-top: 48px;
   gap: 32px;
 }
-
+.footer-logo {
+  width: 100px;
+  height: 56px;
+}
 .footer__location {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-right: auto;
 }
 
 .footer__location span {

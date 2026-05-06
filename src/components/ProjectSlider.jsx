@@ -145,7 +145,8 @@ export default function ProjectSlider() {
           display: flex;
           align-items: flex-end;
           justify-content: space-between;
-          padding: 72px 64px 0;
+          padding: 60px 64px 0;
+          margin-bottom: 30px;
         }
         .ps-header-left { display: flex; flex-direction: column; gap: 8px; }
         .ps-eyebrow {
@@ -153,7 +154,7 @@ export default function ProjectSlider() {
           text-transform: uppercase; color: #F06A0F;
         }
         .ps-heading {
-          font-size: clamp(42px, 6vw, 72px); font-weight: 800;
+          font-weight: 600;
           letter-spacing: -3px; line-height: 0.9; color: #1A1106;
           text-transform: uppercase;
         }
@@ -192,7 +193,7 @@ export default function ProjectSlider() {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          padding-top: 20px;
+          padding: 80px 0;
         }
 
         /* ── Track ── */
@@ -271,7 +272,7 @@ export default function ProjectSlider() {
           display: flex; align-items: flex-end; justify-content: space-between;
         }
         .ps-project-title {
-          font-size: clamp(44px,6vw,64px); font-weight: 800;
+          font-size: 32px; font-weight: 500;
           letter-spacing: -3px; line-height: 0.88;
           color: var(--card-accent,#F06A0F); text-transform: uppercase; margin: 0;
         }
@@ -287,7 +288,7 @@ export default function ProjectSlider() {
 
         /* ── Progress bar ── */
         .ps-progress-bar {
-          position: absolute; bottom: 36px; left: 80px; right: 80px;
+          position: absolute; bottom: 20px; left: 80px; right: 80px;
           display: flex; align-items: center; gap: 16px;
         }
         .ps-dots { display: flex; gap: 7px; flex-shrink: 0; }
@@ -342,11 +343,15 @@ export default function ProjectSlider() {
 
       <section className="ps-section" ref={sectionRef}>
 
-        {/* ── Header ── */}
-        <div className="ps-header">
+        {/* ── Scroll-driven slider (same on desktop + mobile) ── */}
+        <div className="ps-scroll-section">
+               {/* ── Header ── */}
+     
+          <div className="ps-sticky-container">
+             <div className="ps-header">
           <div className="ps-header-left">
             <span className="ps-eyebrow">Selected Work</span>
-            <h2 className="ps-heading">Our <span>Projects</span></h2>
+            <h2 className="ps-heading theme-title">Our <span>Projects</span></h2>
           </div>
           <div className="ps-header-right">
             <div className="ps-scroll-icon">
@@ -355,10 +360,6 @@ export default function ProjectSlider() {
             Scroll to explore
           </div>
         </div>
-
-        {/* ── Scroll-driven slider (same on desktop + mobile) ── */}
-        <div className="ps-scroll-section">
-          <div className="ps-sticky-container">
             <div className="ps-track-outer" ref={trackRef}>
               {CARDS.map((card, i) => (
                 <Card
@@ -371,7 +372,7 @@ export default function ProjectSlider() {
               ))}
             </div>
 
-            <div className="ps-progress-bar">
+            {/* <div className="ps-progress-bar">
               <div className="ps-dots">
                 {CARDS.map((_, i) => (
                   <div key={i} className={`ps-dot${i === activeIndex ? ' ps-dot--active' : ''}`} />
@@ -381,7 +382,7 @@ export default function ProjectSlider() {
               <span className="ps-progress-count">
                 {String(activeIndex + 1).padStart(2, '0')} / {String(CARDS.length).padStart(2, '0')}
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
 

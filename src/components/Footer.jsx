@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/footer.css";
+import logo from "../assets/nav-logo.png"
+
 
 const Footer = () => {
   return (
@@ -64,6 +66,10 @@ const Footer = () => {
         <div className="footer__location">
           <span>Pakistan</span>
           <span>Asia</span>
+        </div>
+        <div className="footer-logo">
+          <img src={logo} alt="" />
+
         </div>
         <div className="footer__legal">
           <a href="#terms">Terms &amp; Conditions</a>

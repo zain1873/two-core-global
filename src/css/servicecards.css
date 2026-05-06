@@ -199,7 +199,7 @@
     position: relative;
     top: unset;
     height: auto;
-    padding: 48px 20px;
+    padding: 10px 20px;
     overflow: visible;
     justify-content: flex-start;
   }
