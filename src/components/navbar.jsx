@@ -29,7 +29,7 @@ const SERVICES = {
   ],
   "Digital Marketing": [
     { icon: Search, label: "SEO Services", link: "/seo-services"},
-    { icon: Megaphone, label: "SEM Services" },
+    { icon: Megaphone, label: "SEM Services", link: "/sem-services" },
     { icon: Share2, label: "Social Media" },
   ],
 };

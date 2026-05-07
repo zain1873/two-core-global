@@ -1,28 +1,34 @@
+import React from "react";
 import Navbar from "../components/navbar";
-import Contact from "../components/contactForm";
 import Footer from "../components/Footer";
+import Contact from "../components/contactForm";
+import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import FAQ from "../components/Faqs";
+import SemProcess from "../components/SemProcess";
 
-export default function ContactPage() {
+function SeoSection() {
   return (
-    <div>
+    <div className="sem-services">
       <Navbar />
+
       {/* Banner Section */}
       <section className="web-banner">
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Conact</p>
-            <h1>Let’s Build Something Amazing Together</h1>
+            <p className="banner-breadcrumb">Home / Sem</p>
+            <h1>Leading Global Sem Services Company</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>
         </div>
       </section>
-      <CTASection/>
-      <FAQ/>
-      <Contact/>
-      <Footer/>
+      <SemProcess/>
+      <CTASection />
+      <TestimonialSlider />
+      <Contact />
+      <Footer />
     </div>
   );
 }
+
+export default SeoSection;

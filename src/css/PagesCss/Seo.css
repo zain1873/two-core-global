@@ -19,9 +19,8 @@
 
 /* ── LEFT ── */
 .seomark-heading {
-  font-family: 'Barlow Condensed', 'Impact', sans-serif;
   font-weight: 900;
-  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  font-size: 32px;
   line-height: 1.15;
   color: #111111;
   text-transform: uppercase;

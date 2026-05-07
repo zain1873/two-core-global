@@ -84,6 +84,27 @@ function Card({ card, scale, opacity }) {
   );
 }
 
+/* ─── SEE ALL CARD ─── */
+function SeeAllCard({ scale, opacity }) {
+  return (
+    <div
+      className="ps-card ps-see-all-card"
+      style={{
+        transform: `scale(${scale})`,
+        opacity,
+      }}
+    >
+      <div className="ps-see-all-inner">
+        <h2 className="ps-see-all-heading">Projects</h2>
+        <p className="ps-see-all-desc">
+          These are not just projects, they are stories of our clients, our work, and the impact we made.{' '}
+          <a href="/projects" className="ps-see-all-link">See More ↗</a>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ─── MAIN COMPONENT ─── */
 export default function ProjectSlider() {
   const sectionRef = useRef(null);
@@ -104,13 +125,11 @@ export default function ProjectSlider() {
       const p = Math.max(0, Math.min(1, scrolled / sectionHeight));
       setProgress(p);
 
-      /* How far the track needs to slide:
-         full track width − one viewport width + padding on both sides */
       const padding    = window.innerWidth < 768 ? 48 : 160;
       const totalSlide = track.scrollWidth - window.innerWidth + padding;
       track.style.transform = `translateX(${-(p * totalSlide)}px)`;
 
-      setActiveIndex(Math.round(p * (CARDS.length - 1)));
+      setActiveIndex(Math.round(p * CARDS.length));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -118,7 +137,7 @@ export default function ProjectSlider() {
   }, []);
 
   const getCardScale = (i) => {
-    const cardProgress   = progress * (CARDS.length - 1);
+    const cardProgress   = progress * CARDS.length;
     const distFromActive = i - cardProgress;
     if (distFromActive <= 0) return 1;
     const t = Math.max(0, Math.min(1, 1 - distFromActive / 1.2));
@@ -126,7 +145,7 @@ export default function ProjectSlider() {
   };
 
   const getCardOpacity = (i) => {
-    const cardProgress   = progress * (CARDS.length - 1);
+    const cardProgress   = progress * CARDS.length;
     const distFromActive = i - cardProgress;
     if (distFromActive <= 0) return 1;
     const t = Math.max(0, Math.min(1, 1 - distFromActive / 1.4));
@@ -136,22 +155,20 @@ export default function ProjectSlider() {
   return (
     <>
       <section className="ps-section" ref={sectionRef}>
-        {/* ── Scroll-driven slider (same on desktop + mobile) ── */}
         <div className="ps-scroll-section">
-               {/* ── Header ── */}
           <div className="ps-sticky-container">
-             <div className="ps-header">
-          <div className="ps-header-left">
-            <span className="ps-eyebrow">Selected Work</span>
-            <h2 className="ps-heading theme-title">Our <span>Projects</span></h2>
-          </div>
-          <div className="ps-header-right">
-            <div className="ps-scroll-icon">
-              <div className="ps-scroll-dot" />
+            <div className="ps-header">
+              <div className="ps-header-left">
+                <span className="ps-eyebrow">Selected Work</span>
+                <h2 className="ps-heading theme-title">Our <span>Projects</span></h2>
+              </div>
+              <div className="ps-header-right">
+                <div className="ps-scroll-icon">
+                  <div className="ps-scroll-dot" />
+                </div>
+                Scroll to explore
+              </div>
             </div>
-            Scroll to explore
-          </div>
-        </div>
             <div className="ps-track-outer" ref={trackRef}>
               {CARDS.map((card, i) => (
                 <Card
@@ -162,22 +179,13 @@ export default function ProjectSlider() {
                   isActive={i === activeIndex}
                 />
               ))}
+              <SeeAllCard
+                scale={getCardScale(CARDS.length)}
+                opacity={getCardOpacity(CARDS.length)}
+              />
             </div>
-
-            {/* <div className="ps-progress-bar">
-              <div className="ps-dots">
-                {CARDS.map((_, i) => (
-                  <div key={i} className={`ps-dot${i === activeIndex ? ' ps-dot--active' : ''}`} />
-                ))}
-              </div>
-              <div className="ps-divider" />
-              <span className="ps-progress-count">
-                {String(activeIndex + 1).padStart(2, '0')} / {String(CARDS.length).padStart(2, '0')}
-              </span>
-            </div> */}
           </div>
         </div>
-
       </section>
     </>
   );

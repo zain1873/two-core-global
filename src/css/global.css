@@ -1,3 +1,26 @@
+/* body {
+  font-family: var(--body-font);
+}
+
+.theme-title {
+  font-family: var(--heading-font);
+  font-size: var(--theme-title-size);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--secondary-color);
+}
+
+.section-title {
+  font-family: var(--heading-font);
+  font-size: var(--section-title-size);
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+ */
+
+
+
+
 .theme-title {
   font-size: 32px; 
   font-family: "Poppins", sans-serif;

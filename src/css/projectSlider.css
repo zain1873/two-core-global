@@ -46,7 +46,7 @@
   /* ── Scroll section ── */
   .ps-scroll-section {
     position: relative;
-    height: 400vh;
+    height: 500vh;
   }
   .ps-sticky-container {
     position: sticky;
@@ -64,7 +64,7 @@
     display: flex;
     gap: 32px;
     padding: 0 80px;
-    transition: transform 0.08s linear;
+    transition: transform 0.18s linear;
     will-change: transform;
   }
 
@@ -166,6 +166,51 @@
     color: #B89F80; white-space: nowrap;
   }
 
+  /* ── See All Card ── */
+  .ps-see-all-card {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.10);
+  }
+
+  .ps-see-all-inner {
+    padding: 60px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .ps-see-all-heading {
+    font-size: clamp(64px, 8vw, 110px);
+    font-weight: 400;
+    letter-spacing: -4px;
+    line-height: 0.9;
+    color: #1A1106;
+    margin: 0;
+    text-transform: none;
+  }
+
+  .ps-see-all-desc {
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.4;
+    color: #1A1106;
+    margin: 0;
+    max-width: 480px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .ps-see-all-link {
+    color: #F06A0F;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    font-weight: 500;
+  }
+
+  .ps-see-all-link:hover { opacity: 0.75; }
+
   /* ═══════════════════════════
       MOBILE overrides
   ═══════════════════════════ */
@@ -177,21 +222,17 @@
     }
     .ps-header-right { display: none; }
 
-    /* Taller section so there's enough scroll room */
-    .ps-scroll-section { height: 500vh; }
+    .ps-scroll-section { height: 600vh; }
 
     .ps-track-outer {
       padding: 0 24px;
       gap: 16px;
     }
 
-    /* Slightly taller card on mobile so body text fits */
     .ps-card { flex: 0 0 82vw; }
 
-    /* Hero taller proportion on small screens */
     .ps-hero { aspect-ratio: 4/3; }
 
-    /* Smaller typography inside card */
     .ps-project-title {
       font-size: clamp(32px, 8vw, 44px);
       letter-spacing: -2px;
@@ -200,6 +241,8 @@
     .ps-body { padding: 16px 20px 20px; }
 
     .ps-progress-bar { left: 24px; right: 24px; bottom: 24px; }
+
+    .ps-see-all-inner { padding: 36px 28px; gap: 24px; }
   }
 
 @media only screen and (max-width: 600px) {

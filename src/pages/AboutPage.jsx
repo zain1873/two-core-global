@@ -1,28 +1,34 @@
+import React from "react";
 import Navbar from "../components/navbar";
-import Contact from "../components/contactForm";
 import Footer from "../components/Footer";
+import Contact from "../components/contactForm";
+import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import FAQ from "../components/Faqs";
+import AboutHospital from "../components/About";
 
-export default function ContactPage() {
+function AboutPage() {
   return (
-    <div>
+    <div className="sem-services about-page">
       <Navbar />
+
       {/* Banner Section */}
       <section className="web-banner">
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Conact</p>
-            <h1>Let’s Build Something Amazing Together</h1>
+            <p className="banner-breadcrumb">Home / About</p>
+            <h1>About Our Company</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>
         </div>
       </section>
-      <CTASection/>
-      <FAQ/>
-      <Contact/>
-      <Footer/>
+      <AboutHospital/>
+      <CTASection />
+      <TestimonialSlider />
+      <Contact />
+      <Footer />
     </div>
   );
 }
+
+export default AboutPage;

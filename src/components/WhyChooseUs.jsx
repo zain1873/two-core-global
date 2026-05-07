@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "../css/WhyChooseUs.css";
+import "../css/WhyChooseUs.jsx";
 
 const cards = [
   {
