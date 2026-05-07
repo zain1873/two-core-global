@@ -28,7 +28,7 @@ const SERVICES = {
     { icon: Monitor, label: "UI/UX Design" },
   ],
   "Digital Marketing": [
-    { icon: Search, label: "SEO Services", link: "/seo-services"},
+    { icon: Search, label: "SEO Services", link: "/seo-services" },
     { icon: Megaphone, label: "SEM Services", link: "/sem-services" },
     { icon: Share2, label: "Social Media" },
   ],
@@ -134,6 +134,15 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+
+            {/* Portfolio — after Services */}
+            <NavLink
+              to="/portfolio"
+              className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+              onClick={closeAll}
+            >
+              Portfolio
+            </NavLink>
           </div>
 
           {/* CTA Button */}
@@ -163,6 +172,7 @@ export default function Navbar() {
             </NavLink>
           ))}
 
+          {/* Mobile Services */}
           <button className="mobile-link" onClick={() => setMobileServicesOpen((p) => !p)}>
             Services
             <svg className={`chevron ${mobileServicesOpen ? "open" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -195,6 +205,15 @@ export default function Navbar() {
               </div>
             ))}
           </div>
+
+          {/* Portfolio — after Services in mobile */}
+          <NavLink
+            to="/portfolio"
+            className={({ isActive }) => `mobile-link ${isActive ? "active" : ""}`}
+            onClick={closeAll}
+          >
+            Portfolio
+          </NavLink>
 
           <Link to="/contact" className="mobile-cta" onClick={closeAll}>
             <span className="cta-dot" />
