@@ -1,7 +1,4 @@
 import Navbar from "../components/navbar";
-import HeroVideo from "../components/banner-video";
-import HeroBannerText from "../components/HeroBannerText";
-import ServicesCards from "../components/ServicesCards";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import ProjectSlider from "../components/ProjectSlider";
@@ -10,17 +7,23 @@ import MarketingSection from "../components/MarketingSection";
 import CTASection from "../components/CtaSection";
 import FAQ from "../components/Faqs";
 
-export default function Home() {
+export default function ContactPage() {
   return (
     <div>
       <Navbar />
-      <HeroBannerText />
-      <HeroVideo/>
-      <ServicesCards/>
-      <ProjectSlider/>
+      {/* Banner Section */}
+      <section className="web-banner">
+        <div className="banner-dark-overlay"></div>
+        <div className="banner-glass">
+          <div className="banner-content">
+            <p className="banner-breadcrumb">Home / Conact</p>
+            <h1>Let’s Build Something Amazing Together</h1>
+            <button className="banner-btn">Make Your Website</button>
+          </div>
+        </div>
+      </section>
       <MarketingSection/>
       <CTASection/>
-      <TestimonialSlider/>
       <FAQ/>
       <Contact/>
       <Footer/>

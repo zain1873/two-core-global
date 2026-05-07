@@ -76,7 +76,11 @@ const Footer = () => {
           <a href="#privacy">Privacy Policy</a>
         </div>
       </div>
+      <div className="footer__copyright">
+        Copyright © 2025 Two Core Global, All Rights Reserved – Designed by twocoreglobal.com
+      </div>
     </footer>
+
   );
 };
 

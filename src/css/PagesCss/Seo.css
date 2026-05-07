@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Lato:wght@400;700&display=swap');
+
+.seomark-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 72px 0 90px;
+  box-sizing: border-box;
+}
+
+.seomark-wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+/* ── LEFT ── */
+.seomark-heading {
+  font-family: 'Barlow Condensed', 'Impact', sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+  line-height: 1.15;
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px 0;
+}
+
+.seomark-intro {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.975rem;
+  color: #444444;
+  line-height: 1.75;
+  margin: 0 0 12px 0;
+}
+
+.seomark-list {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.975rem;
+  color: #444444;
+  line-height: 1.85;
+  padding-left: 22px;
+  margin: 0 0 20px 0;
+}
+
+.seomark-list li {
+  margin-bottom: 2px;
+}
+
+.seomark-trust {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.975rem;
+  color: #444444;
+  line-height: 1.75;
+  margin: 0 0 14px 0;
+}
+
+.seomark-cta-line {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.975rem;
+  color: #111111;
+  margin: 0 0 30px 0;
+}
+
+.seomark-button {
+  display: inline-block;
+  background-color: #18c5c5;
+  color: #ffffff;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 13px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+}
+
+.seomark-button:hover {
+  background-color: #13aeae;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 197, 197, 0.35);
+}
+
+.seomark-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── RIGHT ── */
+.seomark-right {
+  position: relative;
+}
+
+.seomark-img-frame {
+  position: relative;
+  border-radius: 10px;
+  overflow: visible;
+}
+
+.seomark-img-backdrop {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e8f8f8 0%, #d0f0f0 100%);
+  transform: translate(10px, 10px);
+  z-index: 0;
+}
+
+.seomark-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+  transition: transform 0.4s ease;
+}
+
+.seomark-img-frame:hover .seomark-img {
+  transform: scale(1.015);
+}
+
+.seomark-stat-card {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
+  border-top: 3px solid #18c5c5;
+}
+
+.seomark-stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #111111;
+  line-height: 1.1;
+}
+
+.seomark-stat-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.72rem;
+  color: #777777;
+  margin-top: 2px;
+}
+
+
+
+
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .seomark-wrapper {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 28px;
+  }
+
+  .seomark-right {
+    order: -1;
+  }
+
+  .seomark-img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .seomark-section {
+    padding: 52px 0 72px;
+  }
+
+  .seomark-wrapper {
+    padding: 0 18px;
+    gap: 36px;
+  }
+
+  .seomark-heading {
+    font-size: 1.6rem;
+  }
+
+  .seomark-img {
+    height: 220px;
+  }
+
+  .seomark-button {
+    width: 100%;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  .seomark-stat-card {
+    padding: 10px 16px;
+    white-space: normal;
+    text-align: center;
+  }
+}

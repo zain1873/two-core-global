@@ -28,7 +28,7 @@ const SERVICES = {
     { icon: Monitor, label: "UI/UX Design" },
   ],
   "Digital Marketing": [
-    { icon: Search, label: "SEO Services" },
+    { icon: Search, label: "SEO Services", link: "/seo-services"},
     { icon: Megaphone, label: "SEM Services" },
     { icon: Share2, label: "Social Media" },
   ],

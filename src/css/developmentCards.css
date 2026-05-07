@@ -168,7 +168,7 @@
 
 .service-card__cta:hover {
   background: #00b8a6;
-  transform: scale(1.9);
+  transform: scale(1);
   box-shadow: 0 6px 24px rgba(0, 207, 187, 0.55);
 }
 

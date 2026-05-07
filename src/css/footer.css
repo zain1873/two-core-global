@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-bottom: 0;
 }
 
 .footer__inner {
@@ -150,6 +151,16 @@
 .footer__external-icon {
   font-size: 0.65rem;
   opacity: 0.8;
+}
+.footer__copyright {
+  text-align: center;
+  padding: 15px 20px;
+
+  font-size: 14px;
+  color: #999;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
 }
 
 /* BOTTOM BAR */
