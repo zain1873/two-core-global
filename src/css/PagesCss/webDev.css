@@ -117,7 +117,7 @@
   font-size: 42px;
   margin-bottom: 20px;
   color: #111;
-  line-height: 40px;
+  line-height: 30px;
 }
 
 .overview-text p {
@@ -204,5 +204,11 @@
 
   .banner-btn {
     width: 100%;
+  }
+  .overview-text h2 {
+    font-size: 25px;
+  }
+  .overview-text p {
+    font-size: 13px;
   }
 }
