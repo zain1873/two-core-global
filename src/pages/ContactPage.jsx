@@ -2,7 +2,6 @@ import Navbar from "../components/navbar";
 import Contact from "../components/contactForm";
 import Footer from "../components/Footer";
 import CTASection from "../components/CtaSection";
-import FAQ from "../components/Faqs";
 
 export default function ContactPage() {
   return (
@@ -20,7 +19,6 @@ export default function ContactPage() {
         </div>
       </section>
       <CTASection/>
-      <FAQ/>
       <Contact/>
       <Footer/>
     </div>
