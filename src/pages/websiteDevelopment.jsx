@@ -35,7 +35,7 @@ function WebsiteDevelopment() {
       <section className="overview-section">
         {/* Left Content */}
         <div className="overview-text">
-          <h2>Web Development Overview</h2>
+          <h2 className="theme-title">Web Development Overview</h2>
 
           <p>
             Our web development services provide enterprise-grade and customized
