@@ -43,28 +43,28 @@ export default function Navbar() {
   const servicesRef = useRef(null);
   const lastScrollY = useRef(0);
 
-  // Hide on scroll down, show on scroll up — after 100vh
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       const viewportH = window.innerHeight;
-
       if (currentY < viewportH) {
-        // First section — always visible
         setHidden(false);
       } else if (currentY > lastScrollY.current) {
-        // Scrolling down — hide
         setHidden(true);
       } else {
-        // Scrolling up — show
         setHidden(false);
       }
       lastScrollY.current = currentY;
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   useEffect(() => {
     function handleClick(e) {
@@ -87,15 +87,14 @@ export default function Navbar() {
 
   return (
     <>
+      {/* NAVBAR BAR — sticky, never changes height */}
       <nav className={`navbar ${hidden ? "navbar--hidden" : ""}`}>
         <div className="nav-inner">
 
-          {/* Logo */}
           <Link className="logo" to="/" onClick={closeAll}>
             <img src={logo} alt="Logo" />
           </Link>
 
-          {/* Desktop Nav */}
           <div className="desktop-nav">
             {NAV_LINKS.map(({ label, path }) => (
               <NavLink
@@ -107,7 +106,6 @@ export default function Navbar() {
               </NavLink>
             ))}
 
-            {/* Services Dropdown */}
             <div
               className="services-wrapper"
               ref={servicesRef}
@@ -134,12 +132,7 @@ export default function Navbar() {
                     </div>
                     {items.map(({ icon: Icon, label, link }) =>
                       link ? (
-                        <Link
-                          key={label}
-                          to={link}
-                          className="dd-item"
-                          onClick={() => setServicesOpen(false)}
-                        >
+                        <Link key={label} to={link} className="dd-item" onClick={() => setServicesOpen(false)}>
                           <span className="dd-item-icon"><Icon size={15} strokeWidth={1.8} /></span>
                           {label}
                         </Link>
@@ -160,7 +153,6 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Portfolio */}
             <NavLink
               to="/portfolio"
               className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
@@ -170,81 +162,77 @@ export default function Navbar() {
             </NavLink>
           </div>
 
-          {/* CTA Button */}
           <Link to="/contact" className="cta-btn" onClick={closeAll}>
             <span className="cta-dot" />
             Lets Work
           </Link>
 
-          {/* Hamburger */}
-          <button className="hamburger" onClick={() => setMobileOpen((p) => !p)} aria-label="Toggle menu">
+          <button
+            className="hamburger"
+            onClick={() => setMobileOpen((p) => !p)}
+            aria-label="Toggle menu"
+          >
             <span className={`ham-bar ${mobileOpen ? "open-1" : ""}`} />
             <span className={`ham-bar ${mobileOpen ? "open-2" : ""}`} />
             <span className={`ham-bar ${mobileOpen ? "open-3" : ""}`} />
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Menu */}
-        <div className={`mobile-menu ${mobileOpen ? "open" : ""}`}>
-          {NAV_LINKS.map(({ label, path }) => (
-            <NavLink
-              key={label}
-              to={path}
-              className={({ isActive }) => `mobile-link ${isActive ? "active" : ""}`}
-              onClick={closeAll}
-            >
-              {label}
-            </NavLink>
-          ))}
-
-          {/* Mobile Services */}
-          <button className="mobile-link" onClick={() => setMobileServicesOpen((p) => !p)}>
-            Services
-            <svg className={`chevron ${mobileServicesOpen ? "open" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-
-          <div className={`mobile-services-panel ${mobileServicesOpen ? "open" : ""}`}>
-            {Object.entries(SERVICES).map(([category, items]) => (
-              <div key={category} className="mobile-dd-section">
-                <div className="mobile-dd-title">{category}</div>
-                {items.map(({ icon: Icon, label, link }) =>
-                  link ? (
-                    <Link
-                      key={label}
-                      to={link}
-                      className="mobile-dd-item"
-                      onClick={closeAll}
-                    >
-                      <span className="mobile-dd-item-icon"><Icon size={14} strokeWidth={1.8} /></span>
-                      {label}
-                    </Link>
-                  ) : (
-                    <span key={label} className="mobile-dd-item">
-                      <span className="mobile-dd-item-icon"><Icon size={14} strokeWidth={1.8} /></span>
-                      {label}
-                    </span>
-                  )
-                )}
-              </div>
-            ))}
-          </div>
-
+      {/* MOBILE MENU — completely outside navbar, fixed overlay */}
+      <div className={`mobile-menu ${mobileOpen ? "open" : ""}`}>
+        {NAV_LINKS.map(({ label, path }) => (
           <NavLink
-            to="/portfolio"
+            key={label}
+            to={path}
             className={({ isActive }) => `mobile-link ${isActive ? "active" : ""}`}
             onClick={closeAll}
           >
-            Portfolio
+            {label}
           </NavLink>
+        ))}
 
-          <Link to="/contact" className="mobile-cta" onClick={closeAll}>
-            <span className="cta-dot" />
-            Lets Work
-          </Link>
+        <button className="mobile-link" onClick={() => setMobileServicesOpen((p) => !p)}>
+          Services
+          <svg className={`chevron ${mobileServicesOpen ? "open" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+
+        <div className={`mobile-services-panel ${mobileServicesOpen ? "open" : ""}`}>
+          {Object.entries(SERVICES).map(([category, items]) => (
+            <div key={category} className="mobile-dd-section">
+              <div className="mobile-dd-title">{category}</div>
+              {items.map(({ icon: Icon, label, link }) =>
+                link ? (
+                  <Link key={label} to={link} className="mobile-dd-item" onClick={closeAll}>
+                    <span className="mobile-dd-item-icon"><Icon size={14} strokeWidth={1.8} /></span>
+                    {label}
+                  </Link>
+                ) : (
+                  <span key={label} className="mobile-dd-item">
+                    <span className="mobile-dd-item-icon"><Icon size={14} strokeWidth={1.8} /></span>
+                    {label}
+                  </span>
+                )
+              )}
+            </div>
+          ))}
         </div>
-      </nav>
+
+        <NavLink
+          to="/portfolio"
+          className={({ isActive }) => `mobile-link ${isActive ? "active" : ""}`}
+          onClick={closeAll}
+        >
+          Portfolio
+        </NavLink>
+
+        <Link to="/contact" className="mobile-cta" onClick={closeAll}>
+          <span className="cta-dot" />
+          Lets Work
+        </Link>
+      </div>
     </>
   );
 }
