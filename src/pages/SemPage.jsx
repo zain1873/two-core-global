@@ -5,6 +5,8 @@ import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import SemProcess from "../components/SemProcess";
+import SemPakages from "../components/SemPakages";
+import WhyChooseUs from "../components/WhyChooseSem";
 
 function SeoSection() {
   return (
@@ -22,7 +24,9 @@ function SeoSection() {
           </div>
         </div>
       </section>
+      <WhyChooseUs/>
       <SemProcess/>
+      <SemPakages/>
       <CTASection />
       <TestimonialSlider />
       <Contact />

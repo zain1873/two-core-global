@@ -1,0 +1,252 @@
+/* ===========================
+   SEM Packages – Base Styles
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.seo-wrapper {
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  padding: 48px 24px 64px;
+  font-family: Arial, sans-serif;
+}
+
+.seo-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Title ─────────────────────────────────── */
+.seo-title-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.seo-title-box {
+  border: 1.5px solid #c9922a;
+  border-radius: 50px;
+  padding: 14px 64px;
+  display: inline-block;
+}
+
+.seo-title-box h1 {
+  color: #e8a020;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ── Desktop table layout (768px+) ──────────── */
+.seo-plans-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 0;
+}
+
+.seo-plan-card {
+  background-color: #e8a020;
+  padding: 20px 12px;
+  text-align: center;
+  border: 2px solid #c9922a;
+  border-bottom: none;
+}
+
+.seo-plan-card h2 {
+  color: #1a1a1a;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0 0 5px;
+  line-height: 1.2;
+}
+
+.seo-plan-card .price {
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.seo-plans-with-border {
+  border: 1.5px solid #c9922a;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+
+/* keyword row */
+.seo-keyword-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.seo-keyword-cell {
+  padding: 15px 10px;
+  text-align: center;
+  color: #cccccc;
+  font-size: 0.85rem;
+  border-right: 1px solid #2e2e2e;
+}
+
+.seo-keyword-cell:last-child {
+  border-right: none;
+}
+
+/* feature rows */
+.seo-feature-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.seo-feature-row:last-child {
+  border-bottom: none;
+}
+
+.seo-feature-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 10px;
+  border-right: 1px solid #2e2e2e;
+  color: #dddddd;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.seo-feature-cell:last-child {
+  border-right: none;
+}
+
+.seo-check-icon {
+  color: #e8a020;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+}
+
+/* ── Mobile cards (hidden on desktop) ────────── */
+.seo-mobile-cards {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.seo-mobile-card {
+  border: 1.5px solid #c9922a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.seo-mobile-card-header {
+  background-color: #e8a020;
+  padding: 18px 16px;
+  text-align: center;
+}
+
+.seo-mobile-card-header h2 {
+  color: #1a1a1a;
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+}
+
+.seo-mobile-card-header .price {
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.seo-mobile-keyword {
+  padding: 12px 16px;
+  text-align: center;
+  color: #cccccc;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #2e2e2e;
+  background-color: #111111;
+}
+
+.seo-mobile-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #2e2e2e;
+  color: #dddddd;
+  font-size: 0.88rem;
+  font-weight: 500;
+  background-color: #0d0d0d;
+}
+
+.seo-mobile-feature:last-child {
+  border-bottom: none;
+}
+
+.seo-mobile-check {
+  color: #e8a020;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+}
+
+/* ===========================
+   Tablet (600px – 767px)
+   =========================== */
+@media (max-width: 767px) {
+  /* hide desktop table, show mobile cards */
+  .seo-plans-header,
+  .seo-plans-with-border {
+    display: none;
+  }
+
+  .seo-mobile-cards {
+    display: flex;
+  }
+
+  .seo-title-box {
+    padding: 12px 36px;
+  }
+
+  .seo-title-box h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===========================
+   Small phone (≤ 400px)
+   =========================== */
+@media (max-width: 400px) {
+  .seo-wrapper {
+    padding: 32px 14px 48px;
+  }
+
+  .seo-title-box {
+    padding: 10px 24px;
+  }
+
+  .seo-title-box h1 {
+    font-size: 1.2rem;
+  }
+
+  .seo-mobile-card-header h2 {
+    font-size: 1rem;
+  }
+
+  .seo-mobile-card-header .price {
+    font-size: 0.9rem;
+  }
+
+  .seo-mobile-feature {
+    font-size: 0.82rem;
+    padding: 11px 14px;
+  }
+}

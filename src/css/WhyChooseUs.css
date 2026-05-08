@@ -346,6 +346,9 @@
   .wcu-section { padding: 4rem 1.2rem; }
   .wcu-grid    { grid-template-columns: 1fr 1fr; }
   .wcu-card    { height: 320px; }
+  .img-bg {
+    display: none !important;
+  }
 }
 @media (max-width: 420px) {
   .wcu-grid { grid-template-columns: 1fr; }

@@ -6,7 +6,7 @@ import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import WhyChooseSeo from "../components/WhyChooseSeo";
 import SeoExpertise from "../components/SeoExpertise";
-// import SeoProcess from "../components/SeoProcess";
+import SeoProcess from "../components/SeoProcess";
 import SEOPackages from "../components/SeoPakages";
 
 function SeoSection() {
@@ -27,7 +27,7 @@ function SeoSection() {
       </section>
       <WhyChooseSeo/>
       <SeoExpertise/>
-      {/* <SeoProcess/> */}
+      <SeoProcess/>
       <SEOPackages/>
       <CTASection />
       <TestimonialSlider />
