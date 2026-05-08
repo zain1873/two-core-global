@@ -46,7 +46,7 @@ const TCGReveal = () => {
           display: inline-block;
           color: #ffff !important;
           font-weight: 900;
-          font-size: 20rem;
+          font-size: 24rem;
           text-transform: uppercase;
           letter-spacing: -0.02em;
           line-height: 0.85;

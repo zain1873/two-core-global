@@ -12,9 +12,13 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.8, 1, 0.3, 1);
   background: #fff;
   border-bottom: 1px solid #e8e8e4;
+}
+.navbar--hidden {
+  transform: translateY(-110%);
 }
 
 .nav-inner {

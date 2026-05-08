@@ -38,8 +38,33 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const dropdownRef = useRef(null);
   const servicesRef = useRef(null);
+  const lastScrollY = useRef(0);
+
+  // Hide on scroll down, show on scroll up — after 100vh
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const viewportH = window.innerHeight;
+
+      if (currentY < viewportH) {
+        // First section — always visible
+        setHidden(false);
+      } else if (currentY > lastScrollY.current) {
+        // Scrolling down — hide
+        setHidden(true);
+      } else {
+        // Scrolling up — show
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     function handleClick(e) {
@@ -62,7 +87,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className={`navbar ${hidden ? "navbar--hidden" : ""}`}>
         <div className="nav-inner">
 
           {/* Logo */}
@@ -135,7 +160,7 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Portfolio — after Services */}
+            {/* Portfolio */}
             <NavLink
               to="/portfolio"
               className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
@@ -206,7 +231,6 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Portfolio — after Services in mobile */}
           <NavLink
             to="/portfolio"
             className={({ isActive }) => `mobile-link ${isActive ? "active" : ""}`}

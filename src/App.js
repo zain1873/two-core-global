@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
-
 import Home from "./pages/home";
 import WebsiteDevelopment from "./pages/websiteDevelopment";
 import SeoPage from "./pages/SeoPage";

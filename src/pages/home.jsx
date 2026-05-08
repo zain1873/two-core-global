@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import MarketingSection from "../components/MarketingSection";
 import CTASection from "../components/CtaSection";
 import FAQ from "../components/Faqs";
+import HeroTagline from "../components/HeroTagline";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroBannerText />
       <HeroVideo/>
       <ServicesCards/>
+      <HeroTagline/>
       <ProjectSlider/>
       <MarketingSection/>
       <CTASection/>
