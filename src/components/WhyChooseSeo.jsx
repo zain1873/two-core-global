@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
           <div className="relative w-full max-w-md">
             {/* Pink blob behind image */}
             <div
-              className="absolute inset-0 z-0"
+              className="absolute inset-0 z-0 img-bg"
               style={{
                 background: "#fde0d0",
                 borderRadius: "60% 40% 55% 45% / 50% 60% 40% 50%",
