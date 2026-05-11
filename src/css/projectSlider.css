@@ -240,7 +240,8 @@
 
     .ps-card { flex: 0 0 82vw; }
 
-    .ps-hero { aspect-ratio: 4/3; }
+    .ps-hero { aspect-ratio: 4/3;
+    height: 340px; }
 
     .ps-project-title {
       font-size: clamp(32px, 8vw, 44px);
