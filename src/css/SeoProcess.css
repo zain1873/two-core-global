@@ -66,7 +66,7 @@
     overflow-y: visible;
   }
   .seo-image-card {
-    max-height: 220px !important;
+    /* max-height: 220px !important; */
   }
   .seo-process-heading {
     padding:54px 20px 56px !important;
