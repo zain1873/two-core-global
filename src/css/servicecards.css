@@ -1,222 +1,245 @@
-.sc-wrap { font-family: 'Inter', sans-serif; background: #fff; }
+/* ServicesStack.css — zero GSAP, pure CSS sticky + CSS transitions */
 
-.sc-section {
-  position: relative;
-  height: 800vh;
-  padding: 60px 0;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.sc-sticky {
+/* ═══════════════════════════════════════
+   SECTION
+═══════════════════════════════════════ */
+.ss-section {
+  width: 100%;
+  background: #fff;
+  padding: 80px 0 140px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   INNER LAYOUT
+═══════════════════════════════════════ */
+.ss-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* ═══════════════════════════════════════
+   STICKY LABEL
+═══════════════════════════════════════ */
+.ss-label {
+  width: 160px;
+  flex-shrink: 0;
   position: sticky;
-  top: 54px;
-  height: 100vh;
-  padding: 0px 20px;
+  top: 100px;
+  align-self: flex-start;
+}
+
+.ss-label h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #111;
+}
+
+/* ═══════════════════════════════════════
+   CARDS COLUMN
+═══════════════════════════════════════ */
+.ss-col {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+
+/* ═══════════════════════════════════════
+   CARD WRAPPER — sticky anchor
+   (top is set inline per-card so they
+    cascade rather than all pile at 60px)
+═══════════════════════════════════════ */
+.ss-wrapper {
+  position: sticky;
+  /* top set via inline style in JSX */
+}
+
+/* ═══════════════════════════════════════
+   THE CARD
+═══════════════════════════════════════ */
+.ss-card {
+  background: #fff;
+  border-radius: 20px;
   overflow: hidden;
-  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 56px 64px 56px 60px;
+  gap: 40px;
+  min-height: 280px;
+
+  /* CSS transition replaces the GSAP scrub */
+  transform: scale(1);
+  transform-origin: top center;
+  transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+              box-shadow 0.55s ease;
+  will-change: transform;
 }
 
-.sc-head {
-  text-align: center;
-  margin-bottom: clamp(20px, 3vh, 36px);
+/* Scale-down state added by IntersectionObserver */
+.ss-card.is-covered {
+  transform: scale(0.965);
+  border: 1px solid #eee;
 }
 
-.sc-eyebrow {
+/* ═══════════════════════════════════════
+   TEXT SIDE
+═══════════════════════════════════════ */
+.ss-text {
+  flex: 0 0 52%;
+  max-width: 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ss-eyebrow {
   font-size: 11px;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e85d04;
-  font-weight: 500;
-  margin-bottom: -10px;
+  color: #666;
 }
 
-.sc-title {
-  font-size: clamp(22px, 3vw, 40px);
-  font-weight: 600;
-  color: #111;
-  letter-spacing: -0.02em;
-}
-.sc-title span { color: #e85d04; }
-
-/* ── Grid: 3 columns on desktop ── */
-.sc-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(10px, 1.4vw, 18px);
-  width: 100%;
-  max-width: 1100px;
-  /* margin-top: 32px; */
-}
-
-/* ── Card ── */
-.sc-card {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid #e4e2dc;
-  border-radius: 18px;
-  padding: clamp(16px, 2vw, 26px) clamp(14px, 1.8vw, 24px);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  will-change: transform, opacity;
-  transform: translateY(110px);
-  opacity: 0;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-}
-
-/* ── Top accent line → full fill on hover ── */
-.sc-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background-color: #e85d04;
-  transition: height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 0;
-}
-.sc-card:hover::before {
-  height: 100%;
-}
-
-/* ── All children above fill layer ── */
-.sc-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Icon ── */
-.sc-icon {
-  width: clamp(44px, 4.5vw, 58px);
-  height: clamp(44px, 4.5vw, 58px);
-  border-radius: 12px;
-  background: #fff3ec;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-bottom: 20px;
-  transition: background 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-card:hover .sc-icon {
-  background: rgba(255,255,255,0.22);
-}
-.sc-icon svg {
-  width: clamp(22px, 2.2vw, 28px);
-  height: clamp(22px, 2.2vw, 28px);
-  color: #e85d04;
-  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-card:hover .sc-icon svg {
-  color: #fff;
-}
-
-/* ── Title ── */
-.sc-ctitle {
-  font-size: clamp(13px, 1.3vw, 16px);
-  font-weight: 600;
-  color: #111;
-  line-height: 1.25;
+.ss-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(34px, 4.2vw, 54px);
+  font-weight: 800;
+  line-height: 0.95;
   letter-spacing: -0.01em;
-  font-family: "Poppins", sans-serif;
-  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-card:hover .sc-ctitle { color: #fff; }
-
-/* ── Description ── */
-.sc-desc {
-  font-size: clamp(11px, 1vw, 13px);
-  color: #777;
-  line-height: 1.6;
-  flex: 1;
-  transition: color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-card:hover .sc-desc { color: rgba(255,255,255,0.82); }
-
-/* ── Tag ── */
-.sc-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: #fff3ec;
-  color: #c44d00;
-  font-size: 11px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: 20px;
-  width: fit-content;
-  transition: background 0.42s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-card:hover .sc-tag {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-/* ── Scroll hint ── */
-.sc-hint {
-  position: absolute;
-  bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #bbb;
+  color: #000;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  animation: sc-b 2s ease-in-out infinite;
-}
-.sc-hint-line {
-  width: 1px;
-  height: 24px;
-  background: linear-gradient(to bottom, #e85d04, transparent);
 }
 
-@keyframes sc-b {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(5px); }
+.ss-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: #000;
+  max-width: 370px;
 }
 
-/* ── Tablet: 2 cols ── */
-@media (max-width: 900px) {
-  .sc-grid { grid-template-columns: repeat(2, 1fr); }
+/* ═══════════════════════════════════════
+   IMAGE SIDE
+═══════════════════════════════════════ */
+.ss-image {
+  flex: 0 0 42%;
+  max-width: 42%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* ── Mobile ── */
-@media (max-width: 640px) {
-  .sc-section { height: auto; }
+.ss-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: grayscale(20%) brightness(0.82);
+  transition: transform 0.6s ease;
+}
 
-  .sc-sticky {
-    position: relative;
-    top: unset;
-    height: auto;
-    padding: 10px 20px;
-    overflow: visible;
-    justify-content: flex-start;
+.ss-card:hover .ss-image img {
+  transform: scale(1.04);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — Tablet ≤1024px
+═══════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .ss-inner {
+    padding: 0 28px;
+    gap: 32px;
   }
 
-  .sc-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .ss-label {
+    width: 120px;
+  }
+
+  .ss-card {
+    padding: 44px 36px;
+    min-height: 240px;
+    gap: 28px;
+  }
+
+  .ss-text {
+    flex: 0 0 55%;
+    max-width: 55%;
+  }
+
+  .ss-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    height: 170px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — Mobile ≤700px
+═══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .ss-section {
+    padding: 56px 0 100px;
+  }
+
+  .ss-inner {
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .ss-label {
+    width: 68px;
+  }
+
+  .ss-label h2 {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+  }
+
+  .ss-card {
+    flex-direction: column;
+    padding: 28px 22px;
+    min-height: unset;
+    gap: 18px;
+    align-items: flex-start;
+  }
+
+  .ss-text {
+    flex: none;
+    max-width: 100%;
     gap: 12px;
   }
 
-  .sc-card {
-    transform: none !important;
-    opacity: 1 !important;
+  .ss-image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: 180px;
   }
 
-  .sc-hint { display: none; }
-}
+  .ss-title {
+    font-size: 34px;
+  }
 
-@media (max-width: 380px) {
-  .sc-grid { grid-template-columns: 1fr; }
+  .ss-body {
+    font-size: 13px;
+  }
 }
