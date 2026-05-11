@@ -228,6 +228,15 @@
       padding: 0 24px;
       gap: 16px;
     }
+    .ps-bottom-row {
+      align-items: center;
+    }
+    .ps-project-title {
+      /* font-size: 26px !important; */
+    }
+    .ps-bottom-row {
+      padding-top: 50px;
+    }
 
     .ps-card { flex: 0 0 82vw; }
 
@@ -249,7 +258,6 @@
   .ps-sticky-container  {
     justify-content: start;
     padding-top: 74px;
-    height: 85vh;
   }
   .ps-header {
     padding: 0px 32px 0;

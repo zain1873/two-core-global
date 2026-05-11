@@ -4,34 +4,34 @@ import "../css/projectSlider.css"
 /* ─── DATA ─── */
 const CARDS = [
   {
-    title: 'Cars Daily',
+    title: 'Nova Finance',
     year: '2025',
-    tags: ['Transportation', 'Brand & Packaging'],
-    image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1400&q=80&fit=crop',
+    tags: ['Fintech', 'Web Development'],
+    image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1400&q=80&fit=crop',
     accent: '#F06A0F',
     number: '01',
   },
   {
-    title: 'Moto Hub',
+    title: 'Pixel Studio',
     year: '2025',
-    tags: ['Automotive', 'Identity'],
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1400&q=80&fit=crop',
+    tags: ['UI/UX', 'Brand Identity'],
+    image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1400&q=80&fit=crop',
     accent: '#C0420A',
     number: '02',
   },
   {
-    title: 'Drive Co.',
+    title: 'CloudSync',
     year: '2024',
-    tags: ['Branding', 'Digital'],
-    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1400&q=80&fit=crop',
+    tags: ['SaaS Platform', 'Dashboard'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=80&fit=crop',
     accent: '#E85D04',
     number: '03',
   },
   {
-    title: 'SpeedLane',
+    title: 'Vision Tech',
     year: '2024',
-    tags: ['Web', 'Motion'],
-    image: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1400&q=80&fit=crop',
+    tags: ['Development', 'Mobile App'],
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80&fit=crop',
     accent: '#F06A0F',
     number: '04',
   },
@@ -53,15 +53,7 @@ function Card({ card, scale, opacity }) {
         <img className="ps-hero-image" src={card.image} alt={card.title} />
         <div className="ps-hero-overlay" />
         <div className="ps-brand">
-          <div className="ps-brand-icon">
-            <svg width="18" height="12" viewBox="0 0 36 24" fill="none">
-              <rect x="2" y="10" width="32" height="10" rx="3" fill="white" />
-              <rect x="8" y="4" width="20" height="8" rx="2" fill="white" />
-              <circle cx="9" cy="21" r="3" fill="white" />
-              <circle cx="27" cy="21" r="3" fill="white" />
-            </svg>
-          </div>
-          <span className="ps-brand-name">CarsDaily</span>
+          {/* <span className="ps-brand-name">CarsDaily</span> */}
         </div>
         <div className="ps-year-pill">{card.year}</div>
       </div>

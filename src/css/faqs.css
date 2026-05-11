@@ -1,0 +1,225 @@
+/* ─── Reset / Base ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Section wrapper ───────────────────────────────────────────── */
+.faq-section {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 80px 6vw 100px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #111;
+}
+
+/* ─── Top label ─────────────────────────────────────────────────── */
+.faq-top-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 56px;
+}
+
+/* ─── Two-column inner layout ───────────────────────────────────── */
+.faq-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 6vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Left: heading column ──────────────────────────────────────── */
+.faq-heading-col {
+  flex: 0 0 auto;
+  width: 32%;
+  max-width: 340px;
+  padding-top: 4px;
+}
+
+.faq-heading {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: #111;
+}
+
+/* ─── Right: accordion column ───────────────────────────────────── */
+.faq-accordion-col {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ─── Single FAQ item ───────────────────────────────────────────── */
+.faq-item {
+  position: relative;
+}
+
+/* top border only on the very first item */
+.faq-item:first-child {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* ─── Trigger button ────────────────────────────────────────────── */
+.faq-trigger {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 28px 0;
+  gap: 0;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.faq-trigger:focus-visible .faq-title {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ─── Number ────────────────────────────────────────────────────── */
+.faq-number {
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 300;
+  color: #111;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+/* ─── Title ─────────────────────────────────────────────────────── */
+.faq-title {
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.01em;
+  flex: 1 1 auto;
+  padding-left: 8px;
+}
+
+/* ─── Chevron icon wrapper ──────────────────────────────────────── */
+.faq-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+/* ─── SVG chevron rotation ──────────────────────────────────────── */
+.faq-chevron {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.faq-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ─── Accordion content ─────────────────────────────────────────── */
+.faq-content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content--open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.faq-body {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #555;
+  padding: 0 0 28px 80px; /* aligns with the title text after the number */
+  max-width: 620px;
+}
+
+/* ─── Divider ───────────────────────────────────────────────────── */
+.faq-divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  width: 100%;
+}
+
+/* ─── Responsive: Tablet (≤ 900px) ─────────────────────────────── */
+@media (max-width: 900px) {
+  .faq-section {
+    padding: 60px 5vw 80px;
+  }
+
+  .faq-inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .faq-heading-col {
+    width: 100%;
+    max-width: none;
+  }
+
+  .faq-heading {
+    font-size: clamp(32px, 6vw, 48px);
+  }
+
+  .faq-body {
+    padding-left: 60px;
+  }
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ─────────────────────────────── */
+@media (max-width: 540px) {
+  .faq-section {
+    padding: 48px 20px 64px;
+  }
+
+  .faq-top-label {
+    margin-bottom: 36px;
+  }
+
+  .faq-heading {
+    font-size: 34px;
+  }
+
+  .faq-number {
+    font-size: 28px;
+    min-width: 52px;
+  }
+
+  .faq-title {
+    font-size: 13px;
+  }
+
+  .faq-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .faq-body {
+    font-size: 13.5px;
+    padding-left: 52px;
+    padding-bottom: 24px;
+  }
+
+  .faq-trigger {
+    padding: 22px 0;
+  }
+}

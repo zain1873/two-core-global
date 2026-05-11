@@ -39,6 +39,7 @@
   position: sticky;
   top: 100px;
   align-self: flex-start;
+
 }
 
 .ss-label h2 {
@@ -48,6 +49,12 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #111;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(4rem, 7vw, 10rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 /* ═══════════════════════════════════════
@@ -87,7 +94,7 @@
   transform: scale(1);
   transform-origin: top center;
   transition: transform 0.55s cubic-bezier(0.33, 1, 0.68, 1),
-              box-shadow 0.55s ease;
+  box-shadow 0.55s ease;
   will-change: transform;
 }
 
@@ -195,6 +202,22 @@
 /* ═══════════════════════════════════════
    RESPONSIVE — Mobile ≤700px
 ═══════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .ss-label h2 {
+  text-transform: uppercase;
+  color: #111;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: clamp(4rem, 7vw, 10rem) !important;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+
+  }
+
+
+}
 @media (max-width: 700px) {
   .ss-section {
     padding: 56px 0 100px;

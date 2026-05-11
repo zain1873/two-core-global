@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
-import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import WhyChooseSeo from "../components/WhyChooseSeo";
 import SeoExpertise from "../components/SeoExpertise";
 import SeoProcess from "../components/SeoProcess";
 import SEOPackages from "../components/SeoPakages";
+import SeoTagline from "../components/SeoTagline";
 
 function SeoSection() {
   return (
@@ -29,9 +29,9 @@ function SeoSection() {
       <SeoExpertise/>
       <SeoProcess/>
       <SEOPackages/>
-      <CTASection />
       <TestimonialSlider />
-      <Contact />
+      <SeoTagline/>
+      <CTASection />
       <Footer />
     </div>
   );

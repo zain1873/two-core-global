@@ -39,7 +39,7 @@ export default function HeroTagline() {
           font-size: 60px;
           letter-spacing: 0.01em;
           text-transform: uppercase;
-          color: #f06a0f;
+          color: blue;
         }
         @media (max-width: 768px) {
           .htl-section {
@@ -59,7 +59,7 @@ export default function HeroTagline() {
             data-aos-delay="0"
             data-aos-offset="-200"
           >
-            UNDERSTANDING HUMANS
+            GET YOUR PREMIUM WEBSITES 
           </span>
           <span
             className="htl-line"
@@ -67,7 +67,7 @@ export default function HeroTagline() {
             data-aos-delay="150"
             data-aos-offset="-200"
           >
-            TO MOVE HUMANITY
+            AUDIT REPORTS FREE
           </span>
         </div>
       </section>
