@@ -2,14 +2,14 @@ import React from "react";
 import "../css/PagesCss/webDev.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
-import DevelopmentCards from "../components/DevelopmentCards";
+import AppDevelopmentCards from "../components/AppDevlopmentCards";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import WebDevelopmentSideby from "../components/webDevelopmentSideby";
+import AppDevelopmentSideby from "../components/AppDevelopmentSideby";
 
-function WebsiteDevelopment() {
+function AppDevelopment() {
   return (
     <div className="website-development">
       <Navbar />
@@ -19,14 +19,15 @@ function WebsiteDevelopment() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Website Development</p>
-            <h1>Building Seamless Experiences</h1>
+            <p className="banner-breadcrumb">Home / App Development</p>
+            <h1>Custom Mobile Apps for Tomorrow</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>
         </div>
       </section>
-      <WebDevelopmentSideby/>
-      <DevelopmentCards />
+
+      <AppDevelopmentSideby/>
+      <AppDevelopmentCards />
       <WhyChooseUs />
       <CTASection />
       <TestimonialSlider />
@@ -36,4 +37,4 @@ function WebsiteDevelopment() {
   );
 }
 
-export default WebsiteDevelopment;
+export default AppDevelopment;

@@ -1,11 +1,10 @@
 import { useEffect, useRef } from "react";
 
 const checks = [
-  "Professional SEO Optimizations",
-  "Experience Team Members & Lot's Of Customers",
-  "Digital Business & SEO Solutions",
+  "Social Media Strategy & Content Planning",
+  "Creative Post Designs For Every Platform",
+  "Consistent Branding Across Social Channels",
 ];
-
 export default function WhyChooseUs() {
   const itemsRef = useRef([]);
 
@@ -49,7 +48,7 @@ export default function WhyChooseUs() {
               }}
             />
             <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&auto=format&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80"
               alt="Digital services team at work"
               className="relative z-10 w-full rounded-2xl object-cover shadow-lg"
               style={{ maxHeight: "460px", objectPosition: "center top" }}
@@ -80,10 +79,9 @@ export default function WhyChooseUs() {
 
           {/* Description */}
           <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-            Improve your search engine rankings with powerful SEO strategies
-            focused on organic growth, better visibility, faster website
-            performance, and attracting high-quality traffic that converts into
-            real customers.
+            We create engaging social media content that helps your brand stand
+            out, connect with your audience, and grow consistently across all
+            major platforms with creative visuals and strategy-driven design.
           </p>
 
           {/* Checklist */}

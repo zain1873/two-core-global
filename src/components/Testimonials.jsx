@@ -1,274 +1,500 @@
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const testimonials = [
   {
     id: 1,
-    quote: "Working with Buzz was an absolute pleasure. They brought innovative solutions to the table and executed the project flawlessly. I'm very satisfied with how everything turned out.",
-    name: "Jamal Khan",
-    company: "LEVEL UP VISTA",
-    logo: "LEVEL·UP\nVISTA",
+    quote:
+      '"Rafal is that rare designer who not only knows how to create something beautiful, but also understands the importance of driving conversions and creating meaningful value for the business. My business is better off because I worked with him."',
+    name: "James Clear",
+    title: "Author of the bestseller,",
+    subtitle: "Atomic Habits",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
   },
   {
     id: 2,
-    quote: "The team at Buzz exceeded every expectation. Their attention to detail and creative approach transformed our vision into something truly remarkable. Highly recommended.",
-    name: "Sarah Mitchell",
-    company: "NOVA DESIGN CO",
-    logo: "NOVA\nDESIGN",
+    quote:
+      '"Rafal is one of the most talented designers I\'ve ever worked with. If I could convince him to join the ConvertKit team full-time, I\'d hire him in a second. Since that\'s not possible, I\'ll just keep hiring him as a contractor."',
+    name: "Nathan Barry",
+    title: "Founder of ConvertKit.com",
+    subtitle: null,
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
   },
   {
     id: 3,
-    quote: "From kickoff to launch, the experience was seamless. Buzz delivered on time, on budget, and the results speak for themselves. Our engagement metrics doubled.",
-    name: "Alex Torres",
-    company: "PEAK VENTURES",
-    logo: "PEAK\nVENTURES",
+    quote:
+      '"I keep coming back to Rafal and his team because of their unbeatable combination of sharp design and winning UX/UI. They\'re fast and easy to work with, and keep my digital marketing looking my best!"',
+    name: "Jay Baer",
+    title: "NYT best-selling Author, speaker",
+    subtitle: null,
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face",
   },
   {
     id: 4,
-    quote: "I was blown away by their professionalism and technical expertise. Every challenge was met with a smart solution. This is the agency you want in your corner.",
-    name: "Priya Sharma",
-    company: "ORBIT LABS",
-    logo: "ORBIT\nLABS",
+    quote:
+      '"Working with Rafal transformed our brand identity completely. His ability to blend strategic thinking with stunning visual execution is unmatched. Every project exceeds expectations."',
+    name: "Sarah Johnson",
+    title: "CEO of TechVenture",
+    subtitle: null,
+    avatar: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=80&h=80&fit=crop&crop=face",
   },
   {
     id: 5,
-    quote: "Buzz is simply the best. Their strategic thinking combined with stunning execution made our rebrand a massive success. We couldn't be happier.",
-    name: "Daniel Lee",
-    company: "FLUX STUDIO",
-    logo: "FLUX\nSTUDIO",
-  },
-  {
-    id: 6,
-    quote: "Outstanding results from start to finish. The team listened carefully, adapted quickly, and delivered work that truly represented our brand.",
-    name: "Mia Chen",
-    company: "ARC COLLECTIVE",
-    logo: "ARC\nCOLLECT",
-  },
-  {
-    id: 7,
-    quote: "Working with Buzz felt like having an in-house team that genuinely cared about our success. Their dedication is unmatched in the industry.",
-    name: "Omar Hassan",
-    company: "DUNE MEDIA",
-    logo: "DUNE\nMEDIA",
-  },
-  {
-    id: 8,
-    quote: "The quality of work and speed of delivery were both exceptional. Buzz transformed our outdated website into a conversion machine.",
-    name: "Laura Benson",
-    company: "CREST DIGITAL",
-    logo: "CREST\nDIGITAL",
+    quote:
+      '"Rafal has an incredible eye for detail and a deep understanding of what makes users engage. Our conversion rates doubled after his redesign. I cannot recommend him highly enough."',
+    name: "Marcus Wei",
+    title: "Head of Product at GrowthLab",
+    subtitle: null,
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
   },
 ];
 
-const TOTAL = testimonials.length;
-const AUTO_INTERVAL = 4000;
-const DRAG_THRESHOLD = 60;
+const VISIBLE = 3;
+const AUTO_SLIDE_INTERVAL = 3000;
 
-function LogoAvatar({ text }) {
-  return (
-    <div className="w-14 h-14 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center flex-shrink-0 select-none">
-      <span className="text-[9px] font-semibold text-gray-500 text-center leading-tight whitespace-pre-line tracking-wide pointer-events-none">
-        {text}
-      </span>
-    </div>
-  );
-}
-
-function NavButton({ direction, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      aria-label={direction === "left" ? "Previous" : "Next"}
-      className="w-11 h-11 rounded-full bg-[#ff0080] text-white flex items-center justify-center shadow-lg hover:bg-[#cc0066] active:scale-90 transition-all duration-200 flex-shrink-0 hover:shadow-[0_0_22px_rgba(255,0,128,0.45)] z-10"
-    >
-      {direction === "left" ? (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="15 18 9 12 15 6" />
-        </svg>
-      ) : (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round">
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-      )}
-    </button>
-  );
-}
-
-function DotIndicators({ total, active, onDotClick }) {
-  return (
-    <div className="flex items-center justify-center gap-2 mt-8">
-      {Array.from({ length: total }).map((_, i) => (
-        <button
-          key={i}
-          onClick={() => onDotClick(i)}
-          aria-label={`Go to testimonial ${i + 1}`}
-          className={`h-[5px] rounded-full transition-all duration-400 ${
-            i === active ? "w-7 bg-[#ff0080]" : "w-5 bg-gray-300"
-          }`}
-        />
-      ))}
-    </div>
-  );
-}
-
-export default function TestimonialSlider() {
-  // current index — with clones we use an extended array approach
-  const [index, setIndex] = useState(0);          // real index 0..TOTAL-1
-  const [offset, setOffset] = useState(0);         // pixel drag offset
-  const [transitioning, setTransitioning] = useState(false);
+export default function TestimonialsCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState(null);
   const [paused, setPaused] = useState(false);
+  const timeoutRef = useRef(null);
+  const autoRef = useRef(null);
 
-  // Drag state
-  const dragStart = useRef(null);
-  const isDragging = useRef(false);
-  const trackRef = useRef(null);
+  const maxIndex = testimonials.length - VISIBLE;
 
-  // ─── Navigation ────────────────────────────────────────────────
-  const goTo = useCallback((next, skipTransition = false) => {
-    const clamped = ((next % TOTAL) + TOTAL) % TOTAL;
-    if (!skipTransition) setTransitioning(true);
-    setIndex(clamped);
-    setOffset(0);
-    if (!skipTransition) setTimeout(() => setTransitioning(false), 420);
-  }, []);
+const navigate = (dir) => {
+  if (animating) return;
 
-  const prev = useCallback(() => goTo(index - 1), [index, goTo]);
-  const next = useCallback(() => goTo(index + 1), [index, goTo]);
+  let nextCurrent;
 
-  // ─── Auto-play ─────────────────────────────────────────────────
+  if (dir === "next") {
+    nextCurrent = current >= maxIndex ? 0 : current + 1;
+  } else {
+    nextCurrent = current <= 0 ? maxIndex : current - 1;
+  }
+
+  setDirection(dir);
+  setAnimating(true);
+
+  clearTimeout(timeoutRef.current);
+
+  timeoutRef.current = setTimeout(() => {
+    setCurrent(nextCurrent);
+    setAnimating(false);
+  }, 320);
+};
+  // Auto-slide
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(next, AUTO_INTERVAL);
-    return () => clearInterval(t);
-  }, [paused, next]);
+    autoRef.current = setInterval(() => {
+      navigate("next", true);
+    }, AUTO_SLIDE_INTERVAL);
+    return () => clearInterval(autoRef.current);
+  }, [paused, current, animating]);
 
-  // ─── Mouse drag ────────────────────────────────────────────────
-  const onMouseDown = (e) => {
-    isDragging.current = true;
-    dragStart.current = e.clientX;
-    setPaused(true);
-    e.preventDefault();
-  };
+  useEffect(() => () => {
+    clearTimeout(timeoutRef.current);
+    clearInterval(autoRef.current);
+  }, []);
 
-  const onMouseMove = (e) => {
-    if (!isDragging.current) return;
-    setOffset(e.clientX - dragStart.current);
-  };
-
-  const onMouseUp = (e) => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-    const delta = e.clientX - dragStart.current;
-    if (delta < -DRAG_THRESHOLD) next();
-    else if (delta > DRAG_THRESHOLD) prev();
-    else setOffset(0);
-    setTimeout(() => setPaused(false), 800);
-  };
-
-  const onMouseLeave = (e) => {
-    if (isDragging.current) onMouseUp(e);
-    setPaused(false);
-  };
-
-  // ─── Touch drag ────────────────────────────────────────────────
-  const onTouchStart = (e) => {
-    dragStart.current = e.touches[0].clientX;
-    isDragging.current = true;
-    setPaused(true);
-  };
-
-  const onTouchMove = (e) => {
-    if (!isDragging.current) return;
-    setOffset(e.touches[0].clientX - dragStart.current);
-  };
-
-  const onTouchEnd = () => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-    if (offset < -DRAG_THRESHOLD) next();
-    else if (offset > DRAG_THRESHOLD) prev();
-    else setOffset(0);
-    setTimeout(() => setPaused(false), 800);
-  };
-
-  // Build a virtual strip: [last, ...all, first] for infinite feel
-  // We render TOTAL slides via translateX trick
-  const translateX = `calc(${-index * 100}% + ${offset}px)`;
+  const visible = testimonials.slice(current, current + VISIBLE);
 
   return (
-    <section className="w-full bg-white py-16 px-0 overflow-hidden select-none">
-      {/* Outer wrapper with nav arrows */}
-      <div className="relative flex items-center max-w-6xl mx-auto px-6 sm:px-10">
+    <section className="testimonials-section">
+      <style>{`
 
-        {/* Left nav */}
-        <div className="absolute left-0 sm:left-2 z-10">
-          <NavButton direction="left" onClick={() => { prev(); setPaused(true); setTimeout(() => setPaused(false), 1200); }} />
+        .testimonials-section {
+          font-family: 'Syne', sans-serif;
+          background: #ffffff;
+          padding: 80px 64px 100px;
+          max-width: 1440px;
+          margin: 0 auto;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+
+        .testimonials-header {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          margin-bottom: 64px;
+        }
+
+        .testimonials-heading-block h2 {
+          font-size: clamp(2rem, 4vw, 3rem);
+          font-weight: 800;
+          color: #111111;
+          margin: 0;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+        }
+
+        .testimonials-heading-block p {
+          font-size: clamp(1.5rem, 3vw, 2.25rem);
+          font-weight: 700;
+          color: #cccccc;
+          margin: 4px 0 0;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+        }
+
+        .nav-buttons {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          flex-shrink: 0;
+          padding-top: 8px;
+        }
+
+        .nav-btn {
+          width: 52px;
+          height: 52px;
+          border: 1.5px solid #dddddd;
+          background: #fff;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background 0.18s, border-color 0.18s, transform 0.12s;
+          border-radius: 0;
+          outline: none;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+          background: #111;
+          border-color: #111;
+        }
+
+        .nav-btn:hover:not(:disabled) svg path {
+          stroke: #fff;
+        }
+
+        .nav-btn:active:not(:disabled) {
+          transform: scale(0.95);
+        }
+
+        .nav-btn svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        .nav-btn svg path {
+          stroke: #111;
+          stroke-width: 2;
+          fill: none;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          transition: stroke 0.18s;
+        }
+
+        .cards-viewport {
+          overflow: hidden;
+          width: 100%;
+        }
+
+        .cards-track {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap:10px !important;
+          gap: 0;
+          transition: opacity 0.32s ease, transform 0.32s ease;
+        }
+
+        .cards-track.slide-left {
+          opacity: 0;
+          transform: translateX(-24px);
+        }
+
+        .cards-track.slide-right {
+          opacity: 0;
+          transform: translateX(24px);
+        }
+
+        .testimonial-card {
+          padding: 0 48px 0 0;
+          position: relative;
+          padding: 10px;
+          border:1px solid #eee;
+          transition: .3s ease;
+        }
+         .testimonial-card:hover {
+         border:1px solid #000;
+         
+         }
+
+
+        .testimonial-card:last-child {
+          padding-right: 0;
+        }
+
+        .quote-mark-box {
+          width: 46px;
+          height: 46px;
+          background: #111111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 28px;
+          flex-shrink: 0;
+        }
+
+        .quote-mark-box svg {
+          width: 18px;
+          height: 14px;
+        }
+
+        .quote-text {
+          font-family: 'Inter', sans-serif;
+          font-size: clamp(0.85rem, 1.1vw, 1rem);
+          font-weight: 400;
+          line-height: 1.72;
+          color: #222222;
+          margin: 0 0 36px;
+          min-height: 160px;
+          letter-spacing: 0;
+        }
+
+        .author-row {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          margin-top: auto;
+        }
+
+        .author-avatar {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          object-fit: cover;
+          flex-shrink: 0;
+          border: 2px solid #f0f0f0;
+        }
+
+        .author-info {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .author-name {
+          font-family: 'Syne', sans-serif;
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: #111111;
+          margin: 0 0 2px;
+          letter-spacing: -0.01em;
+        }
+
+        .author-title {
+          font-family: 'Inter', sans-serif;
+          font-size: 0.8rem;
+          font-weight: 400;
+          color: #888888;
+          margin: 0;
+          line-height: 1.4;
+        }
+
+        .progress-bar-wrap {
+          width: 100%;
+          height: 2px;
+          background: #eeeeee;
+          margin-top: 48px;
+          overflow: hidden;
+        }
+
+        .progress-bar-fill {
+          height: 100%;
+          background: #111;
+          animation: fillBar 3s linear infinite;
+        }
+
+        .progress-bar-fill.paused {
+          animation-play-state: paused;
+        }
+
+        @keyframes fillBar {
+          from { width: 0% }
+          to { width: 100% }
+        }
+
+        .progress-dots {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          margin-top: 32px;
+        }
+
+        .progress-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #ddd;
+          transition: background 0.3s, transform 0.25s;
+          cursor: pointer;
+          border: none;
+          padding: 0;
+          outline: none;
+        }
+
+        .progress-dot.active {
+          background: #111;
+          transform: scale(1.4);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 1024px) {
+          .testimonials-section {
+            padding: 60px 40px 80px;
+          }
+          .testimonial-card {
+            padding: 0 32px 0 0;
+          }
+          .quote-text {
+            font-size: 0.875rem;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .testimonials-section {
+            padding: 48px 24px 64px;
+          }
+
+          .cards-track {
+            grid-template-columns: 1fr;
+            gap: 48px;
+          }
+
+          .testimonial-card {
+            padding: 0;
+          }
+
+          .quote-text {
+            min-height: unset;
+            font-size: 0.9rem;
+          }
+
+          .testimonials-header {
+            margin-bottom: 40px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .testimonials-section {
+            padding: 36px 20px 48px;
+          }
+
+          .testimonials-heading-block h2 {
+            font-size: 1.75rem;
+          }
+
+          .testimonials-heading-block p {
+            font-size: 1.4rem;
+          }
+
+          .nav-btn {
+            width: 44px;
+            height: 44px;
+          }
+        }
+      `}</style>
+
+      <div className="testimonials-header">
+        <div className="testimonials-heading-block">
+          <h2>Who we work with.</h2>
+          <p>Partners, not clients.</p>
         </div>
-
-        {/* Track viewport */}
-        <div
-          ref={trackRef}
-          className="w-full overflow-hidden cursor-grab active:cursor-grabbing mx-10 sm:mx-12"
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onMouseLeave={onMouseLeave}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          {/* Slide strip */}
-          <div
-            className="flex"
-            style={{
-              transform: `translateX(${translateX})`,
-              transition: transitioning ? "transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)" : isDragging.current ? "none" : "transform 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-              willChange: "transform",
-            }}
+        <div className="nav-buttons">
+          <button
+            className="nav-btn"
+            onClick={() => navigate("prev")}
+            aria-label="Previous"
           >
-            {testimonials.map((t, i) => (
-              <div
-                key={t.id}
-                className="min-w-full flex flex-col items-center text-center px-2 sm:px-6 md:px-12"
-                style={{ userSelect: "none" }}
-              >
-                {/* Quote */}
-                <p
-                  className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-snug tracking-tight max-w-4xl pointer-events-none"
-                  style={{ fontFamily: "'Georgia', serif" }}
-                >
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-
-                {/* Author */}
-                <div className="flex items-center gap-4 mt-10 pointer-events-none">
-                  <LogoAvatar text={t.logo} />
-                  <div className="text-left">
-                    <p className="text-lg font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-xs font-medium text-gray-400 tracking-widest uppercase mt-1">
-                      {t.company}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right nav */}
-        <div className="absolute right-0 sm:right-2 z-10">
-          <NavButton direction="right" onClick={() => { next(); setPaused(true); setTimeout(() => setPaused(false), 1200); }} />
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M11 14L6 9L11 4" />
+            </svg>
+          </button>
+          <button
+            className="nav-btn"
+            onClick={() => navigate("next")}
+            aria-label="Next"
+          >
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M7 4L12 9L7 14" />
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Dots */}
-      <DotIndicators
-        total={TOTAL}
-        active={index}
-        onDotClick={(i) => { goTo(i); setPaused(true); setTimeout(() => setPaused(false), 1200); }}
-      />
+      <div className="cards-viewport"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div
+          className={`cards-track${
+            animating && direction === "next"
+              ? " slide-left"
+              : animating && direction === "prev"
+              ? " slide-right"
+              : ""
+          }`}
+        >
+          {visible.map((t) => (
+            <div className="testimonial-card" key={t.id}>
+              <div className="quote-mark-box">
+                <svg viewBox="0 0 22 16" fill="none">
+                  <path
+                    d="M0 16V9.6C0 6.93333 0.666667 4.6 2 2.6C3.33333 0.866667 5.2 0 7.6 0L8.8 2C7.2 2.26667 5.86667 3 4.8 4.2C3.73333 5.4 3.2 6.8 3.2 8.4H6.4V16H0ZM13.6 16V9.6C13.6 6.93333 14.2667 4.6 15.6 2.6C16.9333 0.866667 18.8 0 21.2 0L22.4 2C20.8 2.26667 19.4667 3 18.4 4.2C17.3333 5.4 16.8 6.8 16.8 8.4H20V16H13.6Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
 
-      {/* Drag hint on mobile */}
-      <p className="text-center text-xs text-gray-300 mt-4 sm:hidden">drag to swipe</p>
+              <p className="quote-text">{t.quote}</p>
+
+              <div className="author-row">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="author-avatar"
+                />
+                <div className="author-info">
+                  <span className="author-name">{t.name}</span>
+                  <span className="author-title">
+                    {t.title}
+                    {t.subtitle && (
+                      <>
+                        <br />
+                        {t.subtitle}
+                      </>
+                    )}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Dot indicators */}
+      <div className="progress-dots">
+        {Array.from({ length: testimonials.length - VISIBLE + 1 }).map((_, i) => (
+          <button
+            key={i}
+            className={`progress-dot${current === i ? " active" : ""}`}
+            onClick={() => {
+              if (!animating) {
+                setDirection(i > current ? "next" : "prev");
+                setAnimating(true);
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = setTimeout(() => {
+                  setCurrent(i);
+                  setAnimating(false);
+                }, 320);
+              }
+            }}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }

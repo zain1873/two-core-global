@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import AboutHospital from "../components/About";
+import StickySideBy from "../components/StickySideby";
 
 function AboutPage() {
   return (
@@ -22,7 +22,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      <AboutHospital/>
+      <StickySideBy/>
       <CTASection />
       <TestimonialSlider />
       <Contact />

@@ -17,7 +17,7 @@ const NAV_LINKS = [
 const SERVICES = {
   Development: [
     { icon: Code, label: "Website Development", link: "/website-development" },
-    { icon: Smartphone, label: "Mobile App Development" },
+    { icon: Smartphone, label: "Mobile App Development" , link: "/mobile-app-development" },
     { icon: ShoppingCart, label: "Ecommerce Development" },
     { icon: Package, label: "Product Development" },
     { icon: Settings, label: "Software Development" },
@@ -30,7 +30,7 @@ const SERVICES = {
   "Digital Marketing": [
     { icon: Search, label: "SEO Services", link: "/seo-services" },
     { icon: Megaphone, label: "SEM Services", link: "/sem-services" },
-    { icon: Share2, label: "Social Media" },
+    { icon: Share2, label: "Social Media", link: "/social-media-services"},
   ],
 };
 

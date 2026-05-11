@@ -1,17 +1,14 @@
 import React from "react";
-import "../css/PagesCss/webDev.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/Footer";
-import DevelopmentCards from "../components/DevelopmentCards";
-import WhyChooseUs from "../components/WhyChooseUs";
-import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import WebDevelopmentSideby from "../components/webDevelopmentSideby";
+import SocialMediaPackages from "../components/SocialMediaPakages";
+import WhyChooseUs from "../components/WhyChooseSocial";
 
-function WebsiteDevelopment() {
+function SocialMedia() {
   return (
-    <div className="website-development">
+    <div className="seo-services bg-[white]">
       <Navbar />
 
       {/* Banner Section */}
@@ -19,21 +16,19 @@ function WebsiteDevelopment() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Website Development</p>
-            <h1>Building Seamless Experiences</h1>
+            <p className="banner-breadcrumb">Home / Social Media</p>
+            <h1>Social Media Management</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>
         </div>
       </section>
-      <WebDevelopmentSideby/>
-      <DevelopmentCards />
-      <WhyChooseUs />
-      <CTASection />
+      <WhyChooseUs/>
+      <SocialMediaPackages/>
       <TestimonialSlider />
-      <Contact />
+      <CTASection />
       <Footer />
     </div>
   );
 }
 
-export default WebsiteDevelopment;
+export default SocialMedia;

@@ -14,11 +14,14 @@ export default function WhyChooseUs() {
       if (!el) return;
       el.style.opacity = "0";
       el.style.transform = "translateX(-20px)";
-      setTimeout(() => {
-        el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-        el.style.opacity = "1";
-        el.style.transform = "translateX(0)";
-      }, 200 + i * 120);
+      setTimeout(
+        () => {
+          el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateX(0)";
+        },
+        200 + i * 120,
+      );
     });
   }, []);
 
@@ -33,7 +36,6 @@ export default function WhyChooseUs() {
       `}</style>
 
       <div className="max-w-5xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-
         {/* LEFT — Unsplash Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
           <div className="relative w-full max-w-md">
@@ -57,11 +59,13 @@ export default function WhyChooseUs() {
 
         {/* RIGHT — Content */}
         <div className="w-full lg:w-1/2 flex flex-col items-start">
-
           {/* Badge */}
           <span
             className="text-white text-sm font-semibold px-4 py-2 rounded-lg mb-5"
-            style={{ background: "#7c3aed", fontFamily: "'DM Sans', sans-serif" }}
+            style={{
+              background: "#7c3aed",
+              fontFamily: "'DM Sans', sans-serif",
+            }}
           >
             Why Choose Us
           </span>
@@ -76,9 +80,10 @@ export default function WhyChooseUs() {
 
           {/* Description */}
           <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-            Sit amet consectetur adipiscing elit mollis eget scelerisque nibh
-            mattis nulla. Suspendisse euismod bibendum mi alique Dignissim neque
-            viverra tempor enim proin tristique lectus.
+            Boost your online visibility with strategic SEO solutions designed
+            to improve rankings, increase organic traffic, and help your
+            business reach the right audience through long-term search engine
+            growth.
           </p>
 
           {/* Checklist */}
@@ -113,7 +118,6 @@ export default function WhyChooseUs() {
               </li>
             ))}
           </ul>
-
         </div>
       </div>
     </section>

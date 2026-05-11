@@ -6,6 +6,8 @@ import SeoPage from "./pages/SeoPage";
 import ContactPage from "./pages/ContactPage";
 import SemPage from "./pages/SemPage";
 import AboutPage from "./pages/AboutPage";
+import SocialMediaPage from "./pages/SocialMediaPage";
+import MobileDevelopmentPage from "./pages/MobileDevelopmentPage";
 
 export default function App() {
   return (
@@ -15,8 +17,10 @@ export default function App() {
         <Route path="/about" element={ <AboutPage/>} />
         <Route path="/website-development" element={<WebsiteDevelopment />} />
         <Route path="/seo-services" element={<SeoPage />} />
-        <Route path="/contact" element={<ContactPage />} />
         <Route path="/sem-services" element={<SemPage />} />
+        <Route path="/social-media-services" element={<SocialMediaPage />} />
+        <Route path="/mobile-app-development" element={<MobileDevelopmentPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
 
 
