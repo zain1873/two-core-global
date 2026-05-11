@@ -364,7 +364,7 @@ const navigate = (dir) => {
           }
 
           .testimonial-card {
-            padding: 0;
+            padding: 10px;
           }
 
           .quote-text {
