@@ -13,7 +13,6 @@
 ═══════════════════════════════════════ */
 .ss-section {
   width: 100%;
-  background: #fff;
   padding: 80px 0 140px;
   font-family: 'Inter', sans-serif;
 }
@@ -48,13 +47,14 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #111;
+  color: var(--color-primary);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-size: clamp(4rem, 7vw, 10rem);
   font-weight: 900;
   text-transform: uppercase;
   line-height: 1;
+  text-shadow: var(--glow-primary);
 }
 
 /* ═══════════════════════════════════════
@@ -80,7 +80,7 @@
    THE CARD
 ═══════════════════════════════════════ */
 .ss-card {
-  background: #fff;
+  background: var(--color-bg-light);
   border-radius: 20px;
   overflow: hidden;
   display: flex;
@@ -89,6 +89,7 @@
   padding: 56px 64px 56px 60px;
   gap: 40px;
   min-height: 280px;
+  border: 1px solid var(--color-border-white-alpha);
 
   /* CSS transition replaces the GSAP scrub */
   transform: scale(1);
@@ -97,11 +98,15 @@
   box-shadow 0.55s ease;
   will-change: transform;
 }
+.ss-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--glow-primary);
+}
 
 /* Scale-down state added by IntersectionObserver */
 .ss-card.is-covered {
   transform: scale(0.965);
-  border: 1px solid #eee;
+  border: 1px solid var(--color-border-light);
 }
 
 /* ═══════════════════════════════════════
@@ -120,7 +125,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #666;
+  color: var(--color-text-muted);
 }
 
 .ss-title {
@@ -130,7 +135,7 @@
   line-height: 0.95;
   letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #000;
+  color: var(--color-text-dark);
   display: flex;
   flex-direction: column;
 }
@@ -139,7 +144,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.65;
-  color: #000;
+  color: var(--color-text-dark);
   max-width: 370px;
 }
 
@@ -206,7 +211,7 @@
 @media (max-width: 768px) {
   .ss-label h2 {
   text-transform: uppercase;
-  color: #111;
+  color: var(--color-primary);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-size: clamp(4rem, 7vw, 10rem) !important;

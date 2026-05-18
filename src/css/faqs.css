@@ -9,11 +9,11 @@
 
 /* ─── Section wrapper ───────────────────────────────────────────── */
 .faq-section {
-  background-color: #ffffff;
+  background-color: var(--color-bg-light);
   width: 100%;
   padding: 80px 6vw 100px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #111;
+  color: var(--color-text-dark);
 }
 
 /* ─── Top label ─────────────────────────────────────────────────── */
@@ -22,7 +22,7 @@
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #999;
+  color: var(--color-text-muted);
   margin-bottom: 56px;
 }
 
@@ -48,7 +48,7 @@
   font-weight: 300;
   line-height: 1.18;
   letter-spacing: -0.01em;
-  color: #111;
+  color: var(--color-text-dark);
 }
 
 /* ─── Right: accordion column ───────────────────────────────────── */
@@ -64,7 +64,7 @@
 
 /* top border only on the very first item */
 .faq-item:first-child {
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid var(--color-border);
 }
 
 /* ─── Trigger button ────────────────────────────────────────────── */
@@ -91,7 +91,7 @@
 .faq-number {
   font-size: clamp(28px, 3.2vw, 44px);
   font-weight: 300;
-  color: #111;
+  color: var(--color-text-dark);
   line-height: 1;
   letter-spacing: -0.01em;
   min-width: 72px;
@@ -102,7 +102,7 @@
 .faq-title {
   font-size: clamp(13px, 1.2vw, 15px);
   font-weight: 400;
-  color: #111;
+  color: var(--color-text-dark);
   letter-spacing: 0.01em;
   flex: 1 1 auto;
   padding-left: 8px;
@@ -148,7 +148,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.7;
-  color: #555;
+  color: var(--color-text);
   padding: 0 0 28px 80px; /* aligns with the title text after the number */
   max-width: 620px;
 }
@@ -156,7 +156,7 @@
 /* ─── Divider ───────────────────────────────────────────────────── */
 .faq-divider {
   height: 1px;
-  background-color: #e0e0e0;
+  background-color: var(--color-border);
   width: 100%;
 }
 

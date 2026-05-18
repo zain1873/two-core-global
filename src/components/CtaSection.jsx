@@ -75,7 +75,7 @@ export default function CTASection() {
         className="cta-root relative w-full min-h-[420px] flex items-center justify-center overflow-hidden py-24 px-4"
         style={{
           background:
-            "#cf641b",
+            "linear-gradient(135deg, #7CFF00, #00F5FF)",
         }}
       >
         {/* Noise grain texture */}
@@ -85,8 +85,8 @@ export default function CTASection() {
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none"
           style={{
-            background:
-              "radial-gradient(ellipse at center top, rgba(255,255,255,0.08) 0%, transparent 70%)",
+          background:
+            "var(--gradient-white-glow)",
           }}
         />
 
@@ -101,18 +101,18 @@ export default function CTASection() {
           {/* Heading */}
           <h2 className="animate-fade-up-2 text-white font-extrabold leading-tight tracking-tight mb-5
             text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem]">
-            Let's Build Something{" "}
-            <span className="whitespace-nowrap">Extraordinary</span>
+            We Build Strategies{" "}
+            <span className="whitespace-nowrap">That Drive Results</span>
           </h2>
 
           {/* Subtext */}
           <p className="animate-fade-up-3 text-blue-100/80 text-base sm:text-lg max-w-xl leading-relaxed mb-10">
-            Transform your ideas into reality with AI-powered solutions that make a difference.
+            Elevate your brand with innovative marketing, stunning web experiences, and growth-focused digital solutions.
           </p>
 
           {/* CTA */}
           <div className="animate-fade-up-4">
-            <CTAButton>Start Your Project</CTAButton>
+            <CTAButton>Get Started</CTAButton>
           </div>
         </div>
       </section>

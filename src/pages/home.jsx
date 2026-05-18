@@ -9,10 +9,11 @@ import Footer from "../components/Footer";
 import CTASection from "../components/CtaSection";
 import FAQ from "../components/Faqs";
 import HeroTagline from "../components/HeroTagline";
+import "../css/home.css";
 
 export default function Home() {
   return (
-    <div>
+    <div className="home-page">
       <Navbar />
       <HeroBannerText />
       <HeroVideo/>

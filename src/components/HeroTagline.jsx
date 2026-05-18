@@ -20,7 +20,7 @@ export default function HeroTagline() {
         .htl-section {
           height: 82vh;
           width: 100%;
-          background: #ffffff;
+          background: var(--color-bg);
           display: flex;
           align-items: flex-end;
           justify-content: flex-end;
@@ -39,7 +39,8 @@ export default function HeroTagline() {
           font-size: 60px;
           letter-spacing: 0.01em;
           text-transform: uppercase;
-          color: #f06a0f;
+          color: var(--color-primary);
+          text-shadow: var(--glow-primary);
         }
         @media (max-width: 768px) {
           .htl-section {

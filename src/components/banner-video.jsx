@@ -21,20 +21,21 @@ export default function HeroVideo() {
       const raw = clamp(-rect.top / totalScroll, 0, 1);
       const p = easeInOut(raw);
 
-      const w = lerp(80.3698, 100, p);
-      const h = lerp(80.3817, 100, p);
-      const rotation = lerp(-6, 0, p);
-
-      const x1 = lerp(9.8131, 0, p),  y1 = lerp(0.4907, 0, p);
-      const x2 = lerp(94.1121, 100, p), y2 = lerp(19.6262, 0, p);
-      const x3 = lerp(99.5093, 100, p), y3 = lerp(99.5093, 100, p);
-      const x4 = lerp(0, 0, p),         y4 = lerp(87.243, 100, p);
+      const w = lerp(100, 58, p);
+      const h = lerp(100, 62, p);
+      const radius = lerp(0, 22, p);
+      const rotation = lerp(0, 2.5, p);
+      const shadowBlur = lerp(0, 80, p);
+      const shadowSpread = lerp(0, 20, p);
+      const shadowOpacity = lerp(0, 0.55, p);
 
       Object.assign(media.style, {
         width: `${w}%`,
         height: `${h}vh`,
+        borderRadius: `${radius}px`,
         transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
-        clipPath: `polygon(${x1}% ${y1}%, ${x2}% ${y2}%, ${x3}% ${y3}%, ${x4}% ${y4}%)`,
+        boxShadow: `0 ${shadowBlur / 2}px ${shadowBlur}px ${shadowSpread}px rgba(0,0,0,${shadowOpacity})`,
+        clipPath: "none",
       });
 
       raf = requestAnimationFrame(update);
@@ -50,20 +51,23 @@ export default function HeroVideo() {
         .sh-hero {
           position: relative;
           height: 400vh;
-          background: #000;
+          background: var(--color-bg-dark);
         }
         .sh-sticky {
           position: sticky;
           top: 0;
           height: 100vh;
           overflow: hidden;
-          background-color:#ffff;
+          background: var(--color-bg-dark);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         .sh-media {
           position: absolute;
           top: 50%;
           left: 50%;
-          will-change: transform, width, height, clip-path;
+          will-change: transform, width, height, border-radius, box-shadow;
           overflow: hidden;
         }
         .sh-media video {

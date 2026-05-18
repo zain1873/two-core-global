@@ -5,17 +5,20 @@ import {
 } from "lucide-react";
 
 const SERVICES = [
-  { icon: Code, label: "Website Development" },
-  { icon: Smartphone, label: "Mobile App Development" },
-  { icon: ShoppingCart, label: "Ecommerce Development" },
-  { icon: Package, label: "Product Development" },
-  { icon: Settings, label: "Software Development" },
-  { icon: CheckCircle, label: "Quality Assurance" },
-  { icon: Paintbrush, label: "Graphic Design" },
-  { icon: Monitor, label: "UI/UX Design" },
-  { icon: Search, label: "SEO Services" },
-  { icon: Megaphone, label: "SEM Services" },
+  { icon: Megaphone, label: "Performance Marketing" },
+  { icon: Search, label: "SEO" },
+  { icon: Monitor, label: "Paid Ads" },
   { icon: Share2, label: "Social Media" },
+  { icon: Code, label: "Web Development" },
+  { icon: Smartphone, label: "Video Production" },
+  { icon: Settings, label: "Automation" },
+  { icon: CheckCircle, label: "CRM" },
+  { icon: ShoppingCart, label: "Funnels" },
+  { icon: Paintbrush, label: "Brand Strategy" },
+  { icon: Package, label: "PPC Campaigns" },
+  { icon: Code, label: "Creative Design" },
+  { icon: Monitor, label: "Email Campaigns" },
+  { icon: Settings, label: "Consulting" },
 ];
 
 export default function HeroBannerText() {
@@ -44,7 +47,7 @@ export default function HeroBannerText() {
 
         .hbt-wrap {
           font-family: 'Inter', sans-serif;
-          background: #f7f7f7;
+          background: var(--color-bg);
           width: 100%;
           padding: 10vw 6vw 8vw;
           box-sizing: border-box;
@@ -56,8 +59,9 @@ export default function HeroBannerText() {
           width: clamp(10px, 1.5vw, 16px);
           height: clamp(10px, 1.5vw, 16px);
           border-radius: 50%;
-          background: #ff1f71;
+          background: var(--color-primary);
           margin-bottom: clamp(10px, 2vw, 20px);
+          box-shadow: var(--glow-primary);
         }
           @media (min-width: 768px) {
           .hbt-wrap {
@@ -68,7 +72,7 @@ export default function HeroBannerText() {
         .hbt-top {
           font-size: clamp(32px, 6.5vw, 100px);
           font-weight: 400;
-          color: #0a0a0a;
+          color: var(--color-heading);
           line-height: 1.05;
           letter-spacing: -0.025em;
           white-space: nowrap;
@@ -121,16 +125,17 @@ export default function HeroBannerText() {
           width: clamp(34px, 5vw, 72px);
           height: clamp(34px, 5vw, 72px);
           border-radius: 50%;
-          border: 1.5px solid #0a0a0a;
+          border: 1.5px solid var(--color-primary);
           display: flex;
           align-items: center;
           justify-content: center;
+          box-shadow: var(--glow-primary);
         }
 
         .hbt-icon-wrap svg {
           width: clamp(14px, 2vw, 28px);
           height: clamp(14px, 2vw, 28px);
-          color: #0a0a0a;
+          color: var(--color-primary);
           stroke-width: 1.8;
         }
 
@@ -138,11 +143,11 @@ export default function HeroBannerText() {
         .hbt-service-label {
           font-size: 96px;
           font-weight: 400;
-          color: #0a0a0a;
+          color: var(--color-primary);
           line-height: 1.05;
           letter-spacing: -0.025em;
           white-space: nowrap;
-          /* shrink on very narrow screens */
+          text-shadow: var(--glow-primary);
           overflow: hidden;
           text-overflow: ellipsis;
           max-width: 100%;
@@ -160,14 +165,15 @@ export default function HeroBannerText() {
           width: clamp(5px, 0.5vw, 7px);
           height: clamp(5px, 0.5vw, 7px);
           border-radius: 50%;
-          background: #ddd;
+          background: var(--color-border);
           transition: background 0.3s ease, width 0.3s ease, border-radius 0.3s ease;
         }
 
         .hbt-tick.active {
-          background: #0a0a0a;
+          background: var(--color-primary);
           width: clamp(14px, 1.6vw, 22px);
           border-radius: 4px;
+          box-shadow: var(--glow-primary);
         }
 
         /* ── Mobile ≤ 480px: allow label to wrap ── */

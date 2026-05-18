@@ -1,50 +1,62 @@
 import { useState, useRef, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
     id: 1,
-    quote:
-      '"Rafal is that rare designer who not only knows how to create something beautiful, but also understands the importance of driving conversions and creating meaningful value for the business. My business is better off because I worked with him."',
-    name: "James Clear",
-    title: "Author of the bestseller,",
-    subtitle: "Atomic Habits",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
+    quote: '"Working with this team completely changed our online presence. The website looks amazing and our leads increased within the first few months."',
+    name: "Sarah Mitchell",
+    location: "Dubai",
+    rating: 5,
   },
   {
     id: 2,
-    quote:
-      '"Rafal is one of the most talented designers I\'ve ever worked with. If I could convince him to join the ConvertKit team full-time, I\'d hire him in a second. Since that\'s not possible, I\'ll just keep hiring him as a contractor."',
-    name: "Nathan Barry",
-    title: "Founder of ConvertKit.com",
-    subtitle: null,
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
+    quote: '"They handled everything professionally — from social media to Google Ads. Communication was smooth and the results were exactly what we needed."',
+    name: "Ahmed Al Mansoori",
+    location: "Abu Dhabi",
+    rating: 5,
   },
   {
     id: 3,
-    quote:
-      '"I keep coming back to Rafal and his team because of their unbeatable combination of sharp design and winning UX/UI. They\'re fast and easy to work with, and keep my digital marketing looking my best!"',
-    name: "Jay Baer",
-    title: "NYT best-selling Author, speaker",
-    subtitle: null,
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&h=80&fit=crop&crop=face",
+    quote: '"Our brand finally feels modern and professional. The team understood our vision and delivered beyond expectations."',
+    name: "Jessica Carter",
+    location: "Toronto",
+    rating: 5,
   },
   {
     id: 4,
-    quote:
-      '"Working with Rafal transformed our brand identity completely. His ability to blend strategic thinking with stunning visual execution is unmatched. Every project exceeds expectations."',
-    name: "Sarah Johnson",
-    title: "CEO of TechVenture",
-    subtitle: null,
-    avatar: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=80&h=80&fit=crop&crop=face",
+    quote: '"Very reliable team. They redesigned our website and improved our SEO rankings noticeably within a short time."',
+    name: "Omar Khalid",
+    location: "Dubai",
+    rating: 5,
   },
   {
     id: 5,
-    quote:
-      '"Rafal has an incredible eye for detail and a deep understanding of what makes users engage. Our conversion rates doubled after his redesign. I cannot recommend him highly enough."',
-    name: "Marcus Wei",
-    title: "Head of Product at GrowthLab",
-    subtitle: null,
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
+    quote: '"The creativity, support, and attention to detail stood out the most. Highly recommended for businesses looking to grow online."',
+    name: "Daniel Brooks",
+    location: "London",
+    rating: 5,
+  },
+  {
+    id: 6,
+    quote: '"They made digital marketing simple for us. We started getting quality inquiries consistently after launching our campaigns."',
+    name: "Fatima Al Neyadi",
+    location: "Sharjah",
+    rating: 5,
+  },
+  {
+    id: 7,
+    quote: '"Professional, responsive, and easy to work with. The entire process felt smooth from start to finish."',
+    name: "Michael Reyes",
+    location: "Miami",
+    rating: 5,
+  },
+  {
+    id: 8,
+    quote: '"We appreciated how involved the team was throughout the project. They genuinely cared about the growth of our business."',
+    name: "Hassan Raza",
+    location: "Riyadh",
+    rating: 5,
   },
 ];
 
@@ -104,9 +116,9 @@ const navigate = (dir) => {
 
         .testimonials-section {
           font-family: 'Syne', sans-serif;
-          background: #ffffff;
+          background: var(--color-bg);
           padding: 80px 64px 100px;
-          max-width: 1440px;
+          max-width: 100%;
           margin: 0 auto;
           box-sizing: border-box;
           overflow: hidden;
@@ -122,7 +134,7 @@ const navigate = (dir) => {
         .testimonials-heading-block h2 {
           font-size: clamp(2rem, 4vw, 3rem);
           font-weight: 800;
-          color: #111111;
+          color: var(--color-heading);
           margin: 0;
           line-height: 1.1;
           letter-spacing: -0.02em;
@@ -131,7 +143,7 @@ const navigate = (dir) => {
         .testimonials-heading-block p {
           font-size: clamp(1.5rem, 3vw, 2.25rem);
           font-weight: 700;
-          color: #cccccc;
+          color: var(--color-text-muted);
           margin: 4px 0 0;
           line-height: 1.1;
           letter-spacing: -0.02em;
@@ -148,24 +160,25 @@ const navigate = (dir) => {
         .nav-btn {
           width: 52px;
           height: 52px;
-          border: 1.5px solid #dddddd;
-          background: #fff;
+          border: 1.5px solid var(--color-border);
+          background: transparent;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background 0.18s, border-color 0.18s, transform 0.12s;
+          transition: background 0.18s, border-color 0.18s, transform 0.12s, box-shadow 0.18s;
           border-radius: 0;
           outline: none;
         }
 
         .nav-btn:hover:not(:disabled) {
-          background: #111;
-          border-color: #111;
+          background: var(--color-primary);
+          border-color: var(--color-primary);
+          box-shadow: var(--glow-primary);
         }
 
         .nav-btn:hover:not(:disabled) svg path {
-          stroke: #fff;
+          stroke: var(--color-bg-dark-alt);
         }
 
         .nav-btn:active:not(:disabled) {
@@ -178,7 +191,7 @@ const navigate = (dir) => {
         }
 
         .nav-btn svg path {
-          stroke: #111;
+          stroke: var(--color-primary);
           stroke-width: 2;
           fill: none;
           stroke-linecap: round;
@@ -213,11 +226,12 @@ const navigate = (dir) => {
           padding: 0 48px 0 0;
           position: relative;
           padding: 10px;
-          border:1px solid #eee;
+          border:1px solid var(--color-border-light);
           transition: .3s ease;
         }
          .testimonial-card:hover {
-         border:1px solid #000;
+         border:1px solid var(--color-primary);
+         box-shadow: var(--glow-primary);
          
          }
 
@@ -229,7 +243,8 @@ const navigate = (dir) => {
         .quote-mark-box {
           width: 46px;
           height: 46px;
-          background: #111111;
+          background: var(--color-primary);
+          box-shadow: var(--glow-primary);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -247,10 +262,21 @@ const navigate = (dir) => {
           font-size: clamp(0.85rem, 1.1vw, 1rem);
           font-weight: 400;
           line-height: 1.72;
-          color: #222222;
-          margin: 0 0 36px;
-          min-height: 160px;
+          color: var(--color-text);
+          min-height: 140px;
           letter-spacing: 0;
+        }
+
+        .stars-row {
+          display: flex;
+          gap: 4px;
+          margin-bottom: 12px;
+        }
+
+        .star-icon {
+          color: var(--color-primary);
+          font-size: 1rem;
+          filter: drop-shadow(0 0 4px rgba(124, 255, 0, 0.5));
         }
 
         .author-row {
@@ -258,15 +284,6 @@ const navigate = (dir) => {
           align-items: center;
           gap: 16px;
           margin-top: auto;
-        }
-
-        .author-avatar {
-          width: 56px;
-          height: 56px;
-          border-radius: 50%;
-          object-fit: cover;
-          flex-shrink: 0;
-          border: 2px solid #f0f0f0;
         }
 
         .author-info {
@@ -278,7 +295,7 @@ const navigate = (dir) => {
           font-family: 'Syne', sans-serif;
           font-size: 0.95rem;
           font-weight: 700;
-          color: #111111;
+          color: var(--color-heading);
           margin: 0 0 2px;
           letter-spacing: -0.01em;
         }
@@ -287,7 +304,7 @@ const navigate = (dir) => {
           font-family: 'Inter', sans-serif;
           font-size: 0.8rem;
           font-weight: 400;
-          color: #888888;
+          color: var(--color-text-muted);
           margin: 0;
           line-height: 1.4;
         }
@@ -295,15 +312,16 @@ const navigate = (dir) => {
         .progress-bar-wrap {
           width: 100%;
           height: 2px;
-          background: #eeeeee;
+          background: var(--color-border-light);
           margin-top: 48px;
           overflow: hidden;
         }
 
         .progress-bar-fill {
           height: 100%;
-          background: #111;
+          background: var(--color-primary);
           animation: fillBar 3s linear infinite;
+          box-shadow: var(--glow-primary);
         }
 
         .progress-bar-fill.paused {
@@ -326,7 +344,7 @@ const navigate = (dir) => {
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          background: #ddd;
+          background: var(--color-border);
           transition: background 0.3s, transform 0.25s;
           cursor: pointer;
           border: none;
@@ -335,8 +353,9 @@ const navigate = (dir) => {
         }
 
         .progress-dot.active {
-          background: #111;
+          background: var(--color-primary);
           transform: scale(1.4);
+          box-shadow: var(--glow-primary);
         }
 
         /* Responsive */
@@ -399,8 +418,8 @@ const navigate = (dir) => {
 
       <div className="testimonials-header">
         <div className="testimonials-heading-block">
-          <h2>Who we work with.</h2>
-          <p>Partners, not clients.</p>
+          <h2>Real Relationships</h2>
+          <p>More Than Just Clients.</p>
         </div>
         <div className="nav-buttons">
           <button
@@ -450,23 +469,16 @@ const navigate = (dir) => {
 
               <p className="quote-text">{t.quote}</p>
 
+              <div className="stars-row">
+                {Array.from({ length: t.rating }).map((_, i) => (
+                  <FaStar key={i} className="star-icon" />
+                ))}
+              </div>
+
               <div className="author-row">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="author-avatar"
-                />
                 <div className="author-info">
                   <span className="author-name">{t.name}</span>
-                  <span className="author-title">
-                    {t.title}
-                    {t.subtitle && (
-                      <>
-                        <br />
-                        {t.subtitle}
-                      </>
-                    )}
-                  </span>
+                  <span className="author-title">{t.location}</span>
                 </div>
               </div>
             </div>

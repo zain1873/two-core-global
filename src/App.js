@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import "./css/global.css";
 import { FaWhatsapp } from "react-icons/fa";
 import Home from "./pages/home";
 import WebsiteDevelopment from "./pages/websiteDevelopment";

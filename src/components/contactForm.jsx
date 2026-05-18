@@ -2,8 +2,8 @@
 import { useState } from "react";
 import "../css/contactform.css";
 
-const INTERESTS = ["Website", "SEO", "UI/UX", "Mobile App", "Web App", "Other"];
-const BUDGETS = ["$2,000 - $5,000", "$5,000 - $10,000", "$10,000 +"];
+const INTERESTS = ["Website", "SEO", "Branding", "Google Ads", "Meta Ads", "CRM & Automation", "Other"];
+const BUDGETS = ["Under $2,000", "$2,000 – $5,000", "$5,000 – $10,000", "$10,000+", "Let's Discuss"];
 const HEAR_OPTIONS = [
   "How did you hear about us",
   "Google Search",
@@ -152,7 +152,7 @@ export default function ConnectForm() {
         </div>
 
         {/* Budget */}
-        <p className="section-label">My budget is</p>
+        <p className="section-label">Project Budget</p>
         <div className="budget-group">
           {BUDGETS.map((item) => (
             <button

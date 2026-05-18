@@ -83,7 +83,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__left">
-          <h2 className="footer__headline">Design it once. Design it right</h2>
+          <h2 className="footer__headline">Do It Once. Do It Right. </h2>
           <a href="#talk" className="footer__cta-btn">
             Lets Talk <span className="footer__cta-arrow">→</span>
           </a>

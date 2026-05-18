@@ -1,0 +1,63 @@
+<h2>How should the video shrink on scroll?</h2>
+<p class="subtitle">Pick the animation style that matches your vision</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:180px;justify-content:center;">
+      <!-- Stage 1: full -->
+      <div style="width:100%;height:60px;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:#fff;font-size:10px;letter-spacing:1px;">▶ FULL SCREEN</span>
+      </div>
+      <div style="color:#555;font-size:18px;">↓ scroll</div>
+      <!-- Stage 2: shrunk center -->
+      <div style="width:60%;height:40px;background:linear-gradient(135deg,#1a1a2e,#16213e);border-radius:8px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,0.5);">
+        <span style="color:#fff;font-size:9px;">▶ shrinks to center card</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Shrink to Center Card</h3>
+      <p>Video starts fullscreen, smoothly shrinks inward from all sides into a floating rounded card in the center. Classic Apple-style scroll reveal.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:180px;justify-content:center;">
+      <div style="width:100%;height:60px;background:linear-gradient(135deg,#0f3460,#533483);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:#fff;font-size:10px;letter-spacing:1px;">▶ FULL SCREEN</span>
+      </div>
+      <div style="color:#555;font-size:18px;">↓ scroll</div>
+      <div style="display:flex;align-items:flex-end;justify-content:flex-end;width:100%;padding-right:8px;">
+        <div style="width:35%;height:30px;background:linear-gradient(135deg,#0f3460,#533483);border-radius:6px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.5);">
+          <span style="color:#fff;font-size:8px;">▶ pip</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Shrink to Corner (PiP)</h3>
+      <p>Video shrinks and glides to the bottom-right corner like a picture-in-picture player. Stays visible as a small thumbnail while the rest of the page loads in.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;min-height:180px;justify-content:center;">
+      <div style="width:100%;height:60px;background:linear-gradient(135deg,#134e5e,#71b280);border-radius:4px;display:flex;align-items:center;justify-content:center;">
+        <span style="color:#fff;font-size:10px;letter-spacing:1px;">▶ FULL SCREEN</span>
+      </div>
+      <div style="color:#555;font-size:18px;">↓ scroll</div>
+      <div style="display:flex;align-items:center;gap:8px;width:100%;">
+        <div style="width:45%;height:36px;background:linear-gradient(135deg,#134e5e,#71b280);border-radius:6px;display:flex;align-items:center;justify-content:center;">
+          <span style="color:#fff;font-size:8px;">▶ video</span>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+          <div style="height:8px;background:#333;border-radius:4px;width:80%;"></div>
+          <div style="height:6px;background:#222;border-radius:4px;width:60%;"></div>
+          <div style="height:6px;background:#222;border-radius:4px;width:50%;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Shrink + Reveal Content</h3>
+      <p>Video shrinks to the left half while text / content slides in on the right. Split-screen reveal — cinematic feel with text alongside the video.</p>
+    </div>
+  </div>
+</div>

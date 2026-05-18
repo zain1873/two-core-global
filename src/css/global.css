@@ -1,40 +1,83 @@
-/* body {
-  font-family: var(--body-font);
+/* ═══════════════════════════════════════════════════════════
+   TWO CORE GLOBAL — Design System
+   Futuristic Neon UI Theme
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Primary / Neon Colors ── */
+  --color-primary: #7CFF00;
+  --color-primary-light: #A8FF00;
+  --color-accent: #00F5FF;
+  --color-accent-secondary: #00D9FF;
+
+  /* ── Background Colors ── */
+  --color-bg: #05070D;
+  --color-bg-secondary: #0B1020;
+  --color-bg-light: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-bg-dark: #0a0a0a;
+  --color-bg-dark-alt: #0d0d0d;
+
+  /* ── Text Colors ── */
+  --color-heading: #FFFFFF;
+  --color-text: #D9D9D9;
+  --color-text-muted: #999999;
+  --color-text-dark: #111111;
+  --color-text-dark-secondary: #0a0a0a;
+
+  /* ── Accent / Brand Hues ── */
+  --color-accent-brand: #F06A0F;
+  --color-accent-pink: #ff0080;
+  --color-accent-pink-light: #ff66b3;
+  --color-accent-pink-dark: #e5177b;
+
+  /* ── Border Colors ── */
+  --color-border: #e0e0e0;
+  --color-border-light: #eeeeee;
+  --color-border-dark: #2a2a2a;
+  --color-border-white-alpha: rgba(255, 255, 255, 0.1);
+  --color-border-white-medium: rgba(255, 255, 255, 0.25);
+  --color-border-black-alpha: rgba(0, 0, 0, 0.08);
+  --color-border-primary: rgba(124, 255, 0, 0.25);
+
+  /* ── Glow Effects ── */
+  --glow-primary: 0 0 10px rgba(124, 255, 0, 0.5), 0 0 20px rgba(124, 255, 0, 0.3);
+  --glow-primary-strong: 0 0 15px rgba(124, 255, 0, 0.7), 0 0 30px rgba(124, 255, 0, 0.4);
+  --glow-accent: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3);
+  --glow-accent-strong: 0 0 15px rgba(0, 245, 255, 0.7), 0 0 30px rgba(0, 245, 255, 0.4);
+  --glow-pink: 0 8px 25px rgba(255, 0, 128, 0.4);
+  --glow-orange: 0 8px 24px rgba(240, 106, 15, 0.35);
+  --glow-orange-strong: 0 12px 32px rgba(240, 106, 15, 0.45);
+  --glow-dark: 0 24px 64px rgba(0, 0, 0, 0.22);
+  --glow-card: 0 32px 80px rgba(0, 0, 0, 0.13);
+
+  /* ── Gradients ── */
+  --gradient-primary: linear-gradient(135deg, #7CFF00, #A8FF00);
+  --gradient-accent: linear-gradient(135deg, #00F5FF, #00D9FF);
+  --gradient-bg: linear-gradient(135deg, #05070D, #0B1020);
+  --gradient-hero: linear-gradient(135deg, #7CFF00, #00F5FF, #00D9FF);
+  --gradient-pink: linear-gradient(to right, #ff0080 0%, #ff66b3 100%);
+  --gradient-pink-dark: linear-gradient(to right, #cc0066 0%, #ff4da6 100%);
+  --gradient-orange-overlay: linear-gradient(140deg, rgba(240, 106, 15, 0.6) 0%, rgba(180, 60, 5, 0.3) 50%, rgba(0, 0, 0, 0.15) 100%);
+  --gradient-white-glow: radial-gradient(ellipse at center top, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+
+  /* ── Shadows ── */
+  --shadow-card: 0 32px 80px rgba(0, 0, 0, 0.13);
+  --shadow-card-light: 0 24px 80px rgba(0, 0, 0, 0.08);
+  --shadow-card-lg: 0 32px 80px rgba(0, 0, 0, 0.10);
 }
-
-.theme-title {
-  font-family: var(--heading-font);
-  font-size: var(--theme-title-size);
-  font-weight: 800;
-  line-height: 1.2;
-  color: var(--secondary-color);
-}
-
-.section-title {
-  font-family: var(--heading-font);
-  font-size: var(--section-title-size);
-  font-weight: 700;
-  color: var(--secondary-color);
-}
- */
-
-
-
 
 .theme-title {
   font-size: 32px; 
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #F06A0F;
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
 }
+
 .marketing-card {
   height: 410px;
 }
-
-
-
-
-
 
 /* Tablet & Desktop */
 @media (min-width: 768px) {
