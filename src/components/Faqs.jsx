@@ -345,9 +345,9 @@ const styles = `
     font-family: 'Inter', sans-serif;
     font-size: 13.5px;
     font-weight: 400;
-    color: var(--color-text);
+    color: #000;
     line-height: 1.78;
-    padding-left: 0;
+    padding: 0 40px 20px;
   }
 
   /* ── CONTACT STRIP ── */

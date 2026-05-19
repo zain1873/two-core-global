@@ -74,8 +74,7 @@ export default function CTASection() {
       <section
         className="cta-root relative w-full min-h-[420px] flex items-center justify-center overflow-hidden py-24 px-4"
         style={{
-          background:
-            "linear-gradient(135deg, #7CFF00, #00F5FF)",
+          background:"linear-gradient(135deg, rgb(102 194 14), rgb(22 143 148))"
         }}
       >
         {/* Noise grain texture */}

@@ -48,24 +48,31 @@ function SliderCard({ slide, animKey }) {
     >
       {/* Slide number */}
       <div className="flex items-center gap-3 mb-4">
-        <span className="block w-6 h-px bg-red-700" />
-        <span className="text-gray-400 text-sm font-semibold tracking-widest">
+        <span className="block w-6 h-px" style={{ backgroundColor: "var(--color-primary)" }} />
+        <span className="text-sm font-semibold tracking-widest" style={{ color: "var(--color-primary)" }}>
           {slide.number}
         </span>
       </div>
 
       {/* Title */}
-      <h3 className="text-white text-2xl font-bold mb-4 leading-snug">
+      <h3 className="text-2xl font-bold mb-4 leading-snug" style={{ color: "var(--color-heading)" }}>
         {slide.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-300 text-sm leading-relaxed mb-6">
+      <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--color-text)" }}>
         {slide.description}
       </p>
 
       {/* CTA */}
-      <button className="border border-red-800 text-red-700 text-xs font-bold tracking-widest px-6 py-3 uppercase hover:bg-red-800 hover:text-white transition-colors duration-200">
+      <button
+        className="text-xs font-bold tracking-widest px-6 py-3 uppercase transition-colors duration-200"
+        style={{
+          border: "1px solid var(--color-primary)",
+          color: "var(--color-primary)",
+          background: "transparent",
+        }}
+      >
         Discover More
       </button>
     </div>
@@ -78,9 +85,12 @@ function NavButton({ onClick, children, lighter = false }) {
     <button
       onClick={onClick}
       aria-label={lighter ? "Next slide" : "Previous slide"}
-      className={`w-12 h-12 flex items-center justify-center text-xl font-bold text-white transition-colors duration-200 hover:bg-red-800 focus:outline-none ${
-        lighter ? "bg-gray-600" : "bg-gray-700"
-      }`}
+      className="w-12 h-12 flex items-center justify-center text-xl font-bold transition-colors duration-200 focus:outline-none"
+      style={{
+        color: "var(--color-heading)",
+        background: "var(--color-bg-dark-alt)",
+        border: "1px solid var(--color-primary)",
+      }}
     >
       {children}
     </button>
@@ -96,27 +106,27 @@ export default function MarketingSection() {
   const next = () => setCurrent((c) => (c + 1) % slides.length);
 
   return (
-    <section className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <section className="py-12 px-4 sm:px-6 lg:px-8" style={{ background: "var(--color-bg)" }}>
       <div className="max-w-5xl mx-auto">
         <div className="flex flex-col lg:flex-row">
 
           {/* ── Left: Copy ──────────────────────────────────────────── */}
           <div className="flex-1 flex flex-col justify-center pr-0 lg:pr-12 pb-8 lg:pb-0">
-            <p className="text-gray-500 text-sm mb-2 tracking-wide">
+            <p className="text-sm mb-2 tracking-wide" style={{ color: "var(--color-text-muted)" }}>
               Establish A Strong Online Presence Through
             </p>
 
-            <h2 className="text-3xl lg:text-4xl font-bold text-red-800 mb-6 leading-tight">
-              Marketing &amp; Advertising
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 leading-tight" style={{ color: "var(--color-primary)" }}>
+              Marketing & Advertising
             </h2>
 
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--color-text)" }}>
               As London's premier digital marketing business, we are committed
               to what we do and cover all aspects needed to show your internet
               presence.
             </p>
 
-            <p className="text-gray-600 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: "var(--color-text)" }}>
               We reinforce your brand's identity via the use of digital
               technology, effective marketing, communication, and design
               strategies implemented on the appropriate platforms. Our
@@ -127,7 +137,7 @@ export default function MarketingSection() {
           </div>
 
           {/* ── Right: Slider Card ──────────────────────────────────── */}
-          <div className="w-full lg:w-96 flex-shrink-0 bg-gray-900 relative">
+          <div className="w-full lg:w-96 flex-shrink-0 relative" style={{ background: "var(--color-bg-dark-alt)" }}>
 
             {/* Navigation arrows — top-right corner */}
             <div className="absolute top-0 right-0 flex z-10">
@@ -147,11 +157,11 @@ export default function MarketingSection() {
                   key={i}
                   onClick={() => setCurrent(i)}
                   aria-label={`Go to slide ${i + 1}`}
-                  className={`h-1 rounded-full transition-all duration-300 focus:outline-none ${
-                    i === current
-                      ? "bg-red-700 w-6"
-                      : "bg-gray-600 w-3 hover:bg-gray-400"
-                  }`}
+                  className="h-1 rounded-full transition-all duration-300 focus:outline-none"
+                  style={{
+                    background: i === current ? "var(--color-primary)" : "var(--color-text-muted)",
+                    width: i === current ? "24px" : "12px",
+                  }}
                 />
               ))}
             </div>

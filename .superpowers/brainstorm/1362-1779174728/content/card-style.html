@@ -1,0 +1,85 @@
+<h2>Which card polish direction feels right?</h2>
+<p class="subtitle">Same scroll-driven mechanic — choosing the visual language for the cards</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;border-radius:12px;padding:20px;min-height:220px;position:relative;overflow:hidden;">
+      <!-- Glassmorphism card mockup -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(240,106,15,0.15),rgba(0,0,0,0.8));"></div>
+      <div style="position:absolute;top:0;right:0;width:160px;height:120px;background:linear-gradient(135deg,#F06A0F22,#F06A0F44);border-radius:0 12px 0 80px;backdrop-filter:blur(4px);"></div>
+      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <span style="background:rgba(240,106,15,0.18);border:1px solid #F06A0F88;color:#F06A0F;font-size:10px;font-weight:700;letter-spacing:0.15em;padding:4px 10px;border-radius:20px;text-transform:uppercase;">UI/UX</span>
+          <span style="color:rgba(255,255,255,0.35);font-size:10px;font-weight:700;letter-spacing:0.15em;">02</span>
+        </div>
+        <div>
+          <div style="height:3px;background:linear-gradient(90deg,#F06A0F,transparent);border-radius:2px;margin-bottom:10px;width:40%;"></div>
+          <div style="color:#fff;font-size:22px;font-weight:600;letter-spacing:-1.5px;line-height:1;text-transform:uppercase;">Pixel<br>Studio</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px;">
+            <span style="color:rgba(255,255,255,0.4);font-size:10px;">2025</span>
+            <div style="width:36px;height:36px;border-radius:50%;background:#F06A0F;display:flex;align-items:center;justify-content:center;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Glass & Depth</h3>
+      <p>Frosted glass effects, gradient accents, layered depth. Sophisticated and modern. Orange glow on hover, smooth animated borders.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0d0d0d;border-radius:12px;padding:20px;min-height:220px;position:relative;overflow:hidden;border:1px solid #222;">
+      <!-- Bold Minimal mockup -->
+      <div style="position:absolute;top:-10px;right:-10px;font-size:80px;font-weight:900;color:rgba(255,255,255,0.04);line-height:1;letter-spacing:-4px;font-family:sans-serif;">02</div>
+      <div style="position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:space-between;min-height:180px;">
+        <div style="display:flex;gap:6px;">
+          <span style="border:1.5px solid #F06A0F;color:#F06A0F;font-size:9px;font-weight:700;letter-spacing:0.13em;padding:3px 8px;border-radius:4px;text-transform:uppercase;opacity:0.85;">UI/UX</span>
+          <span style="border:1.5px solid #F06A0F;color:#F06A0F;font-size:9px;font-weight:700;letter-spacing:0.13em;padding:3px 8px;border-radius:4px;text-transform:uppercase;opacity:0.85;">Brand</span>
+        </div>
+        <div>
+          <div style="color:#F06A0F;font-size:28px;font-weight:500;letter-spacing:-2px;line-height:0.9;text-transform:uppercase;margin-bottom:12px;">Pixel<br>Studio</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <span style="width:28px;height:1px;background:#333;display:block;"></span>
+            <div style="width:40px;height:40px;border-radius:50%;background:#F06A0F;display:flex;align-items:center;justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M17 7H8M17 7V16" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Bold Minimal</h3>
+      <p>Sharp contrast, giant ghost numbers, strong typography. No effects — just confident, clean design. Stays close to existing look.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#111;border-radius:12px;min-height:220px;position:relative;overflow:hidden;">
+      <!-- Editorial / full-bleed image mockup -->
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a0a00,#2d1500);"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:140px;background:linear-gradient(180deg,rgba(240,106,15,0.2),transparent);"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,#0d0d0d 40%,transparent);padding:20px;">
+        <div style="display:flex;gap:6px;margin-bottom:8px;">
+          <span style="background:#F06A0F;color:#fff;font-size:9px;font-weight:700;letter-spacing:0.1em;padding:3px 8px;border-radius:3px;text-transform:uppercase;">UI/UX</span>
+        </div>
+        <div style="color:#fff;font-size:24px;font-weight:700;letter-spacing:-1.5px;line-height:0.9;text-transform:uppercase;margin-bottom:10px;">Pixel<br>Studio</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <span style="color:rgba(255,255,255,0.4);font-size:10px;letter-spacing:0.1em;">2025</span>
+          <button style="background:transparent;border:1.5px solid rgba(255,255,255,0.3);color:#fff;font-size:10px;font-weight:700;letter-spacing:0.1em;padding:6px 14px;border-radius:20px;text-transform:uppercase;cursor:pointer;">View ↗</button>
+        </div>
+      </div>
+      <div style="position:absolute;top:20px;right:20px;color:rgba(255,255,255,0.2);font-size:11px;font-weight:800;letter-spacing:0.2em;">02</div>
+    </div>
+    <div class="card-body">
+      <h3>Full-Bleed Editorial</h3>
+      <p>Image fills entire card, bold typography floats on top, cinematic gradient overlay. Dramatic, immersive feel — closer to agency portfolio.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:24px;">Click your preferred direction — or tell me in the terminal what you're going for.</p>

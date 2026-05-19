@@ -9,6 +9,7 @@ import SemPage from "./pages/SemPage";
 import AboutPage from "./pages/AboutPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
 import MobileDevelopmentPage from "./pages/MobileDevelopmentPage";
+import PortfolioPage from "./pages/PortfolioPage";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/social-media-services" element={<SocialMediaPage />} />
         <Route path="/mobile-app-development" element={<MobileDevelopmentPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Routes>
 
 

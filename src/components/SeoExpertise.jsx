@@ -68,47 +68,51 @@ function ServiceCard({ title, description, Icon, index }) {
       ref={ref}
       className="
         group flex flex-col items-center text-center
-        px-6 py-8 rounded-2xl border border-transparent
+        px-6 py-8 rounded-2xl border
         cursor-default
         transition-all duration-300 ease-in-out
         hover:-translate-y-2
-        hover:border-violet-500/40
-        hover:bg-violet-600/10
       "
+      style={{
+        border: "1px solid var(--color-border-white-alpha)",
+      }}
     >
       {/* Icon circle */}
       <div
         className="
           mb-6 w-[72px] h-[72px] rounded-full flex items-center justify-center
-          bg-violet-600/10
           transition-all duration-300
-          group-hover:bg-violet-600/25
           group-hover:scale-110
           group-hover:rotate-[-4deg]
         "
+        style={{
+          background: "rgba(124, 255, 0, 0.1)",
+          boxShadow: "var(--glow-primary)",
+        }}
       >
         <Icon
           size={30}
-          className="text-violet-400 transition-colors duration-300 group-hover:text-violet-300"
+          className="transition-colors duration-300"
           strokeWidth={1.7}
+          style={{ color: "var(--color-primary)" }}
         />
       </div>
 
       {/* Title */}
       <h3
         className="
-          text-white font-extrabold text-[13px] tracking-[0.14em]
+          font-extrabold text-[13px] tracking-[0.14em]
           uppercase mb-3
           transition-colors duration-300
-          group-hover:text-violet-300
         "
-        style={{ fontFamily: "'Syne', sans-serif" }}
+        style={{ color: "var(--color-heading)", fontFamily: "'Syne', sans-serif" }}
       >
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed max-w-xs transition-colors duration-300 group-hover:text-gray-300">
+      <p className="text-sm leading-relaxed max-w-xs transition-colors duration-300"
+        style={{ color: "var(--color-text)" }}>
         {description}
       </p>
     </div>
@@ -118,8 +122,8 @@ function ServiceCard({ title, description, Icon, index }) {
 export default function SeoExpertise() {
   return (
     <section
-      className="w-full bg-[#1c1c1e] py-16 px-4"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="w-full py-16 px-4"
+      style={{ fontFamily: "'DM Sans', sans-serif", background: "var(--color-bg)" }}
     >
       <style>{`
       `}</style>
@@ -127,12 +131,13 @@ export default function SeoExpertise() {
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-14">
         <h2
-          className="text-white text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[0.1em] uppercase mb-4"
-          style={{ fontFamily: "'Syne', sans-serif" }}
+          className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[0.1em] uppercase mb-4"
+          style={{ fontFamily: "'Syne', sans-serif", color: "var(--color-heading)" }}
         >
           Our Expertise in SEO Services
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">
+        <p className="text-sm sm:text-base"
+          style={{ color: "var(--color-text)" }}>
           Increase your web traffic with our expert SEO services. Here's how we can help:
         </p>
       </div>

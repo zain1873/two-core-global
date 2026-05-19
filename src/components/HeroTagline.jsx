@@ -18,7 +18,7 @@ export default function HeroTagline() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&display=swap');
         .htl-section {
-          height: 82vh;
+          height: 60vh;
           width: 100%;
           background: var(--color-bg);
           display: flex;
@@ -60,7 +60,8 @@ export default function HeroTagline() {
             data-aos-delay="0"
             data-aos-offset="-200"
           >
-            UNDERSTANDING HUMANS
+            Bringing Your 
+
           </span>
           <span
             className="htl-line"
@@ -68,7 +69,7 @@ export default function HeroTagline() {
             data-aos-delay="150"
             data-aos-offset="-200"
           >
-            TO MOVE HUMANITY
+            Business To Light
           </span>
         </div>
       </section>

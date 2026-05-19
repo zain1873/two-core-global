@@ -1,0 +1,339 @@
+/* ═══════════════════════════════════════════════════
+   PORTFOLIO PAGE
+   ═══════════════════════════════════════════════════ */
+
+/* ── Banner ── */
+.portfolio-banner {
+  width: 100%;
+  min-height: 92vh;
+  background-image: url("../../assets/website-banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Stats Strip ── */
+.pf-stats {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border-white-alpha);
+  border-bottom: 1px solid var(--color-border-white-alpha);
+  padding: 60px 64px;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.pf-stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 24px;
+  position: relative;
+}
+
+.pf-stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+  width: 1px;
+  background: var(--color-border-white-alpha);
+}
+
+.pf-stat-number {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.pf-stat-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Projects Section ── */
+.pf-projects-section {
+  background: var(--color-bg);
+  padding: 80px 64px;
+}
+
+.pf-section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pf-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.pf-section-title {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 0 0 16px;
+}
+
+.pf-section-title span {
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
+}
+
+.pf-section-desc {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Filter Tabs ── */
+.pf-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 52px;
+}
+
+.pf-filter-btn {
+  padding: 9px 22px;
+  border-radius: 40px;
+  border: 1.5px solid var(--color-border-white-alpha);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pf-filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.pf-filter-btn.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #000;
+  box-shadow: var(--glow-primary);
+}
+
+/* ── Grid ── */
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── Project Card ── */
+.pf-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-white-alpha);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.pf-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-6px);
+  box-shadow: var(--glow-primary);
+}
+
+.pf-card-image-wrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+}
+
+.pf-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.pf-card:hover .pf-card-image-wrap img {
+  transform: scale(1.07);
+}
+
+.pf-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 40%,
+    rgba(5, 7, 13, 0.8) 100%
+  );
+}
+
+.pf-card-year {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(124, 255, 0, 0.12);
+  border: 1px solid var(--color-primary);
+  border-radius: 20px;
+  padding: 4px 12px;
+  backdrop-filter: blur(8px);
+}
+
+.pf-card-body {
+  padding: 20px 24px 22px;
+}
+
+.pf-card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.pf-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-brand);
+  border: 1.5px solid var(--color-accent-brand);
+  border-radius: 4px;
+  padding: 3px 9px;
+  opacity: 0.85;
+}
+
+.pf-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pf-card-title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: var(--color-heading);
+  letter-spacing: -0.5px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pf-card-arrow {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--color-border-white-alpha);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.pf-card:hover .pf-card-arrow {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #000;
+  box-shadow: var(--glow-primary);
+}
+
+/* ── No Results ── */
+.pf-no-results {
+  text-align: center;
+  padding: 80px 0;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  grid-column: 1 / -1;
+}
+
+/* ── Load More ── */
+.pf-load-more-wrap {
+  text-align: center;
+  margin-top: 52px;
+}
+
+.pf-load-more-btn {
+  padding: 14px 40px;
+  border-radius: 40px;
+  border: 1.5px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pf-load-more-btn:hover {
+  background: var(--color-primary);
+  color: #000;
+  box-shadow: var(--glow-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .pf-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pf-projects-section {
+    padding: 60px 24px;
+  }
+
+  .pf-stats {
+    padding: 48px 24px;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .pf-stat-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .pf-stat-item {
+    flex: 0 0 calc(50% - 16px);
+  }
+
+  .pf-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pf-stat-item {
+    flex: 0 0 100%;
+  }
+}

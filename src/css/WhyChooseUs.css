@@ -4,7 +4,7 @@
 .wcu-section {
   position: relative;
   padding: 7rem 2rem;
-  background: #f8f6f1;
+  background: var(--color-bg);
   font-family: 'DM Sans', sans-serif;
   overflow: hidden;
 }
@@ -19,9 +19,9 @@
   opacity: 0.18;
   animation: orbDrift 18s ease-in-out infinite alternate;
 }
-.wcu-orb--1 { width: 520px; height: 520px; background: #1d9e75; top: -140px; left: -100px; animation-duration: 22s; }
-.wcu-orb--2 { width: 400px; height: 400px; background: #7f77dd; bottom: -80px; right: -60px; animation-duration: 17s; animation-delay: -6s; }
-.wcu-orb--3 { width: 300px; height: 300px; background: #d85a30; top: 40%; left: 55%; animation-duration: 25s; animation-delay: -11s; }
+.wcu-orb--1 { width: 520px; height: 520px; background: var(--color-primary); top: -140px; left: -100px; animation-duration: 22s; }
+.wcu-orb--2 { width: 400px; height: 400px; background: var(--color-accent); bottom: -80px; right: -60px; animation-duration: 17s; animation-delay: -6s; }
+.wcu-orb--3 { width: 300px; height: 300px; background: var(--color-primary-light); top: 40%; left: 55%; animation-duration: 25s; animation-delay: -11s; }
 
 @keyframes orbDrift {
   from { transform: translate(0, 0) scale(1); }
@@ -47,8 +47,9 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #1d9e75;
-  border: 1px solid #1d9e75;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  box-shadow: var(--glow-primary);
   border-radius: 999px;
   padding: 0.3em 1.2em;
   margin-bottom: 1.2rem;
@@ -58,13 +59,14 @@
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 900;
-  color: #1a1a1a;
+  color: var(--color-heading);
   line-height: 1.1;
   margin: 0 0 1rem;
   letter-spacing: -0.02em;
 }
 .wcu-heading-accent {
-  color: #1d9e75;
+  color: var(--color-primary);
+  text-shadow: var(--glow-primary);
   font-style: italic;
   position: relative;
 }
@@ -82,7 +84,7 @@
 
 .wcu-subheading {
   font-size: 1.05rem;
-  color: #555;
+  color: var(--color-text);
   max-width: 520px;
   margin: 0 auto;
   line-height: 1.7;
@@ -130,8 +132,8 @@
 
 /* ── FRONT face ─────────────────────────────── */
 .wcu-card-face--front {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.07);
+  background: var(--color-bg-light);
+  border: 1px solid var(--color-border-white-alpha);
   box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
   transition: box-shadow 0.3s ease;
 }
@@ -170,21 +172,21 @@
 .wcu-card-icon-svg { width: 34px; height: 34px; }
 
 /* color themes */
-.wcu-card--teal   .wcu-icon-ring { background: #e1f5ee; color: #0f6e56; }
-.wcu-card--purple .wcu-icon-ring { background: #eeedfe; color: #534ab7; }
-.wcu-card--coral  .wcu-icon-ring { background: #faece7; color: #993c1d; }
-.wcu-card--blue   .wcu-icon-ring { background: #e6f1fb; color: #185fa5; }
+.wcu-card--teal   .wcu-icon-ring { background: rgba(124, 255, 0, 0.1); color: var(--color-primary); }
+.wcu-card--purple .wcu-icon-ring { background: rgba(0, 245, 255, 0.1); color: var(--color-accent); }
+.wcu-card--coral  .wcu-icon-ring { background: rgba(168, 255, 0, 0.1); color: var(--color-primary-light); }
+.wcu-card--blue   .wcu-icon-ring { background: rgba(0, 217, 255, 0.1); color: var(--color-accent-secondary); }
 
-.wcu-card--teal   .wcu-icon-ring__pulse { border-color: #1d9e75; }
-.wcu-card--purple .wcu-icon-ring__pulse { border-color: #7f77dd; }
-.wcu-card--coral  .wcu-icon-ring__pulse { border-color: #d85a30; }
-.wcu-card--blue   .wcu-icon-ring__pulse { border-color: #378add; }
+.wcu-card--teal   .wcu-icon-ring__pulse { border-color: var(--color-primary); }
+.wcu-card--purple .wcu-icon-ring__pulse { border-color: var(--color-accent); }
+.wcu-card--coral  .wcu-icon-ring__pulse { border-color: var(--color-primary-light); }
+.wcu-card--blue   .wcu-icon-ring__pulse { border-color: var(--color-accent-secondary); }
 
 /* label accent colors */
-.wcu-card--teal   .wcu-card-label { color: #0f6e56; }
-.wcu-card--purple .wcu-card-label { color: #534ab7; }
-.wcu-card--coral  .wcu-card-label { color: #993c1d; }
-.wcu-card--blue   .wcu-card-label { color: #185fa5; }
+.wcu-card--teal   .wcu-card-label { color: var(--color-primary); }
+.wcu-card--purple .wcu-card-label { color: var(--color-accent); }
+.wcu-card--coral  .wcu-card-label { color: var(--color-primary-light); }
+.wcu-card--blue   .wcu-card-label { color: var(--color-accent-secondary); }
 
 .wcu-card-label {
   font-family: 'Playfair Display', serif;
@@ -196,13 +198,13 @@
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #999;
+  color: var(--color-text-muted);
   font-weight: 500;
   margin: 0 0 0.9rem;
 }
 .wcu-card-desc {
   font-size: 0.88rem;
-  color: #444;
+  color: var(--color-text-dark);
   line-height: 1.7;
   margin: 0;
   flex: 1;
@@ -213,13 +215,13 @@
   align-items: center;
   gap: 5px;
   font-size: 0.72rem;
-  color: #bbb;
+  color: var(--color-text-muted);
   margin-top: 1rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
-.wcu-card:hover .wcu-hover-hint { color: #999; }
+.wcu-card:hover .wcu-hover-hint { color: var(--color-primary); }
 
 /* ── BACK face (before/after) ───────────────── */
 .wcu-card-face--back {
@@ -228,10 +230,10 @@
   position: relative;
 }
 
-.wcu-card--teal   .wcu-card-face--back { background: linear-gradient(145deg, #085041 0%, #0f6e56 100%); }
-.wcu-card--purple .wcu-card-face--back { background: linear-gradient(145deg, #3c3489 0%, #534ab7 100%); }
-.wcu-card--coral  .wcu-card-face--back { background: linear-gradient(145deg, #712b13 0%, #993c1d 100%); }
-.wcu-card--blue   .wcu-card-face--back { background: linear-gradient(145deg, #0c447c 0%, #185fa5 100%); }
+.wcu-card--teal   .wcu-card-face--back { background: linear-gradient(145deg, #05070D 0%, #0B1020 100%); }
+.wcu-card--purple .wcu-card-face--back { background: linear-gradient(145deg, #05070D 0%, #0B1020 100%); }
+.wcu-card--coral  .wcu-card-face--back { background: linear-gradient(145deg, #05070D 0%, #0B1020 100%); }
+.wcu-card--blue   .wcu-card-face--back { background: linear-gradient(145deg, #05070D 0%, #0B1020 100%); }
 
 .wcu-back-glow {
   position: absolute;
@@ -321,7 +323,7 @@
 .wcu-footer-note {
   text-align: center;
   font-size: 0.78rem;
-  color: #bbb;
+  color: var(--color-text-muted);
   letter-spacing: 0.06em;
   margin-top: 2.5rem;
   font-weight: 500;

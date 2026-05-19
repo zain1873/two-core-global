@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import "../css/SeoPakages.css";
 
 const plans = [
   {

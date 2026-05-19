@@ -26,8 +26,8 @@ export default function WhyChooseUs() {
 
   return (
     <section
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
-      className="min-h-screen bg-white flex items-center justify-center px-4 py-16"
+      style={{ fontFamily: "'DM Sans', sans-serif", background: "var(--color-bg)" }}
+      className="min-h-screen flex items-center justify-center px-4 py-16"
     >
       <style>{`
         .check-item:hover { transform: translateX(6px); }
@@ -37,12 +37,13 @@ export default function WhyChooseUs() {
       <div className="max-w-5xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* LEFT — Unsplash Image */}
         <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="relative w-full max-w-md">
-            {/* Pink blob behind image */}
+          <div className="relative w-full max-w-md" style={{ border: "1px solid var(--color-border-primary)", borderRadius: "1rem", padding: "4px", background: "var(--color-bg-secondary)" }}>
+            {/* blob behind image */}
             <div
               className="absolute inset-0 z-0 img-bg"
               style={{
-                background: "#fde0d0",
+                background: "var(--color-primary)",
+                opacity: 0.1,
                 borderRadius: "60% 40% 55% 45% / 50% 60% 40% 50%",
                 transform: "scale(1.08) translate(4%, 2%)",
               }}
@@ -50,8 +51,8 @@ export default function WhyChooseUs() {
             <img
               src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&auto=format&fit=crop&q=80"
               alt="Digital services team at work"
-              className="relative z-10 w-full rounded-2xl object-cover shadow-lg"
-              style={{ maxHeight: "460px", objectPosition: "center top" }}
+              className="relative z-10 w-full rounded-2xl object-cover"
+              style={{ maxHeight: "460px", objectPosition: "center top", boxShadow: "var(--glow-primary)" }}
             />
           </div>
         </div>
@@ -60,9 +61,12 @@ export default function WhyChooseUs() {
         <div className="w-full lg:w-1/2 flex flex-col items-start">
           {/* Badge */}
           <span
-            className="text-white text-sm font-semibold px-4 py-2 rounded-lg mb-5"
+            className="text-sm font-semibold px-4 py-2 rounded-lg mb-5"
             style={{
-              background: "#7c3aed",
+              background: "var(--color-bg-dark-alt)",
+              color: "var(--color-primary)",
+              border: "1px solid var(--color-primary)",
+              boxShadow: "var(--glow-primary)",
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
@@ -71,14 +75,14 @@ export default function WhyChooseUs() {
 
           {/* Heading */}
           <h2
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-5"
-            style={{ fontFamily: "'Syne', sans-serif" }}
+            className="text-3xl sm:text-4xl font-extrabold leading-tight mb-5"
+            style={{ fontFamily: "'Syne', sans-serif", color: "var(--color-heading)" }}
           >
             We're Professional Digital Services Provider Agency
           </h2>
 
           {/* Description */}
-          <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+          <p className="text-base leading-relaxed mb-8 max-w-lg" style={{ color: "var(--color-text)" }}>
             We create engaging social media content that helps your brand stand
             out, connect with your audience, and grow consistently across all
             major platforms with creative visuals and strategy-driven design.
@@ -94,7 +98,7 @@ export default function WhyChooseUs() {
               >
                 <div
                   className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
-                  style={{ background: "#7c3aed" }}
+                  style={{ background: "var(--color-primary)", boxShadow: "var(--glow-primary)" }}
                 >
                   <svg
                     className="w-4 h-4 text-white"
@@ -110,7 +114,7 @@ export default function WhyChooseUs() {
                     />
                   </svg>
                 </div>
-                <span className="font-bold text-gray-900 text-base sm:text-lg">
+                <span className="font-bold text-base sm:text-lg" style={{ color: "var(--color-heading)" }}>
                   {item}
                 </span>
               </li>

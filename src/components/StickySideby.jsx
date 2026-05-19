@@ -117,7 +117,7 @@ export default function StoryTellingSection() {
         .story-header {
           text-align: center;
           padding: 80px 24px 48px;
-          background: #fff;
+          background: var(--color-bg);
         }
 
         .story-header-label {
@@ -125,21 +125,21 @@ export default function StoryTellingSection() {
           font-size: 11px;
           text-transform: uppercase;
           letter-spacing: .2em;
-          color: #6b7280;
+          color: var(--color-text-muted);
           margin-bottom: 14px;
         }
 
         .story-header-title {
           font-size: 56px;
           font-weight: 800;
-          color: #111827;
+          color: var(--color-heading);
           margin: 0;
           line-height: 1.1;
           font-family: 'Syne', sans-serif;
         }
 
         .story-header-title span {
-          color: #6b7280;
+          color: var(--color-primary);
         }
 
         @media (max-width: 1024px) {
@@ -156,7 +156,7 @@ export default function StoryTellingSection() {
         .story-section {
           position: relative;
           height: 550vh;
-          background: #fff;
+          background: var(--color-bg);
         }
 
         /* ── STICKY WRAPPER ───────────────────────────────────────── */
@@ -201,15 +201,16 @@ export default function StoryTellingSection() {
           font-size: 12px;
           text-transform: uppercase;
           letter-spacing: .18em;
-          color: #6b7280;
+          color: var(--color-primary);
           margin-bottom: 20px;
+          text-shadow: var(--glow-primary);
         }
 
         .title {
           font-size: 64px;
           line-height: 1;
           font-weight: 800;
-          color: #111827;
+          color: var(--color-heading);
           margin-bottom: 24px;
           font-family: 'Syne', sans-serif;
         }
@@ -217,7 +218,7 @@ export default function StoryTellingSection() {
         .desc {
           font-size: 15px;
           line-height: 1.8;
-          color: #4b5563;
+          color: var(--color-text);
           max-width: 500px;
           margin-bottom: 30px;
         }
@@ -233,11 +234,12 @@ export default function StoryTellingSection() {
           font-size: 12px;
           margin-top: 2px;
           flex-shrink: 0;
+          color: var(--color-primary);
         }
 
         .feature-item p {
           margin: 0;
-          color: #374151;
+          color: var(--color-text);
           font-size: 14px;
           line-height: 1.5;
         }
@@ -275,7 +277,6 @@ export default function StoryTellingSection() {
         .image-overlay {
           position: absolute;
           inset: 0;
-          background: rgba(0, 0, 0, 0.45);
           display: flex;
           align-items: flex-end;
           justify-content: flex-start;
@@ -283,6 +284,7 @@ export default function StoryTellingSection() {
           opacity: 0;
           transition: opacity 0.35s ease;
           z-index: 10;
+          backdrop-filter: blur(2px);
         }
 
         .image-stack:hover .image-overlay {
@@ -297,8 +299,8 @@ export default function StoryTellingSection() {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          background: #0A66C2;
-          color: #fff;
+          background: var(--color-bg-dark-alt);
+          color: var(--color-primary);
           font-size: 13px;
           font-weight: 600;
           font-family: Inter, sans-serif;
@@ -309,7 +311,8 @@ export default function StoryTellingSection() {
           transform: translateY(10px);
           transition: transform 0.35s ease, background 0.2s ease;
           cursor: pointer;
-          border: none;
+          border: 1px solid var(--color-primary);
+          box-shadow: var(--glow-primary);
         }
 
         .image-stack:hover .linkedin-btn {
@@ -317,14 +320,20 @@ export default function StoryTellingSection() {
         }
 
         .linkedin-btn:hover {
-          background: #004182;
+          background: var(--color-primary);
+          color: var(--color-bg-dark-alt);
+          box-shadow: var(--glow-primary-strong);
         }
 
         .linkedin-btn svg {
           width: 16px;
           height: 16px;
-          fill: #fff;
+          fill: var(--color-primary);
           flex-shrink: 0;
+        }
+
+        .linkedin-btn:hover svg {
+          fill: var(--color-bg-dark-alt);
         }
 
         /* ── TABLET (641–1024px): two-col, slightly tighter ─────── */

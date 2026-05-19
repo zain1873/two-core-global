@@ -15,8 +15,8 @@ const processes = [
       "We analyze your market, competitors, and high-performing keywords to build a strong SEM foundation for profitable ad campaigns.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop",
-    bg: "#ffffff",
-    accent: "#111111",
+    bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "02",
@@ -32,8 +32,8 @@ const processes = [
       "We create high-performing PPC campaigns with structured ad groups, targeting setup, and bidding strategies to maximize ROI.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
-    bg: "#ffffff",
-    accent: "#111111",
+    bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "03",
@@ -49,8 +49,8 @@ const processes = [
       "We continuously optimize ads, keywords, and bids to improve CTR, reduce cost-per-click, and increase conversions.",
     image:
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80&fit=crop",
-    bg: "#ffffff",
-    accent: "#111111",
+    bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "04",
@@ -66,8 +66,8 @@ const processes = [
       "We implement advanced tracking tools to measure clicks, leads, sales, and user behavior for better decision-making.",
     image:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80&fit=crop",
-    bg: "#ffffff",
-    accent: "#111111",
+    bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "05",
@@ -83,8 +83,8 @@ const processes = [
       "Get clear SEM reports showing ad performance, ROI, conversions, and insights to scale your paid campaigns effectively.",
     image:
       "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=900&q=80&fit=crop",
-    bg: "#ffffff",
-    accent: "#111111",
+    bg: "#0B1020",
+    accent: "#7CFF00",
   },
 ];
 
@@ -103,7 +103,6 @@ export default function SemProcess() {
           if (!container) return;
 
           const containerTop = container.getBoundingClientRect().top;
-          // scrolled distance inside the stacking container
           const scrolled = -containerTop;
           const vh = window.innerHeight;
 
@@ -117,8 +116,6 @@ export default function SemProcess() {
               return;
             }
 
-            // each subsequent panel slides in over the previous one
-            // panel i starts entering when scrolled reaches i * vh
             const sectionStart = i * vh;
             const progress = (scrolled - sectionStart) / vh;
 
@@ -142,7 +139,6 @@ export default function SemProcess() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    // Run once on mount so initial state is correct
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -150,11 +146,10 @@ export default function SemProcess() {
   return (
     <div>
 
-      {/* ── Page header — scrolls normally before stacking begins ── */}
       <div className="seo-process-heading"
         style={{
           padding: "72px 94px 56px",
-          background: "#ffffff",
+          background: "var(--color-bg)",
         }}
       >
         <p
@@ -162,7 +157,7 @@ export default function SemProcess() {
             fontSize: "10px",
             fontWeight: "700",
             letterSpacing: "0.22em",
-            color: "rgba(0,0,0,0.38)",
+            color: "var(--color-text-muted)",
             textTransform: "uppercase",
             marginBottom: "14px",
           }}
@@ -173,7 +168,7 @@ export default function SemProcess() {
           style={{
             fontSize: "clamp(32px, 5vw, 68px)",
             fontWeight: "900",
-            color: "#111111",
+            color: "var(--color-heading)",
             letterSpacing: "-2.5px",
             lineHeight: 1.02,
             margin: "0 0 18px",
@@ -185,7 +180,7 @@ export default function SemProcess() {
         <p
           style={{
             fontSize: "15px",
-            color: "rgba(0,0,0,0.48)",
+            color: "var(--color-text)",
             lineHeight: 1.75,
             maxWidth: "500px",
             margin: 0,
@@ -195,27 +190,11 @@ export default function SemProcess() {
         </p>
       </div>
 
-      {/* ── Stacking panels ── */}
-      {/*
-        Total height = N panels × 100vh
-        Panel i starts sliding in when the container has been scrolled by i × 100vh.
-        The last panel (i=4) therefore fully reveals at 4×100vh of container scroll,
-        which equals 4×100vh + header scroll = fully visible before the container ends.
-      */}
       <div
         ref={containerRef}
         style={{ height: `${processes.length * 100 + 100}vh`, position: "relative" }}
       >
         {processes.map((proc, i) => {
-          const isDark = proc.bg === "#111111" || proc.bg === "#0a0a0a";
-          const textColor = isDark ? "#ffffff" : "#111111";
-          const mutedColor = isDark
-            ? "rgba(255,255,255,0.32)"
-            : "rgba(0,0,0,0.32)";
-          const borderColor = isDark
-            ? "rgba(255,255,255,0.07)"
-            : "rgba(0,0,0,0.07)";
-
           return (
             <div
               key={i}
@@ -229,28 +208,28 @@ export default function SemProcess() {
                 backgroundColor: proc.bg,
                 zIndex: i + 2,
                 overflow: "hidden",
-                /* initial state: first visible, rest hidden below */
                 transform: i === 0 ? "translateY(0%)" : "translateY(100%)",
                 opacity: i === 0 ? 1 : 0,
                 willChange: "transform, opacity",
+                border: "1px solid var(--color-border-primary)",
+                boxShadow: "var(--glow-primary)",
               }}
             >
-              {/* ─ Responsive inner wrapper ─ */}
               <div className="seo-panel-inner">
 
-                {/* LEFT SIDEBAR */}
                 <div
                   className="seo-sidebar"
-                  style={{ borderRight: `1px solid ${borderColor}` }}
+                  style={{ borderRight: "1px solid var(--color-border-primary)" }}
                 >
                   <div
                     style={{
                       fontSize: "clamp(52px, 6vw, 84px)",
                       fontWeight: "600",
-                      color: textColor,
+                      color: "var(--color-primary)",
                       lineHeight: 1,
                       letterSpacing: "-3px",
                       marginBottom: "28px",
+                      textShadow: "var(--glow-primary)",
                     }}
                   >
                     {proc.number}
@@ -263,7 +242,7 @@ export default function SemProcess() {
                           fontSize: "9px",
                           fontWeight: j === i ? "800" : "400",
                           letterSpacing: "0.14em",
-                          color: j === i ? textColor : mutedColor,
+                          color: j === i ? "var(--color-primary)" : "var(--color-text-muted)",
                           textTransform: "uppercase",
                           lineHeight: 1.4,
                           cursor: "default",
@@ -276,13 +255,12 @@ export default function SemProcess() {
                   </nav>
                 </div>
 
-                {/* RIGHT CONTENT */}
-                <div className="seo-content ">
+                <div className="seo-content">
                   <h1 className="process-title"
                     style={{
                       fontSize: "52px",
                       fontWeight: "600",
-                      color: textColor,
+                      color: "var(--color-heading)",
                       letterSpacing: "-2px",
                       lineHeight: 1,
                       margin: "0 0 22px",
@@ -295,9 +273,7 @@ export default function SemProcess() {
                   <p
                     style={{
                       fontSize: "13px",
-                      color: isDark
-                        ? "rgba(255,255,255,0.65)"
-                        : "rgba(0,0,0,0.58)",
+                      color: "var(--color-text)",
                       lineHeight: 1.85,
                       maxWidth: "520px",
                       margin: "0 0 32px",
@@ -306,13 +282,11 @@ export default function SemProcess() {
                     {proc.description}
                   </p>
 
-                  {/* Image card */}
                   <div
                     className="seo-image-card"
                     style={{
-                      boxShadow: isDark
-                        ? "0 24px 60px rgba(0,0,0,0.65)"
-                        : "0 24px 60px rgba(0,0,0,0.09)",
+                      boxShadow: "var(--glow-primary), 0 24px 60px rgba(0,0,0,0.65)",
+                      border: "1px solid var(--color-border-primary)",
                     }}
                   >
                     <img
@@ -325,7 +299,6 @@ export default function SemProcess() {
                         display: "block",
                       }}
                     />
-                    {/* Badge */}
                     <div
                       style={{
                         position: "absolute",
@@ -333,7 +306,7 @@ export default function SemProcess() {
                         right: "16px",
                         width: "42px",
                         height: "42px",
-                        backgroundColor: proc.accent,
+                        backgroundColor: "var(--color-primary)",
                         borderRadius: "50%",
                         display: "flex",
                         alignItems: "center",
@@ -341,10 +314,8 @@ export default function SemProcess() {
                         fontSize: "10px",
                         fontWeight: "800",
                         letterSpacing: "0.05em",
-                        color:
-                          proc.accent === "#ffffff" || proc.accent === "#e0ff4f"
-                            ? "#111"
-                            : "#fff",
+                        color: "var(--color-bg-dark-alt)",
+                        boxShadow: "var(--glow-primary)",
                       }}
                     >
                       {proc.number}
@@ -353,7 +324,6 @@ export default function SemProcess() {
                 </div>
               </div>
 
-              {/* Dot progress indicator */}
               <div
                 style={{
                   position: "absolute",
@@ -373,8 +343,9 @@ export default function SemProcess() {
                       width: dot === i ? "7px" : "4px",
                       height: dot === i ? "7px" : "4px",
                       borderRadius: "50%",
-                      backgroundColor: dot === i ? textColor : mutedColor,
+                      backgroundColor: dot === i ? "var(--color-primary)" : "var(--color-text-muted)",
                       transition: "all 0.25s",
+                      boxShadow: dot === i ? "var(--glow-primary)" : "none",
                     }}
                   />
                 ))}
@@ -384,8 +355,6 @@ export default function SemProcess() {
         })}
       </div>
 
-      {/* ── Scoped styles ── */}
-    
     </div>
   );
 }

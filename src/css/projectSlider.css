@@ -193,7 +193,7 @@
     font-weight: 400;
     letter-spacing: -4px;
     line-height: 0.9;
-    color: var(--color-heading);
+    color: #000;
     margin: 0;
     text-transform: none;
   }

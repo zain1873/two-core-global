@@ -10,7 +10,7 @@ const FeatureItem = ({ icon, text }) => (
   >
     <span
       style={{
-        color: "#374151",
+        color: "var(--color-primary)",
         marginTop: "1px",
         fontSize: "13px",
         flexShrink: 0,
@@ -18,7 +18,7 @@ const FeatureItem = ({ icon, text }) => (
     >
       ▶
     </span>
-    <span style={{ fontSize: "14px", color: "#374151", lineHeight: 1.5 }}>
+    <span style={{ fontSize: "14px", color: "var(--color-text)", lineHeight: 1.5 }}>
       {text}
     </span>
   </div>
@@ -44,7 +44,7 @@ export default function AppDevelopmentSideby() {
 
         .tao-section {
           font-family: 'Inter', sans-serif;
-          background: #ffffff;
+          background: var(--color-bg);
           min-height: 100vh;
           display: flex;
           align-items: center;
@@ -58,8 +58,8 @@ export default function AppDevelopmentSideby() {
           position: absolute;
           inset: 0;
           background-image:
-            linear-gradient(rgba(200,205,216,0.3) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(200,205,216,0.3) 1px, transparent 1px);
+            linear-gradient(rgba(124,255,0,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(124,255,0,0.05) 1px, transparent 1px);
           background-size: 48px 48px;
           pointer-events: none;
         }
@@ -80,7 +80,7 @@ export default function AppDevelopmentSideby() {
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.18em;
-          color: #6b7280;
+          color: var(--color-primary);
           text-transform: uppercase;
           display: flex;
           align-items: center;
@@ -93,14 +93,14 @@ export default function AppDevelopmentSideby() {
           flex: 1;
           max-width: 160px;
           height: 1px;
-          background: #c8cdd8;
+          background: var(--color-border-primary);
         }
 
         .tao-heading {
           font-family: 'Syne', sans-serif;
           font-size: clamp(36px, 5vw, 60px);
           font-weight: 800;
-          color: #0f172a;
+          color: var(--color-heading);
           line-height: 1.05;
           margin: 0 0 24px 0;
           letter-spacing: -0.02em;
@@ -108,7 +108,7 @@ export default function AppDevelopmentSideby() {
 
         .tao-desc {
           font-size: 14px;
-          color: #4b5563;
+          color: var(--color-text);
           line-height: 1.7;
           margin-bottom: 28px;
           max-width: 400px;
@@ -125,25 +125,26 @@ export default function AppDevelopmentSideby() {
         }
 
         .tao-preview-card {
-          background: #f1f3f8;
+          background: var(--color-bg-secondary);
           border-radius: 18px;
           padding: 20px;
           overflow: hidden;
           position: relative;
           min-height: 380px;
+          border: 1px solid var(--color-border-primary);
         }
 
         .tao-preview-title {
           font-family: 'Syne', sans-serif;
           font-size: 20px;
           font-weight: 700;
-          color: #0f172a;
+          color: var(--color-heading);
           margin-bottom: 4px;
         }
 
         .tao-preview-desc {
           font-size: 11px;
-          color: #6b7280;
+          color: var(--color-text-muted);
           line-height: 1.5;
           max-width: 300px;
           margin-bottom: 20px;
@@ -165,8 +166,8 @@ export default function AppDevelopmentSideby() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 12px;
-          background: rgba(255,255,255,0.7);
-          border-top: 1px solid rgba(200,205,216,0.5);
+          background: rgba(11, 16, 32, 0.7);
+          border-top: 1px solid var(--color-border-primary);
           padding: 16px 0 20px;
           margin: 0 -24px;
           padding-left: 24px;
