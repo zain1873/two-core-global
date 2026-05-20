@@ -19,10 +19,10 @@ export default function Home() {
       <Navbar />
       <HeroBannerText />
       <HeroVideo/>
-      <StatsCounter/>
       <ServicesCards/>
       <ProjectSlider/>
       <IndustriesSection/>
+      <StatsCounter/>
       <TestimonialSlider/>
       <FAQ/>
       <HeroTagline/>
