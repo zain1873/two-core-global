@@ -10,12 +10,14 @@ import AboutPage from "./pages/AboutPage";
 import SocialMediaPage from "./pages/SocialMediaPage";
 import MobileDevelopmentPage from "./pages/MobileDevelopmentPage";
 import PortfolioPage from "./pages/PortfolioPage";
+import ServicesPage from "./pages/ServicesPage";
 
 export default function App() {
   return (
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/about" element={ <AboutPage/>} />
         <Route path="/website-development" element={<WebsiteDevelopment />} />
         <Route path="/seo-services" element={<SeoPage />} />

@@ -1,5 +1,6 @@
 import "../css/PagesCss/Contact.css";
 import Navbar from "../components/navbar";
+import { Link } from "react-router-dom";
 import Contact from "../components/contactForm";
 import Footer from "../components/Footer";
 import CTASection from "../components/CtaSection";
@@ -23,7 +24,7 @@ export default function ContactPage() {
           {/* Left Content */}
           <div className="contact-banner-left">
             <p className="contact-banner-breadcrumb">
-              Home <span>/</span> Contact
+              <Link to="/">Home</Link> <span>/</span> Contact
             </p>
 
             <div className="contact-banner-chip">

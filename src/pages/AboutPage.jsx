@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
@@ -16,7 +17,7 @@ function AboutPage() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / About</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "About" }]} />
             <h1>About Our Company</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>

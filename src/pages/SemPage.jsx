@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
@@ -18,7 +19,7 @@ function SeoSection() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Sem</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "SEM" }]} />
             <h1>Leading Global Sem Services Company</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>

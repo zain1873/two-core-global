@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
@@ -171,7 +172,7 @@ export default function PortfolioPage() {
         <div className="banner-dark-overlay" />
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Portfolio</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Portfolio" }]} />
             <h1>Our Work Speaks for Itself</h1>
             <button className="banner-btn">Start Your Project</button>
           </div>

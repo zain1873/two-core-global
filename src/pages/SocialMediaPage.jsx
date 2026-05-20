@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
@@ -16,7 +17,7 @@ function SocialMedia() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Social Media</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Social Media" }]} />
             <h1>Social Media Management</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>

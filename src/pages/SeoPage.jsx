@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
@@ -19,7 +20,7 @@ function SeoSection() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Seo</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "SEO" }]} />
             <h1>Leading Global Seo Services Company</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>

@@ -218,6 +218,11 @@ export default function Navbar() {
               )}
             </div>
           ))}
+          <div className="mobile-explore-row">
+            <Link to="/services" className="mobile-explore-link" onClick={closeAll}>
+              Explore All Services →
+            </Link>
+          </div>
         </div>
 
         <NavLink

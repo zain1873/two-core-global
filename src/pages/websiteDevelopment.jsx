@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/PagesCss/webDev.css";
 import Navbar from "../components/navbar";
+import Breadcrumb from "../components/Breadcrumb";
 import Footer from "../components/Footer";
 import DevelopmentCards from "../components/DevelopmentCards";
 import WhyChooseUs from "../components/WhyChooseUs";
@@ -19,7 +20,7 @@ function WebsiteDevelopment() {
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
-            <p className="banner-breadcrumb">Home / Website Development</p>
+            <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Website Development" }]} />
             <h1>Building Seamless Experiences</h1>
             <button className="banner-btn">Make Your Website</button>
           </div>
