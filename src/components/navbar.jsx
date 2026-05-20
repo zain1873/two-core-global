@@ -92,7 +92,7 @@ export default function Navbar() {
         <div className="nav-inner">
 
           <Link className="logo" to="/" onClick={closeAll}>
-            <img src={logo} alt="Logo" />
+            <img src={logo} alt="Logo" width="150" height="60" />
           </Link>
 
           <div className="desktop-nav">
