@@ -4,8 +4,9 @@ import logo from "../assets/nav-logo.png"
 import { Link, NavLink } from "react-router-dom";
 
 import {
-  Code, Smartphone, ShoppingCart, Package, Settings, CheckCircle,
-  Paintbrush, Monitor, Search, Megaphone, Share2,
+  Code, Smartphone, ShoppingCart, Zap,
+  Paintbrush, Monitor, Video,
+  Search, Share2, Megaphone, Mail,
 } from "lucide-react";
 
 const NAV_LINKS = [
@@ -16,21 +17,21 @@ const NAV_LINKS = [
 
 const SERVICES = {
   Development: [
-    { icon: Code, label: "Website Development", link: "/website-development" },
-    { icon: Smartphone, label: "Mobile App Development" , link: "/mobile-app-development" },
-    { icon: ShoppingCart, label: "Ecommerce Development" },
-    { icon: Package, label: "Product Development" },
-    { icon: Settings, label: "Software Development" },
-    { icon: CheckCircle, label: "Quality Assurance" },
+    { icon: Code, label: "Web Development", link: "/website-development" },
+    { icon: Smartphone, label: "Mobile Apps", link: "/mobile-app-development" },
+    { icon: ShoppingCart, label: "Ecommerce" },
+    { icon: Zap, label: "CRM & Automation" },
   ],
-  Design: [
-    { icon: Paintbrush, label: "Graphic Design" },
+  Creative: [
+    { icon: Paintbrush, label: "Brand & Identity" },
     { icon: Monitor, label: "UI/UX Design" },
+    { icon: Video, label: "Video Production" },
   ],
-  "Digital Marketing": [
+  Marketing: [
     { icon: Search, label: "SEO Services", link: "/seo-services" },
-    { icon: Megaphone, label: "SEM Services", link: "/sem-services" },
-    { icon: Share2, label: "Social Media", link: "/social-media-services"},
+    { icon: Share2, label: "Social Media Management", link: "/social-media-services" },
+    { icon: Megaphone, label: "Paid Advertising" },
+    { icon: Mail, label: "Email Marketing" },
   ],
 };
 
@@ -126,8 +127,8 @@ export default function Navbar() {
               <div ref={dropdownRef} className={`mega-dropdown ${servicesOpen ? "visible" : ""}`}>
                 {Object.entries(SERVICES).map(([category, items]) => (
                   <div key={category}>
-                    <div className={`dd-col-title ${category === "Digital Marketing" ? "marketing" : ""}`}>
-                      {category === "Digital Marketing" && <span className="pink-dot" />}
+                    <div className={`dd-col-title ${category === "Marketing" ? "marketing" : ""}`}>
+                      {category === "Marketing" && <span className="pink-dot" />}
                       {category}
                     </div>
                     {items.map(({ icon: Icon, label, link }) =>

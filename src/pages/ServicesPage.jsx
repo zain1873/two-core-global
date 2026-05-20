@@ -72,7 +72,7 @@ const SERVICE_CATEGORIES = [
     id: "design",
     label: "Design",
     eyebrow: "Create",
-    accent: "accent",
+    accent: "primary",
     services: [
       {
         icon: Paintbrush,
@@ -96,7 +96,7 @@ const SERVICE_CATEGORIES = [
     id: "digital-marketing",
     label: "Digital Marketing",
     eyebrow: "Grow",
-    accent: "pink",
+    accent: "primary",
     services: [
       {
         icon: Search,

@@ -111,7 +111,7 @@ export default function CTASection() {
 
           {/* CTA */}
           <div className="animate-fade-up-4">
-            <CTAButton>Get Started</CTAButton>
+            <CTAButton>Explore All Services</CTAButton>
           </div>
         </div>
       </section>

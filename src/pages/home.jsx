@@ -9,6 +9,8 @@ import Footer from "../components/Footer";
 import CTASection from "../components/CtaSection";
 import FAQ from "../components/Faqs";
 import HeroTagline from "../components/HeroTagline";
+import IndustriesSection from "../components/IndustriesSection";
+import StatsCounter from "../components/StatsCounter";
 import "../css/home.css";
 
 export default function Home() {
@@ -17,14 +19,15 @@ export default function Home() {
       <Navbar />
       <HeroBannerText />
       <HeroVideo/>
+      <StatsCounter/>
       <ServicesCards/>
       <ProjectSlider/>
-      <CTASection/>
+      <IndustriesSection/>
       <TestimonialSlider/>
       <FAQ/>
       <HeroTagline/>
+      <CTASection/>
       <Contact/>
-
       <Footer/>
     </div>
   );
