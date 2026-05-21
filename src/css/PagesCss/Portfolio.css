@@ -6,11 +6,9 @@
 .portfolio-banner {
   width: 100%;
   min-height: 92vh;
-  background-image: url("../../assets/marketing_banner.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   position: relative;
   display: flex;
   align-items: center;

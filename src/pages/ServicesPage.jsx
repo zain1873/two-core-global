@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import CTASection from "../components/CtaSection";
 import TestimonialSlider from "../components/Testimonials";
 import "../css/PagesCss/Services.css";
+import tcgBanner from "../assets/tcg-banner.jpg";
 
 import {
   Code, Smartphone, ShoppingCart, Package, Settings, CheckCircle,
@@ -129,7 +130,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* ── Banner ─────────────────────────────────────── */}
-      <section className="sp-banner">
+      <section className="sp-banner" style={{ backgroundImage: `url(${tcgBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="sp-banner-overlay" />
         <div className="sp-banner-glow sp-banner-glow--left" />
         <div className="sp-banner-glow sp-banner-glow--right" />

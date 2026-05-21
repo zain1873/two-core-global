@@ -7,6 +7,7 @@ import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import "../css/PagesCss/webDev.css";
 import "../css/PagesCss/Portfolio.css";
+import tcgBanner from "../assets/tcg-banner.jpg";
 
 const PROJECTS = [
   {
@@ -168,7 +169,7 @@ export default function PortfolioPage() {
       <Navbar />
 
       {/* Banner */}
-      <section className="portfolio-banner web-banner">
+      <section className="portfolio-banner web-banner" style={{ backgroundImage: `url(${tcgBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="banner-dark-overlay" />
         <div className="banner-glass">
           <div className="banner-content">

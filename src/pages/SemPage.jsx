@@ -8,6 +8,7 @@ import CTASection from "../components/CtaSection";
 import SemProcess from "../components/SemProcess";
 import SemPakages from "../components/SemPakages";
 import WhyChooseUs from "../components/WhyChooseSem";
+import tcgBanner from "../assets/tcg-banner.jpg";
 
 function SeoSection() {
   return (
@@ -15,7 +16,7 @@ function SeoSection() {
       <Navbar />
 
       {/* Banner Section */}
-      <section className="web-banner">
+      <section className="web-banner" style={{ backgroundImage: `url(${tcgBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
