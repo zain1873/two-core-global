@@ -6,6 +6,7 @@ import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import SocialMediaPackages from "../components/SocialMediaPakages";
 import WhyChooseUs from "../components/WhyChooseSocial";
+import marketingBanner from "../assets/marketing_banner.png";
 
 function SocialMedia() {
   return (
@@ -13,7 +14,10 @@ function SocialMedia() {
       <Navbar />
 
       {/* Banner Section */}
-      <section className="web-banner">
+      <section
+        className="web-banner"
+        style={{ backgroundImage: `url(${marketingBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">

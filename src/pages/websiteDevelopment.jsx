@@ -9,6 +9,7 @@ import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import WebDevelopmentSideby from "../components/webDevelopmentSideby";
+import developmentBanner from "../assets/development-banner.png";
 
 function WebsiteDevelopment() {
   return (
@@ -16,7 +17,10 @@ function WebsiteDevelopment() {
       <Navbar />
 
       {/* Banner Section */}
-      <section className="web-banner">
+      <section
+        className="web-banner"
+        style={{ backgroundImage: `url(${developmentBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">
