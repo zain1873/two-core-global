@@ -10,6 +10,7 @@ import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import WebDevelopmentSideby from "../components/webDevelopmentSideby";
 import developmentBanner from "../assets/development-banner.png";
+import marketingBanner from "../assets/marketing_banner.png";
 
 function WebsiteDevelopment() {
   return (
