@@ -6,6 +6,7 @@ import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
 import SocialMediaPackages from "../components/SocialMediaPakages";
 import WhyChooseUs from "../components/WhyChooseSocial";
+import SocialMediaProcess from "../components/SocialMediaProcess";
 import marketingBanner from "../assets/marketing_banner.png";
 import developmentBanner from "../assets/development-banner.png";
 
@@ -29,6 +30,7 @@ function SocialMedia() {
         </div>
       </section>
       <WhyChooseUs/>
+      <SocialMediaProcess/>
       <SocialMediaPackages/>
       <TestimonialSlider />
       <CTASection />

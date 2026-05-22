@@ -23,15 +23,15 @@ const SERVICES = {
     { icon: Zap, label: "CRM & Automation" },
   ],
   Creative: [
-    { icon: Paintbrush, label: "Brand & Identity" },
-    { icon: Monitor, label: "UI/UX Design" },
+    { icon: Paintbrush, label: "Brand & Identity", link: "/brand-identity" },
+    { icon: Monitor, label: "UI/UX Design", link: "/ui-ux-design" },
     { icon: Video, label: "Video Production" },
   ],
   Marketing: [
     { icon: Search, label: "SEO Services", link: "/seo-services" },
     { icon: Share2, label: "Social Media Management", link: "/social-media-services" },
-    { icon: Megaphone, label: "Paid Advertising" },
-    { icon: Mail, label: "Email Marketing" },
+    { icon: Megaphone, label: "Paid Advertising", link: "/paid-advertising" },
+    { icon: Mail, label: "Email Marketing", link: "/email-marketing" },
   ],
 };
 

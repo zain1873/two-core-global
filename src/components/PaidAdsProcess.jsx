@@ -1,90 +1,95 @@
 import { useEffect, useRef } from "react";
-import "../css/SeoProcess.css"
+import "../css/SeoProcess.css";
 
 const processes = [
   {
     number: "01",
-    title: "WEBSITE AUDIT",
+    title: "AUDIENCE & MARKET RESEARCH",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE & MARKET RESEARCH",
+      "CAMPAIGN STRATEGY",
+      "AD CREATIVE & COPY",
+      "LAUNCH & A/B TESTING",
+      "OPTIMIZE & SCALE",
     ],
     description:
-      "We conduct a thorough website review to identify areas for improvement. You'll get a detailed keyword list, competitor analysis, and a full performance report.",
+      "We dig into your target audience, competitors, and market data to define the exact personas, platforms, and keywords your paid campaigns should target for maximum ROI.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "02",
-    title: "CUSTOM SEO STRATEGY",
+    title: "CAMPAIGN STRATEGY",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE & MARKET RESEARCH",
+      "CAMPAIGN STRATEGY",
+      "AD CREATIVE & COPY",
+      "LAUNCH & A/B TESTING",
+      "OPTIMIZE & SCALE",
     ],
     description:
-      "We enhance user experience across 100+ devices with link building, content optimization, speed improvements, and local SEO to boost your visibility.",
+      "We build a full-funnel paid strategy — mapping ad types, budgets, bidding models, and targeting layers to your conversion goals across Google, Meta, YouTube, and TikTok.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
     bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "03",
-    title: "CONTINUOUS OPTIMIZATION",
+    title: "AD CREATIVE & COPY",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE & MARKET RESEARCH",
+      "CAMPAIGN STRATEGY",
+      "AD CREATIVE & COPY",
+      "LAUNCH & A/B TESTING",
+      "OPTIMIZE & SCALE",
     ],
     description:
-      "Our team follows search engine best practices to refine strategies, improve rankings, and drive high-quality traffic to your site.",
+      "Our team crafts scroll-stopping visuals, compelling headlines, and persuasive ad copy designed to capture attention and drive action at every stage of the funnel.",
     image:
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "04",
-    title: "SEO–OPTIMIZED CONTENT",
+    title: "LAUNCH & A/B TESTING",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE & MARKET RESEARCH",
+      "CAMPAIGN STRATEGY",
+      "AD CREATIVE & COPY",
+      "LAUNCH & A/B TESTING",
+      "OPTIMIZE & SCALE",
     ],
     description:
-      "Our expert writers create engaging, high-quality content that aligns with SEO standards to improve search performance and user engagement.",
+      "We launch campaigns with robust tracking in place and run systematic A/B tests on creatives, audiences, and landing pages to find the winning combinations fast.",
     image:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80&fit=crop",
     bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "05",
-    title: "TRANSPARENT REPORTING",
+    title: "OPTIMIZE & SCALE",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE & MARKET RESEARCH",
+      "CAMPAIGN STRATEGY",
+      "AD CREATIVE & COPY",
+      "LAUNCH & A/B TESTING",
+      "OPTIMIZE & SCALE",
     ],
     description:
-      "Stay informed with clear, data-driven reports that track progress and show real growth in traffic, rankings, and conversions.",
+      "We continuously monitor performance metrics, cut waste, and reallocate budget to top performers — then scale what's working to compound your returns over time.",
     image:
       "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
 ];
 
-export default function SeoProcess() {
+export default function PaidAdsProcess() {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
@@ -168,7 +173,7 @@ export default function SeoProcess() {
             textTransform: "uppercase",
           }}
         >
-          OUR SEO PROCESS
+          OUR PAID ADS PROCESS
         </h2>
         <p
           style={{
@@ -179,14 +184,14 @@ export default function SeoProcess() {
             margin: 0,
           }}
         >
-          We're here to improve your web traffic and create results that help
-          your business reach new heights.
+          A proven five-step framework that takes you from zero to profitable
+          ad campaigns — with full transparency at every stage.
         </p>
       </div>
 
       <div
         ref={containerRef}
-        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative",backgroundColor:"#05070D" }}
+        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative" }}
       >
         {processes.map((proc, i) => (
           <div

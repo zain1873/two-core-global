@@ -1,0 +1,255 @@
+/* ── UI/UX Services — Alternating Stripe Section ── */
+
+.uiux-services {
+  background: var(--color-bg);
+  padding: 100px 0 80px;
+}
+
+/* Header */
+.uiux-services-header {
+  max-width: 700px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.uiux-services-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.uiux-services-heading {
+  font-size: clamp(30px, 4.5vw, 54px);
+  font-weight: 900;
+  color: var(--color-heading);
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  font-family: "Syne", sans-serif;
+}
+
+.uiux-services-heading-accent {
+  color: var(--color-primary);
+}
+
+.uiux-services-sub {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Stripes container */
+.uiux-services-stripes {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Single stripe */
+.uiux-stripe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+  padding: 72px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.uiux-stripe:last-child {
+  border-bottom: none;
+}
+
+/* Reverse order for odd stripes */
+.uiux-stripe--reverse .uiux-stripe-img-wrap {
+  order: 2;
+}
+.uiux-stripe--reverse .uiux-stripe-content {
+  order: 1;
+}
+
+/* Image side */
+.uiux-stripe-img-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.uiux-stripe-img-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: transparent;
+  border: 1px solid var(--color-border-primary);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.uiux-stripe-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+  filter: brightness(0.88);
+}
+
+.uiux-stripe-img-wrap:hover .uiux-stripe-img {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+.uiux-stripe-img-number {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 900;
+  color: rgba(124, 255, 0, 0.18);
+  line-height: 1;
+  letter-spacing: -3px;
+  font-family: "Syne", sans-serif;
+  pointer-events: none;
+  z-index: 3;
+  text-shadow: 0 0 40px rgba(124, 255, 0, 0.3);
+  user-select: none;
+}
+
+/* Content side */
+.uiux-stripe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.uiux-stripe-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  display: block;
+}
+
+.uiux-stripe-title {
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 800;
+  color: var(--color-heading);
+  line-height: 1.15;
+  margin: 0 0 20px;
+  letter-spacing: -0.8px;
+  font-family: "Syne", sans-serif;
+}
+
+.uiux-stripe-desc {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin: 0 0 32px;
+}
+
+/* Feature list */
+.uiux-stripe-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.uiux-stripe-list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.uiux-stripe-tick {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(124, 255, 0, 0.1);
+  border: 1px solid rgba(124, 255, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .uiux-services-stripes {
+    padding: 0 28px;
+  }
+
+  .uiux-stripe {
+    gap: 48px;
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .uiux-services {
+    padding: 72px 0 60px;
+  }
+
+  .uiux-services-header {
+    margin-bottom: 56px;
+  }
+
+  .uiux-services-stripes {
+    padding: 0 20px;
+  }
+
+  .uiux-stripe {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 52px 0;
+  }
+
+  /* Always image on top, text below on mobile */
+  .uiux-stripe--reverse .uiux-stripe-img-wrap {
+    order: 0;
+  }
+  .uiux-stripe--reverse .uiux-stripe-content {
+    order: 1;
+  }
+
+  .uiux-stripe-img-number {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .uiux-services-stripes {
+    padding: 0 16px;
+  }
+
+  .uiux-stripe {
+    padding: 40px 0;
+    gap: 28px;
+  }
+
+  .uiux-stripe-title {
+    font-size: 24px;
+  }
+
+  .uiux-stripe-desc {
+    font-size: 14px;
+  }
+}

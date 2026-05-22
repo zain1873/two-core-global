@@ -11,6 +11,10 @@ import SocialMediaPage from "./pages/SocialMediaPage";
 import MobileDevelopmentPage from "./pages/MobileDevelopmentPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import ServicesPage from "./pages/ServicesPage";
+import PaidAdvertisingPage from "./pages/PaidAdvertisingPage";
+import EmailMarketingPage from "./pages/EmailMarketingPage";
+import BrandIdentityPage from "./pages/BrandIdentityPage";
+import UiUxPage from "./pages/UiUxPage";
 
 export default function App() {
   return (
@@ -26,6 +30,10 @@ export default function App() {
         <Route path="/mobile-app-development" element={<MobileDevelopmentPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/paid-advertising" element={<PaidAdvertisingPage />} />
+        <Route path="/email-marketing" element={<EmailMarketingPage />} />
+        <Route path="/brand-identity" element={<BrandIdentityPage />} />
+        <Route path="/ui-ux-design" element={<UiUxPage />} />
       </Routes>
 
 

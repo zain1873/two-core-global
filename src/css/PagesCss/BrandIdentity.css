@@ -1,0 +1,130 @@
+/* ========================================
+   Brand Identity Page — Page-Level Styles
+   ======================================== */
+
+.brand-services-section {
+  background: var(--color-bg-secondary);
+  padding: 80px 24px;
+}
+
+.brand-services-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.brand-services-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.brand-services-heading {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--color-heading);
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  font-family: "Syne", sans-serif;
+}
+
+.brand-services-sub {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.75;
+  max-width: 540px;
+  margin: 0 0 52px;
+}
+
+.brand-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.brand-service-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-primary);
+  border-radius: 16px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  cursor: default;
+}
+
+.brand-service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--glow-primary);
+  border-color: var(--color-primary);
+}
+
+.brand-service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.brand-service-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-heading);
+  line-height: 1.2;
+  font-family: "Syne", sans-serif;
+}
+
+.brand-service-desc {
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.brand-service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding: 5px 12px;
+  border-radius: 50px;
+  background: rgba(124, 255, 0, 0.08);
+  border: 1px solid rgba(124, 255, 0, 0.2);
+  width: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .brand-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .brand-services-section {
+    padding: 60px 18px;
+  }
+
+  .brand-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-service-card {
+    padding: 24px 20px;
+  }
+}

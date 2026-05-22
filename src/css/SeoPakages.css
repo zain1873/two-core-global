@@ -45,17 +45,27 @@
 }
 
 /* ── Desktop table layout (768px+) ──────────── */
+@keyframes planHeaderGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .seo-plans-header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 0;
+  background: linear-gradient(135deg, rgb(102,194,14), rgb(22,143,148), rgb(102,194,14));
+  background-size: 200% 200%;
+  animation: planHeaderGradient 6s ease infinite;
+  overflow: hidden;
 }
 
 .seo-plan-card {
-  background-color: var(--color-primary);
+  background: transparent;
   padding: 20px 12px;
   text-align: center;
-  border: 2px solid var(--color-primary);
+  border: 2px solid rgba(255,255,255,0.25);
   border-bottom: none;
 }
 
@@ -200,6 +210,47 @@
   width: 18px;
   height: 18px;
   min-width: 18px;
+}
+
+/* ── Section label ── */
+.seo-label {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+/* ── CTA row ── */
+.seo-cta-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.seo-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 40px;
+  background: var(--color-primary);
+  color: var(--color-bg-dark-alt);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: var(--glow-primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.seo-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-primary-strong);
 }
 
 /* ===========================

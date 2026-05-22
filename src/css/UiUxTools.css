@@ -1,0 +1,367 @@
+/* ── UiUx Tools — Interactive Explorer ── */
+
+.uiux-tools-section {
+  background: var(--color-bg);
+  padding: 100px 40px 108px;
+  overflow: hidden;
+}
+
+.uiux-tools-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Header ── */
+.uiux-tools-header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 60px;
+}
+
+.uiux-tools-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.uiux-tools-heading {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--color-heading);
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  font-family: "Syne", sans-serif;
+}
+
+.uiux-tools-accent {
+  color: var(--color-primary);
+}
+
+.uiux-tools-sub {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Explorer shell ── */
+.uiux-tools-explorer {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 500px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.35);
+}
+
+/* ── LEFT: tool list ── */
+.uiux-tools-list {
+  background: var(--color-bg-secondary);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.uiux-tli {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  transition: background 0.22s;
+  width: 100%;
+}
+
+/* Active left accent bar */
+.uiux-tli::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.25s, box-shadow 0.25s;
+}
+.uiux-tli--active::before {
+  background: var(--tc, var(--color-primary));
+  box-shadow: 2px 0 14px var(--tc, rgba(124, 255, 0, 0.5));
+}
+
+.uiux-tli--active,
+.uiux-tli:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.uiux-tli-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-family: "Syne", sans-serif;
+  min-width: 22px;
+  opacity: 0.55;
+  transition: opacity 0.2s, color 0.2s;
+}
+.uiux-tli--active .uiux-tli-num {
+  color: var(--tc);
+  opacity: 1;
+}
+
+.uiux-tli-name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  font-family: "Syne", sans-serif;
+  transition: color 0.22s;
+  white-space: nowrap;
+}
+.uiux-tli--active .uiux-tli-name,
+.uiux-tli:hover .uiux-tli-name {
+  color: var(--color-heading);
+}
+
+.uiux-tli-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 50px;
+  border: 1px solid;
+  white-space: nowrap;
+  display: none;
+}
+
+.uiux-tli-arrow {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.2s, color 0.2s;
+  line-height: 1;
+}
+.uiux-tli--active .uiux-tli-arrow,
+.uiux-tli:hover .uiux-tli-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--tc, var(--color-primary));
+}
+
+/* ── RIGHT: detail panel ── */
+.uiux-tools-detail {
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: uiux-detail-in 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes uiux-detail-in {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.uiux-detail-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.uiux-detail-body {
+  position: relative;
+  z-index: 1;
+  padding: 48px 52px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Icon */
+.uiux-detail-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s;
+}
+
+/* Name + category */
+.uiux-detail-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.uiux-detail-cat {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 50px;
+  border: 1px solid;
+}
+
+.uiux-detail-name {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 900;
+  color: var(--color-heading);
+  font-family: "Syne", sans-serif;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Description */
+.uiux-detail-desc {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.85;
+  margin: 0 0 32px;
+  max-width: 580px;
+}
+
+/* Features */
+.uiux-detail-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.uiux-detail-feature {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.uiux-detail-check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Watermark */
+.uiux-detail-watermark {
+  position: absolute;
+  bottom: 24px;
+  right: 36px;
+  font-size: 130px;
+  font-weight: 900;
+  font-family: "Syne", sans-serif;
+  color: var(--tc, rgba(124, 255, 0, 0.05));
+  opacity: 0.07;
+  line-height: 1;
+  letter-spacing: -6px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Bottom accent line */
+.uiux-detail-bar {
+  height: 3px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (min-width: 1100px) {
+  .uiux-tli-badge { display: inline-flex; }
+}
+
+@media (max-width: 1024px) {
+  .uiux-tools-explorer {
+    grid-template-columns: 260px 1fr;
+  }
+  .uiux-detail-body { padding: 36px 36px; }
+  .uiux-tools-section { padding: 80px 28px 88px; }
+}
+
+@media (max-width: 768px) {
+  .uiux-tools-explorer {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+  .uiux-tools-list {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .uiux-tli {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 14px 8px;
+    gap: 6px;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .uiux-tli::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: unset;
+    width: 100%;
+    height: 3px;
+  }
+  .uiux-tli--active::before {
+    box-shadow: none;
+  }
+  .uiux-tli-num { display: none; }
+  .uiux-tli-name { font-size: 12px; }
+  .uiux-tli-arrow { display: none; }
+  .uiux-tools-detail { min-height: 380px; }
+  .uiux-detail-body { padding: 28px 24px; }
+  .uiux-detail-icon { width: 64px; height: 64px; margin-bottom: 20px; }
+  .uiux-detail-name { font-size: 30px; }
+  .uiux-detail-watermark { font-size: 80px; right: 16px; bottom: 16px; }
+  .uiux-tools-section { padding: 64px 20px 72px; }
+}
+
+@media (max-width: 480px) {
+  .uiux-tools-list { grid-template-columns: repeat(4, 1fr); }
+  .uiux-tli-name { font-size: 11px; }
+  .uiux-detail-desc { font-size: 14px; }
+  .uiux-tools-section { padding: 52px 16px 60px; }
+}

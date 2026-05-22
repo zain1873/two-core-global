@@ -69,13 +69,21 @@ export default function CTASection() {
         .animate-fade-up-3 { animation: fadeUp 0.6s ease both; animation-delay: 0.35s; }
         .animate-fade-up-4 { animation: fadeUp 0.6s ease both; animation-delay: 0.5s; }
         .animate-fade-in   { animation: fadeUp 0.5s ease both; animation-delay: 0s; }
+
+        @keyframes gradientMove {
+          0%   { background-position: 0% 50%; }
+          50%  { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        .cta-animated-bg {
+          background: linear-gradient(135deg, rgb(102,194,14), rgb(22,143,148), rgb(102,194,14));
+          background-size: 200% 200%;
+          animation: gradientMove 6s ease infinite;
+        }
       `}</style>
 
       <section
-        className="cta-root relative w-full min-h-[420px] flex items-center justify-center overflow-hidden py-24 px-4"
-        style={{
-          background:"linear-gradient(135deg, rgb(102 194 14), rgb(22 143 148))"
-        }}
+        className="cta-root cta-animated-bg relative w-full min-h-[420px] flex items-center justify-center overflow-hidden py-24 px-4"
       >
         {/* Noise grain texture */}
         <NoiseOverlay />

@@ -1,0 +1,133 @@
+/* ── UiUx Stats Strip ── */
+
+.uiux-stats-section {
+  background: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.uiux-stats-top-line,
+.uiux-stats-bottom-line {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-primary) 20%,
+    var(--color-accent) 50%,
+    var(--color-primary) 80%,
+    transparent
+  );
+  opacity: 0.5;
+}
+
+/* Subtle radial glow behind numbers */
+.uiux-stats-section::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(124, 255, 0, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.uiux-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.uiux-stat-item {
+  padding: 56px 24px;
+  text-align: center;
+  position: relative;
+  transition: background 0.3s;
+}
+
+/* Vertical dividers */
+.uiux-stat-item + .uiux-stat-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(124, 255, 0, 0.25) 30%,
+    rgba(0, 245, 255, 0.2) 70%,
+    transparent
+  );
+}
+
+.uiux-stat-item:hover {
+  background: rgba(124, 255, 0, 0.03);
+}
+
+.uiux-stat-number {
+  font-size: clamp(52px, 6vw, 80px);
+  font-weight: 900;
+  font-family: "Syne", sans-serif;
+  line-height: 1;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 18px rgba(124, 255, 0, 0.4));
+  letter-spacing: -2px;
+}
+
+.uiux-stat-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+.uiux-stat-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .uiux-stats-grid { padding: 0 28px; }
+  .uiux-stat-number { font-size: 52px; }
+  .uiux-stat-item { padding: 48px 16px; }
+}
+
+@media (max-width: 768px) {
+  .uiux-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px;
+  }
+  .uiux-stat-item:nth-child(3)::before { display: none; }
+  .uiux-stat-item:nth-child(1),
+  .uiux-stat-item:nth-child(2) {
+    border-bottom: 1px solid rgba(124, 255, 0, 0.1);
+  }
+  .uiux-stat-item { padding: 40px 16px; }
+}
+
+@media (max-width: 480px) {
+  .uiux-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 12px;
+  }
+  .uiux-stat-number { font-size: 42px; }
+  .uiux-stat-item { padding: 32px 12px; }
+}

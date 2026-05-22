@@ -1,90 +1,95 @@
 import { useEffect, useRef } from "react";
-import "../css/SeoProcess.css"
+import "../css/SeoProcess.css";
 
 const processes = [
   {
     number: "01",
-    title: "WEBSITE AUDIT",
+    title: "BRAND AUDIT & STRATEGY",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "BRAND AUDIT & STRATEGY",
+      "CONTENT PLANNING",
+      "CONTENT CREATION",
+      "PUBLISHING & COMMUNITY",
+      "ANALYTICS & GROWTH",
     ],
     description:
-      "We conduct a thorough website review to identify areas for improvement. You'll get a detailed keyword list, competitor analysis, and a full performance report.",
+      "We analyze your current social presence, competitors, and target audience to build a channel-specific strategy — defining brand voice, content pillars, posting cadence, and platform priorities that align with your business goals.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "02",
-    title: "CUSTOM SEO STRATEGY",
+    title: "CONTENT PLANNING",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "BRAND AUDIT & STRATEGY",
+      "CONTENT PLANNING",
+      "CONTENT CREATION",
+      "PUBLISHING & COMMUNITY",
+      "ANALYTICS & GROWTH",
     ],
     description:
-      "We enhance user experience across 100+ devices with link building, content optimization, speed improvements, and local SEO to boost your visibility.",
+      "We build a detailed monthly content calendar — mapping post types, formats, themes, and campaign hooks across every platform so your feed stays consistent, strategic, and aligned with key dates and trends.",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=900&q=80&fit=crop",
     bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "03",
-    title: "CONTINUOUS OPTIMIZATION",
+    title: "CONTENT CREATION",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "BRAND AUDIT & STRATEGY",
+      "CONTENT PLANNING",
+      "CONTENT CREATION",
+      "PUBLISHING & COMMUNITY",
+      "ANALYTICS & GROWTH",
     ],
     description:
-      "Our team follows search engine best practices to refine strategies, improve rankings, and drive high-quality traffic to your site.",
+      "Our creative team produces scroll-stopping graphics, reels, carousels, and copy that reflects your brand identity — crafted specifically for each platform's format, audience behaviour, and algorithm preferences.",
     image:
-      "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
   {
     number: "04",
-    title: "SEO–OPTIMIZED CONTENT",
+    title: "PUBLISHING & COMMUNITY",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "BRAND AUDIT & STRATEGY",
+      "CONTENT PLANNING",
+      "CONTENT CREATION",
+      "PUBLISHING & COMMUNITY",
+      "ANALYTICS & GROWTH",
     ],
     description:
-      "Our expert writers create engaging, high-quality content that aligns with SEO standards to improve search performance and user engagement.",
+      "We handle scheduled publishing at peak engagement windows, respond to comments and DMs, and actively engage with your community — turning followers into loyal brand advocates through genuine, timely interaction.",
     image:
-      "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=900&q=80&fit=crop",
     bg: "#05070D",
+    accent: "#7CFF00",
   },
   {
     number: "05",
-    title: "TRANSPARENT REPORTING",
+    title: "ANALYTICS & GROWTH",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "BRAND AUDIT & STRATEGY",
+      "CONTENT PLANNING",
+      "CONTENT CREATION",
+      "PUBLISHING & COMMUNITY",
+      "ANALYTICS & GROWTH",
     ],
     description:
-      "Stay informed with clear, data-driven reports that track progress and show real growth in traffic, rankings, and conversions.",
+      "We track reach, engagement, follower growth, and conversions with monthly performance reports — using data to continuously refine content strategy, double down on what works, and compound your social media growth.",
     image:
-      "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=900&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
     bg: "#0B1020",
+    accent: "#7CFF00",
   },
 ];
 
-export default function SeoProcess() {
+export default function SocialMediaProcess() {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
@@ -168,7 +173,7 @@ export default function SeoProcess() {
             textTransform: "uppercase",
           }}
         >
-          OUR SEO PROCESS
+          OUR SOCIAL MEDIA PROCESS
         </h2>
         <p
           style={{
@@ -179,14 +184,14 @@ export default function SeoProcess() {
             margin: 0,
           }}
         >
-          We're here to improve your web traffic and create results that help
-          your business reach new heights.
+          A proven five-step framework that transforms your social presence from
+          scattered posts to a consistent, community-driven growth engine.
         </p>
       </div>
 
       <div
         ref={containerRef}
-        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative",backgroundColor:"#05070D" }}
+        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative", backgroundColor: "#05070D" }}
       >
         {processes.map((proc, i) => (
           <div

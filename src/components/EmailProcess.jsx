@@ -1,90 +1,90 @@
 import { useEffect, useRef } from "react";
-import "../css/SeoProcess.css"
+import "../css/SeoProcess.css";
 
 const processes = [
   {
     number: "01",
-    title: "WEBSITE AUDIT",
+    title: "AUDIENCE SEGMENTATION",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE SEGMENTATION",
+      "STRATEGY & PLANNING",
+      "CONTENT & DESIGN",
+      "CAMPAIGN LAUNCH",
+      "ANALYZE & OPTIMIZE",
     ],
     description:
-      "We conduct a thorough website review to identify areas for improvement. You'll get a detailed keyword list, competitor analysis, and a full performance report.",
+      "We audit your existing list, clean inactive contacts, and build precise audience segments based on demographics, behaviour, and purchase history — so every email lands with purpose.",
     image:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&fit=crop",
     bg: "#0B1020",
   },
   {
     number: "02",
-    title: "CUSTOM SEO STRATEGY",
+    title: "STRATEGY & PLANNING",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE SEGMENTATION",
+      "STRATEGY & PLANNING",
+      "CONTENT & DESIGN",
+      "CAMPAIGN LAUNCH",
+      "ANALYZE & OPTIMIZE",
     ],
     description:
-      "We enhance user experience across 100+ devices with link building, content optimization, speed improvements, and local SEO to boost your visibility.",
+      "We map a full email calendar aligned with your business goals — from welcome sequences and nurture flows to seasonal promotions and re-engagement campaigns.",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&fit=crop",
     bg: "#05070D",
   },
   {
     number: "03",
-    title: "CONTINUOUS OPTIMIZATION",
+    title: "CONTENT & DESIGN",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE SEGMENTATION",
+      "STRATEGY & PLANNING",
+      "CONTENT & DESIGN",
+      "CAMPAIGN LAUNCH",
+      "ANALYZE & OPTIMIZE",
     ],
     description:
-      "Our team follows search engine best practices to refine strategies, improve rankings, and drive high-quality traffic to your site.",
+      "Our team crafts compelling subject lines, persuasive email copy, and responsive HTML designs that render perfectly on every device and email client.",
     image:
       "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=900&q=80&fit=crop",
     bg: "#0B1020",
   },
   {
     number: "04",
-    title: "SEO–OPTIMIZED CONTENT",
+    title: "CAMPAIGN LAUNCH",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE SEGMENTATION",
+      "STRATEGY & PLANNING",
+      "CONTENT & DESIGN",
+      "CAMPAIGN LAUNCH",
+      "ANALYZE & OPTIMIZE",
     ],
     description:
-      "Our expert writers create engaging, high-quality content that aligns with SEO standards to improve search performance and user engagement.",
+      "We configure your ESP, set up tracking pixels, run pre-send tests, and schedule or trigger campaigns at the optimal time for your audience to maximise deliverability and opens.",
     image:
       "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=900&q=80&fit=crop",
     bg: "#05070D",
   },
   {
     number: "05",
-    title: "TRANSPARENT REPORTING",
+    title: "ANALYZE & OPTIMIZE",
     allTitles: [
-      "WEBSITE AUDIT",
-      "CUSTOM SEO STRATEGY",
-      "CONTINUOUS OPTIMIZATION",
-      "SEO–OPTIMIZED CONTENT",
-      "TRANSPARENT REPORTING",
+      "AUDIENCE SEGMENTATION",
+      "STRATEGY & PLANNING",
+      "CONTENT & DESIGN",
+      "CAMPAIGN LAUNCH",
+      "ANALYZE & OPTIMIZE",
     ],
     description:
-      "Stay informed with clear, data-driven reports that track progress and show real growth in traffic, rankings, and conversions.",
+      "We review open rates, click-through rates, conversions, and revenue per email — then apply A/B test learnings to continuously improve every future send.",
     image:
       "https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=900&q=80&fit=crop",
     bg: "#0B1020",
   },
 ];
 
-export default function SeoProcess() {
+export default function EmailProcess() {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
@@ -168,7 +168,7 @@ export default function SeoProcess() {
             textTransform: "uppercase",
           }}
         >
-          OUR SEO PROCESS
+          OUR EMAIL MARKETING PROCESS
         </h2>
         <p
           style={{
@@ -179,14 +179,14 @@ export default function SeoProcess() {
             margin: 0,
           }}
         >
-          We're here to improve your web traffic and create results that help
-          your business reach new heights.
+          A proven five-step framework that transforms your email list into a
+          consistent, high-return revenue channel for your business.
         </p>
       </div>
 
       <div
         ref={containerRef}
-        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative",backgroundColor:"#05070D" }}
+        style={{ height: `${processes.length * 100 + 100}vh`, position: "relative" }}
       >
         {processes.map((proc, i) => (
           <div
