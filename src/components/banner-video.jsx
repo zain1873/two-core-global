@@ -27,7 +27,6 @@ export default function HeroVideo() {
       text.style.opacity = "";
       textLines.forEach((line) => {
         line.style.opacity = "";
-        line.style.transform = "";
       });
     };
 
@@ -51,7 +50,6 @@ export default function HeroVideo() {
       textLines.forEach((line, i) => {
         const lp = Math.min(Math.max((tp - i * 0.12) / 0.4, 0), 1);
         line.style.opacity = lp;
-        line.style.transform = `translateY(${(1 - lp) * 22}px)`;
       });
     };
 
@@ -104,13 +102,12 @@ export default function HeroVideo() {
           opacity: 0;
         }
         .sh-line {
-          display: block;
-          font-size: clamp(14px, 1.35vw, 19px);
+          display: inline;
           line-height: 1.6;
           color: var(--color-text, #fff);
           opacity: 0;
-          transform: translateY(22px);
-          will-change: transform, opacity;
+          font-size: 30px;
+          will-change: opacity;
           margin: 0 !important;
           padding: 0 !important;
         }
@@ -121,6 +118,10 @@ export default function HeroVideo() {
             height: auto;
             padding: 24px 20px 40px;
           }
+          .sh-line {
+           font-size: 26px;
+          }
+            
           .sh-sticky {
             position: relative;
             top: auto;
@@ -156,11 +157,13 @@ export default function HeroVideo() {
             </video>
           </div>
           <div className="sh-text" ref={textRef}>
-            {lines.map((line, i) => (
-              <span key={i} className="sh-line">
-                {line}
-              </span>
-            ))}
+            <p style={{ margin: 0, padding: 0 }}>
+              {lines.map((line, i) => (
+                <span key={i} className="sh-line">
+                  {line}{" "}
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </section>

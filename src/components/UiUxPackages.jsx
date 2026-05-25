@@ -17,7 +17,7 @@ const plans = [
       "2 revision rounds",
       "PDF deliverable",
     ],
-    cta: "Start Wireframing",
+    cta: "Get a Quote",
   },
   {
     name: "Full Design",
@@ -35,7 +35,7 @@ const plans = [
       "3 revision rounds",
       "Zeplin / dev handoff",
     ],
-    cta: "Start Full Design",
+    cta: "Get a Quote",
   },
   {
     name: "UX Premium",
@@ -51,9 +51,8 @@ const plans = [
       "A/B test variant designs",
       "Motion & micro-animation specs",
       "Unlimited revisions",
-      "Post-launch iteration support",
     ],
-    cta: "Go Premium",
+    cta: "Get a Quote",
   },
 ];
 
