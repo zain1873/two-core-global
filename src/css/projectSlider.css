@@ -103,7 +103,6 @@
   .ps-card:hover .ps-hero-image { transform: scale(1.05); }
   .ps-hero-overlay {
     position: absolute; inset: 0;
-    background: var(--gradient-orange-overlay);
     mix-blend-mode: multiply;
   }
   .ps-brand {
@@ -127,14 +126,14 @@
 
   /* ── Body ── */
   .ps-body {
-    background: var(--color-bg-light); padding: 20px 32px 26px;
+    background: #000; padding: 20px 32px 26px;
     display: flex; flex-direction: column; gap: 12px;
   }
   .ps-tags { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .ps-tag {
     font-size: 11px; font-weight: 700; letter-spacing: 0.13em;
-    text-transform: uppercase; color: var(--card-accent,#F06A0F);
-    border: 1.5px solid var(--card-accent,#F06A0F);
+    text-transform: uppercase; color: var(--card-accent,#7CFF00);
+    border: 1.5px solid var(--card-accent,#7CFF00);
     border-radius: 4px; padding: 4px 11px; opacity: 0.85;
   }
   .ps-bottom-row {
@@ -143,7 +142,7 @@
   .ps-project-title {
     font-size: 32px; font-weight: 500;
     letter-spacing: -3px; line-height: 0.88;
-    color: var(--card-accent,#F06A0F); text-transform: uppercase; margin: 0;
+    color: var(--card-accent,#7CFF00); text-transform: uppercase; margin: 0;
   }
   .ps-cta-btn {
     width: 50px; height: 50px; border-radius: 50%;

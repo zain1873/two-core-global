@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════════════════════════════
+   VIDEO PRODUCTION PAGE — Two Core Global Theme
+   Futuristic Neon / Dark UI
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Banner ── */
+.video-banner {
+  width: 100%;
+  min-height: 92vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+
+.video-banner-glass {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  backdrop-filter: blur(14px);
+  background-color: #8686861a;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.video-banner-content {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+}
+
+.video-banner-title {
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.video-neon {
+  background: linear-gradient(135deg, #7CFF00, #00F5FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.video-banner-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 36px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-banner-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.video-btn-primary {
+  padding: 14px 36px;
+  border: none;
+  outline: none;
+  background: var(--gradient-primary);
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow-primary-strong);
+}
+
+.video-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(124, 255, 0, 0.8), 0 0 50px rgba(124, 255, 0, 0.4);
+}
+
+.video-btn-secondary {
+  padding: 14px 36px;
+  border: 1px solid var(--color-border-white-medium);
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* ── Shared Section Styles ── */
+.video-section-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-section-label::before {
+  content: "";
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-primary);
+}
+
+.video-section-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.video-section-desc {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* ── Features Section ── */
+.video-features {
+  padding: 100px 5%;
+  background: var(--color-bg);
+}
+
+.video-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.video-feature-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-white-alpha);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.video-feature-card:hover::before {
+  opacity: 1;
+}
+
+.video-feature-card:hover {
+  border-color: rgba(124, 255, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(124, 255, 0, 0.08);
+}
+
+.video-feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(124, 255, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.video-feature-card:hover .video-feature-icon {
+  background: rgba(124, 255, 0, 0.2);
+  box-shadow: 0 0 20px rgba(124, 255, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.video-feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 10px;
+}
+
+.video-feature-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 992px) {
+  .video-banner-title {
+    font-size: 42px;
+  }
+
+  .video-section-title {
+    font-size: 32px;
+  }
+
+  .video-features {
+    padding: 80px 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-banner {
+    min-height: 75vh;
+  }
+
+  .video-banner-glass {
+    padding: 32px 20px;
+    width: 92%;
+  }
+
+  .video-banner-title {
+    font-size: 34px;
+  }
+
+  .video-banner-sub {
+    font-size: 15px;
+  }
+
+  .video-section-title {
+    font-size: 28px;
+  }
+
+  .video-section-desc {
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+
+  .video-features {
+    padding: 64px 5%;
+  }
+
+  .video-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-banner {
+    min-height: 70vh;
+  }
+
+  .video-banner-title {
+    font-size: 28px;
+  }
+
+  .video-banner-glass {
+    padding: 24px 16px;
+  }
+
+  .video-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .video-btn-primary,
+  .video-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .video-section-title {
+    font-size: 24px;
+  }
+
+  .video-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import "../css/projectSlider.css"
+import noorrixProject from '../assets/noorrix-project.png';
 
 /* ─── DATA ─── */
 const CARDS = [
   {
-    title: 'Nova Finance',
+    title: 'Noorrix Motors',
     year: '2025',
-    tags: ['Fintech', 'Web Development'],
-    image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1400&q=80&fit=crop',
-    accent: '#F06A0F',
+    tags: ['Automotive', 'Web Development'],
+    image: noorrixProject,
+    link: 'https://www.noorrixmotors.co.uk/',
+    accent: '#7CFF00',
     number: '01',
   },
   {
@@ -16,7 +18,7 @@ const CARDS = [
     year: '2025',
     tags: ['UI/UX', 'Brand Identity'],
     image: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?w=1400&q=80&fit=crop',
-    accent: '#C0420A',
+    accent: '#7CFF00',
     number: '02',
   },
   {
@@ -24,7 +26,7 @@ const CARDS = [
     year: '2024',
     tags: ['SaaS Platform', 'Dashboard'],
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1400&q=80&fit=crop',
-    accent: '#E85D04',
+    accent: '#7CFF00',
     number: '03',
   },
   {
@@ -32,7 +34,7 @@ const CARDS = [
     year: '2024',
     tags: ['Development', 'Mobile App'],
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80&fit=crop',
-    accent: '#F06A0F',
+    accent: '#7CFF00',
     number: '04',
   },
 ];
@@ -65,11 +67,19 @@ function Card({ card, scale, opacity }) {
         </div>
         <div className="ps-bottom-row">
           <h2 className="ps-project-title">{card.title}</h2>
-          <button className="ps-cta-btn" aria-label="View project">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          {card.link ? (
+            <a href={card.link} target="_blank" rel="noopener noreferrer" className="ps-cta-btn" aria-label={`View ${card.title} project`}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          ) : (
+            <button className="ps-cta-btn" aria-label="View project">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          )}
         </div>
       </div>
     </div>

@@ -192,6 +192,12 @@
 
 import { useEffect, useRef } from 'react';
  import '../css/servicecards.css'
+import logoDesignImg from '../assets/services/SERVICES-LOGO-DESIGN.png';
+import brandIdentityImg from '../assets/services/SERVICES-BRAND-IDENTITY.png';
+import packagingDesignImg from '../assets/services/SERVICES-PACKAGING-DESIGN.png';
+import webDevelopmentImg from '../assets/services/SERVICES-WEB-DEVELOPMENT.png';
+import socialMediaImg from '../assets/services/SERVICES-SOCIAL-MEDIA.png';
+import motionGraphicsImg from '../assets/services/SERVICES-MOTION-GRAPHICS.png';
 
 /* ─── Data ───────────────────────────────────────────────────── */
 const SERVICES = [
@@ -200,7 +206,7 @@ const SERVICES = [
     eyebrow: 'Services — 01',
     title: ['Logo', 'Design'],
     body: 'We make logos that feel right. Not just good-looking but meaningful, memorable and built to last for your brand.',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=900&q=80&auto=format&fit=crop',
+    image: logoDesignImg,
     alt: 'Logo design process',
   },
   {
@@ -208,7 +214,7 @@ const SERVICES = [
     eyebrow: 'Services — 02',
     title: ['Brand Identity', 'Development'],
     body: 'A brand is more than a logo. We help you show up the same way everywhere — online, offline and everything between.',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?w=900&q=80&auto=format&fit=crop',
+    image: brandIdentityImg,
     alt: 'Brand identity development',
   },
   {
@@ -216,7 +222,7 @@ const SERVICES = [
     eyebrow: 'Services — 03',
     title: ['Packaging', 'Design'],
     body: 'Good packaging tells a story before anyone reads a word. We design packs that stand out, feel great and connect.',
-    image: 'https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=900&q=80&auto=format&fit=crop',
+    image: packagingDesignImg,
     alt: 'Packaging design',
   },
   {
@@ -224,7 +230,7 @@ const SERVICES = [
     eyebrow: 'Services — 04',
     title: ['Website Design', '& Development'],
     body: 'Your website should work hard and look good. We design sites that are easy to use and built to grow with you.',
-    image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=900&q=80&auto=format&fit=crop',
+    image: webDevelopmentImg,
     alt: 'Website design and development',
   },
   {
@@ -232,7 +238,7 @@ const SERVICES = [
     eyebrow: 'Services — 05',
     title: ['Social Media', 'Design'],
     body: 'Scroll-stopping visuals for every platform. We create content that looks consistent, on-brand and gets noticed.',
-    image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=900&q=80&auto=format&fit=crop',
+    image: socialMediaImg,
     alt: 'Social media design',
   },
   {
@@ -240,7 +246,7 @@ const SERVICES = [
     eyebrow: 'Services — 06',
     title: ['Motion', 'Graphics'],
     body: 'We bring your brand to life with animation. From short reels to full explainer videos — motion that moves people.',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&q=80&auto=format&fit=crop',
+    image: motionGraphicsImg,
     alt: 'Motion graphics and animation',
   },
 ];

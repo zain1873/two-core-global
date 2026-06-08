@@ -8,8 +8,18 @@ import CTASection from "../components/CtaSection";
 import "../css/PagesCss/webDev.css";
 import "../css/PagesCss/Portfolio.css";
 import tcgBanner from "../assets/tcg-banner.jpg";
+import noorrixProjectImg from "../assets/noorrix-project.png";
 
 const PROJECTS = [
+  {
+    id: 0,
+    title: "Noorrix Motors",
+    year: "2025",
+    category: "Web Development",
+    tags: [ "Web Development"],
+    image: noorrixProjectImg,
+    link: "https://www.noorrixmotors.co.uk/",
+  },
   {
     id: 1,
     title: "Nova Finance",
@@ -124,8 +134,13 @@ const STATS = [
 ];
 
 function ProjectCard({ project }) {
+  const CardTag = project.link ? "a" : "div";
+  const linkProps = project.link
+    ? { href: project.link, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
   return (
-    <div className="pf-card">
+    <CardTag className="pf-card" {...linkProps}>
       <div className="pf-card-image-wrap">
         <img src={project.image} alt={project.title} loading="lazy" />
         <div className="pf-card-overlay" />
@@ -152,7 +167,7 @@ function ProjectCard({ project }) {
           </div>
         </div>
       </div>
-    </div>
+    </CardTag>
   );
 }
 

@@ -56,7 +56,8 @@ const styles = `
     border-radius: 0;
     overflow: hidden;
     box-shadow: var(--shadow-card-light);
-    border: 1px solid var(--color-border);
+    padding: 80px 64px 100px;
+    background: var(--color-bg);
   }
 
   /* ── LEFT PANEL ── */
