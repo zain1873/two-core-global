@@ -23,8 +23,8 @@ export default function Home() {
       <ProjectSlider/>
       <IndustriesSection/>
       <TestimonialSlider/>
-      <FAQ/>
       <HeroTagline/>
+      <FAQ/>
       <StatsCounter/>
       <CTASection/>
       <Contact/>
