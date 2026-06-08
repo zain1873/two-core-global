@@ -100,7 +100,7 @@ function SeeAllCard({ scale, opacity }) {
         <h2 className="ps-see-all-heading">Projects</h2>
         <p className="ps-see-all-desc">
           These are not just projects, they are stories of our clients, our work, and the impact we made.{' '}
-          <a href="/projects" className="ps-see-all-link">See More ↗</a>
+          <a href="/portfolio" className="ps-see-all-link">See More ↗</a>
         </p>
       </div>
     </div>
