@@ -12,6 +12,7 @@ import UiUxTools from "../components/UiUxTools";
 import UiUxPackages from "../components/UiUxPackages";
 import "../css/PagesCss/webDev.css";
 import "../css/PagesCss/UiUx.css";
+import uiuxBanner from "../assets/uiux-banner.png";
 
 function UiUxPage() {
   return (
@@ -22,7 +23,7 @@ function UiUxPage() {
       <section
         className="web-banner"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1920&q=85&auto=format&fit=crop)`,
+          backgroundImage: `url(${uiuxBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center top",
         }}

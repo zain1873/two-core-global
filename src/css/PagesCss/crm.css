@@ -1,0 +1,381 @@
+/* ═══════════════════════════════════════════════════════════
+   CRM & AUTOMATION PAGE — Two Core Global Theme
+   Futuristic Neon / Dark UI
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Banner ── */
+.crm-banner {
+  width: 100%;
+  min-height: 92vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crm-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.crm-banner-glass {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  backdrop-filter: blur(14px);
+  background-color: #8686861a;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.crm-banner-content {
+  text-align: center;
+  color: #fff;
+  max-width: 800px;
+}
+
+.crm-banner-title {
+  font-size: 52px;
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.crm-banner-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 36px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.crm-banner-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.crm-btn-primary {
+  padding: 14px 36px;
+  border: none;
+  outline: none;
+  background: var(--gradient-primary);
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--glow-primary-strong);
+}
+
+.crm-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(124, 255, 0, 0.8), 0 0 50px rgba(124, 255, 0, 0.4);
+}
+
+.crm-btn-secondary {
+  padding: 14px 36px;
+  border: 1px solid var(--color-border-white-medium);
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.crm-btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* ── Benefits Strip ── */
+.crm-benefits {
+  padding: 60px 5%;
+  background: var(--color-bg-secondary);
+  border-bottom: 1px solid var(--color-border-white-alpha);
+}
+
+.crm-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.crm-benefit-card {
+  text-align: center;
+  padding: 24px 16px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-white-alpha);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.crm-benefit-card:hover {
+  border-color: rgba(0, 245, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 245, 255, 0.08);
+}
+
+.crm-benefit-stat {
+  display: block;
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7CFF00, #00F5FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.crm-benefit-label {
+  display: block;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ── Shared Section Styles ── */
+.crm-section-label {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crm-section-label::before {
+  content: "";
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-accent);
+}
+
+.crm-section-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.crm-section-desc {
+  font-size: 16px;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+/* ── Features Section ── */
+.crm-features {
+  padding: 100px 5%;
+  background: var(--color-bg);
+}
+
+.crm-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.crm-feature-card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-white-alpha);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.crm-feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.crm-feature-card:hover::before {
+  opacity: 1;
+}
+
+.crm-feature-card:hover {
+  border-color: rgba(0, 245, 255, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 245, 255, 0.08);
+}
+
+.crm-feature-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: rgba(0, 245, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.crm-feature-card:hover .crm-feature-icon {
+  background: rgba(0, 245, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.crm-feature-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-heading);
+  margin-bottom: 10px;
+}
+
+.crm-feature-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 992px) {
+  .crm-banner-title {
+    font-size: 42px;
+  }
+
+  .crm-section-title {
+    font-size: 32px;
+  }
+
+  .crm-features {
+    padding: 80px 5%;
+  }
+
+  .crm-benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .crm-banner {
+    min-height: 75vh;
+  }
+
+  .crm-banner-glass {
+    padding: 32px 20px;
+    width: 92%;
+  }
+
+  .crm-banner-title {
+    font-size: 34px;
+  }
+
+  .crm-banner-sub {
+    font-size: 15px;
+  }
+
+  .crm-section-title {
+    font-size: 28px;
+  }
+
+  .crm-section-desc {
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+
+  .crm-features {
+    padding: 64px 5%;
+  }
+
+  .crm-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crm-benefit-stat {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .crm-banner {
+    min-height: 70vh;
+  }
+
+  .crm-banner-title {
+    font-size: 28px;
+  }
+
+  .crm-banner-glass {
+    padding: 24px 16px;
+  }
+
+  .crm-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .crm-btn-primary,
+  .crm-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .crm-section-title {
+    font-size: 24px;
+  }
+
+  .crm-benefits-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .crm-benefit-stat {
+    font-size: 26px;
+  }
+
+  .crm-benefit-label {
+    font-size: 12px;
+  }
+
+  .crm-features-grid {
+    grid-template-columns: 1fr;
+  }
+}

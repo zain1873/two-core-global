@@ -19,13 +19,13 @@ const SERVICES = {
   Development: [
     { icon: Code, label: "Web Development", link: "/website-development" },
     { icon: Smartphone, label: "Mobile Apps", link: "/mobile-app-development" },
-    { icon: ShoppingCart, label: "Ecommerce" },
-    { icon: Zap, label: "CRM & Automation" },
+    { icon: ShoppingCart, label: "Ecommerce", link: "/ecommerce" },
+    { icon: Zap, label: "CRM & Automation", link: "/crm-automation" },
   ],
   Creative: [
     { icon: Paintbrush, label: "Brand & Identity", link: "/brand-identity" },
     { icon: Monitor, label: "UI/UX Design", link: "/ui-ux-design" },
-    { icon: Video, label: "Video Production" },
+    { icon: Video, label: "Video Production", link: "/video-production" },
   ],
   Marketing: [
     { icon: Search, label: "SEO Services", link: "/seo-services" },

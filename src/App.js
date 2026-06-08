@@ -15,6 +15,9 @@ import PaidAdvertisingPage from "./pages/PaidAdvertisingPage";
 import EmailMarketingPage from "./pages/EmailMarketingPage";
 import BrandIdentityPage from "./pages/BrandIdentityPage";
 import UiUxPage from "./pages/UiUxPage";
+import EcommercePage from "./pages/EcommercePage";
+import CrmPage from "./pages/CrmPage";
+import VideoProductionPage from "./pages/VideoProductionPage";
 
 export default function App() {
   return (
@@ -34,6 +37,9 @@ export default function App() {
         <Route path="/email-marketing" element={<EmailMarketingPage />} />
         <Route path="/brand-identity" element={<BrandIdentityPage />} />
         <Route path="/ui-ux-design" element={<UiUxPage />} />
+        <Route path="/ecommerce" element={<EcommercePage />} />
+        <Route path="/crm-automation" element={<CrmPage />} />
+        <Route path="/video-production" element={<VideoProductionPage />} />
       </Routes>
 
 

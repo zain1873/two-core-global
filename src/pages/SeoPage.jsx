@@ -9,7 +9,7 @@ import SeoExpertise from "../components/SeoExpertise";
 import SeoProcess from "../components/SeoProcess";
 import SEOPackages from "../components/SeoPakages";
 import SeoTagline from "../components/SeoTagline";
-import tcgBanner from "../assets/tcg-banner.jpg";
+import seoBanner from "../assets/seo-banner.png";
 
 function SeoSection() {
   return (
@@ -17,7 +17,7 @@ function SeoSection() {
       <Navbar />
 
       {/* Banner Section */}
-      <section className="web-banner" style={{ backgroundImage: `url(${tcgBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="web-banner" style={{ backgroundImage: `url(${seoBanner})`, backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="banner-dark-overlay"></div>
         <div className="banner-glass">
           <div className="banner-content">

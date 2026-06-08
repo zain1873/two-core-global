@@ -22,10 +22,10 @@ export default function Home() {
       <ServicesCards/>
       <ProjectSlider/>
       <IndustriesSection/>
-      <StatsCounter/>
       <TestimonialSlider/>
       <FAQ/>
       <HeroTagline/>
+      <StatsCounter/>
       <CTASection/>
       <Contact/>
       <Footer/>

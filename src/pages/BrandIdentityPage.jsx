@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Contact from "../components/contactForm";
 import TestimonialSlider from "../components/Testimonials";
 import CTASection from "../components/CtaSection";
-import marketingBanner from "../assets/marketing_banner.png";
+import brandIdentityBanner from "../assets/brand-identity.png";
 import "../css/PagesCss/webDev.css";
 
 function BrandIdentityPage() {
@@ -17,7 +17,7 @@ function BrandIdentityPage() {
       <section
         className="web-banner"
         style={{
-          backgroundImage: `url(${marketingBanner})`,
+          backgroundImage: `url(${brandIdentityBanner})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
