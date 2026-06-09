@@ -110,6 +110,7 @@
   background: #00ffe7;
   color: #000;
   font-family: "Poppins", sans-serif;
+  width: 100% !important;
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: 999px;
